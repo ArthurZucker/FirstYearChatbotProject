@@ -4,7 +4,8 @@ from bs4 import BeautifulSoup
 url = "http://news.bbc.co.uk/2/hi/health/2284783.stm"
 html = urllib.urlopen(url).read()
 soup = BeautifulSoup(html)
-
+soup.prettify("latin-1")
+soup.encode("ascii")
 # kill all script and style elements
 for script in soup(["script", "style"]):
     script.extract()    # rip it out
@@ -18,5 +19,7 @@ chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
 # drop blank lines
 text = '\n'.join(chunk for chunk in chunks if chunk)
 print(text)
-with open("test","w") as file:
-    file.write(text)
+text = text.replace(u'\xa0', u' ')
+text = text.replace(u'\xa9', u'')
+with open("parseddata.txt", "wb") as logfile:
+    logfile.write(text)
