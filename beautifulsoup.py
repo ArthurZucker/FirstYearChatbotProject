@@ -3,17 +3,14 @@
 import urllib
 from bs4 import BeautifulSoup
 
+dic = {'a':10, 'b':11, 'c':12, 'd':13, 'e':14, 'f':15}
+
 url = "https://www.imdb.com/title/tt0113540/"
 html = urllib.urlopen(url).read()
-#utiliser request
-#import requests
-#html = requests.get("https://www.imdb.com/title/tt0113540/")
-#html.status_code
 print(html)
 soup = BeautifulSoup(html)
 soup.prettify("latin-1")
 soup.encode("ascii")
-# kill all script and style elements
 for script in soup(["script", "style"]):
     script.extract()    # rip it out
 
@@ -26,7 +23,11 @@ chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
 # drop blank lines
 text = '\n'.join(chunk for chunk in chunks if chunk)
 print(text)
-text = text.replace(u'\xa0', u' ')
-text = text.replace(u'\xa9', u'')
+for c in text:
+	if ord(c) > 127:
+		text = text.replace(c, u'')
+		pass
+#text = text.replace(u'\xa0', u' ')
+#text = text.replace(u'\xa9', u'')
 with open("parseddata.txt", "wb") as logfile:
     logfile.write(text)
