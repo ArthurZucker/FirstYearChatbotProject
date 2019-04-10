@@ -1,8 +1,14 @@
+# utf-8 encoding
+
 import urllib
 from bs4 import BeautifulSoup
-# utf-8 encoding
-url = "http://news.bbc.co.uk/2/hi/health/2284783.stm"
+
+url = "https://www.imdb.com/title/tt0113540/"
 html = urllib.urlopen(url).read()
+#import requests
+#html = requests.get("https://www.imdb.com/title/tt0113540/")
+#html.status_code
+print(html)
 soup = BeautifulSoup(html)
 soup.prettify("latin-1")
 soup.encode("ascii")
