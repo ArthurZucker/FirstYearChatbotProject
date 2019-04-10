@@ -1,6 +1,5 @@
 # utf-8 encoding
 
-import urllib
 import requests
 from bs4 import BeautifulSoup
 
@@ -8,7 +7,7 @@ from bs4 import BeautifulSoup
 url = "https://garden.org/plants/view/533137/Bananas-Musa/"
 cookies = dict(BCPermissionLevel='PERSONAL')
 html = requests.get(url, cookies=cookies, headers={'User-agent':'Mozilla/5.0'})
-#html = urllib.urlopen(url).read()
+#r.encoding = 'ISO-8859-1'
 #If request == 200
 soup = BeautifulSoup(html.content,"html.parser")
 print(html.text)
