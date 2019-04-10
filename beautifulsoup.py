@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 
 url = "https://www.imdb.com/title/tt0113540/"
 html = urllib.urlopen(url).read()
+#utiliser request
 #import requests
 #html = requests.get("https://www.imdb.com/title/tt0113540/")
 #html.status_code
