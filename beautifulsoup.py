@@ -3,8 +3,6 @@
 import urllib
 from bs4 import BeautifulSoup
 
-dic = {'a':10, 'b':11, 'c':12, 'd':13, 'e':14, 'f':15}
-
 url = "https://www.imdb.com/title/tt0113540/"
 html = urllib.urlopen(url).read()
 print(html)
