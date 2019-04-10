@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-soup = BeautifulSoup(open("youtube.htm"))
+soup = BeautifulSoup(open("https://garden.org/plants/view/533137/Bananas-Musa/"))
 
 
 with open("parseddata.txt", "wb") as file:

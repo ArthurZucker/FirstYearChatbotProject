@@ -1,14 +1,20 @@
 # utf-8 encoding
 
 import urllib
+import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.imdb.com/title/tt0113540/"
-html = urllib.urlopen(url).read()
-print(html)
-soup = BeautifulSoup(html)
+# utf-8 encoding
+url = "https://garden.org/plants/view/533137/Bananas-Musa/"
+cookies = dict(BCPermissionLevel='PERSONAL')
+html = requests.get(url, cookies=cookies, headers={'User-agent':'Mozilla/5.0'})
+#html = urllib.urlopen(url).read()
+#If request == 200
+soup = BeautifulSoup(html.content,"html.parser")
+print(html.text)
 soup.prettify("latin-1")
-soup.encode("ascii")
+soup.encode("ascii","replace")
+# kill all script and style elements
 for script in soup(["script", "style"]):
     script.extract()    # rip it out
 
