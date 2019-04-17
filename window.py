@@ -6,5 +6,5 @@ from easygui import *
 title = "Chatbot"
 query = enterbox(msg = "Enter your query", title = title, default = "")
 message = "Your query was \""+ query + "\".\nThe result of your query is :"
-text = "Hello"
+text = "Yes or No"
 textbox(msg = message, title = title, text = text)
