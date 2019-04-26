@@ -7,20 +7,36 @@ title = "Chatbot Game of Thrones"
 still = 1
 
 while still == 1:
-  message = "Select the mode"
-  message = message.center(80)
+  cancel = False
+  message = "Select the mode".center(80)
   choices = ("Simple mode", "Hard Mode")
   mode = ynbox(message, title, choices)
+
+  message = "Enter your query"
   if mode == 1:
-    message = "Enter your query"
     query = enterbox(message, title, default = "")
-    if query:
+    if query is None:
+      cancel = True
+    else:
       message = "Your query was \"" + query + "\"." +\
       "\nThe result of your query is:"
-      text = "Yes or No"
-      textbox(message, title, text)
+  else:
+    fields = ("Property #1", "Individual #1", "Property #2", "Individual #2")
+    query = multenterbox(message, title, fields)
+    if query is None:
+      cancel = True
+    else:
+      message = "Your query was \"" + "".join(query) + "\"." +\
+      "\nThe result of your query is:"
 
-  message = "Shall we continue?"
-  message = message.center(80)
+  if cancel:
+    message = "Your query was void because you have clicked on the cancel \
+button.".center(80)
+    msgbox(message, title, "I apologize")
+  else:
+    text = "Yes or No"
+    textbox(message, title, text)
+
+  message = "Shall we continue?".center(80)
   choices = ("Continue", "Quit")
   still = ccbox(message, title, choices)
