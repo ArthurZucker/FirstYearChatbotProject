@@ -1,6 +1,6 @@
 from owlready2 import *
 #/path/to/your/local/ontology/repository
-path = "/home/jerome/Informatique/chatbot/Ontology/"
+path = "./Ontology/"
 file = "testOntologyGoT.owl"
 GoT = get_ontology("file://" + path + file).load()
 
