@@ -3,6 +3,7 @@ Ce git regroupe l'ensemble des fichiers nécessaires au lancement du chatbot ain
 
 ## Interface graphique
 Tout est regroupé dans le fichier window.py
+Il y a un mode de saisie en une seule ligne et un mode de saisie spécial.
 ___
 ## Récupération du texte d'une page Internet
 Tout est regroupé dans le fichier beautifulsoup.py

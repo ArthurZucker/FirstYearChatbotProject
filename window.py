@@ -9,7 +9,7 @@ still = 1
 while still == 1:
   cancel = False
   message = "Select the mode".center(80)
-  choices = ("Simple mode", "Hard Mode")
+  choices = ("One line mode", "Multi line mode")
   mode = ynbox(message, title, choices)
 
   message = "Enter your query"
