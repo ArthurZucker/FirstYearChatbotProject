@@ -21,5 +21,9 @@ GoT.search(isFromHouse = "*"))
 print("\nListe des parents de Jon Snow :\n",\
 GoT.Jon_Snow.isChildOf)
 
-print("\nTest propriete inverse :\n",\
+print("\nTest propriete inverse, fils de Ned :\n",\
 GoT.Eddard_Stark.hasChild)
+
+print("\nTest propriete symétrique, frere et soeur :\n",\
+GoT.Daenerys_Targaryen.hasSibling,\
+GoT.Rhaegar_Targaryen.hasSibling)
