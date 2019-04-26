@@ -295,6 +295,7 @@
     <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Arya_Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <hasReligion rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#ManyFacedGod"/>
         <isFromHouse rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Stark"/>
     </owl:Thing>
     
