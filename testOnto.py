@@ -1,5 +1,6 @@
 from owlready2 import *
-#/path/to/your/local/ontology/repository
+#https://pythonhosted.org/Owlready2/
+
 path = "./Ontology/"
 file = "testOntologyGoT.owl"
 GoT = get_ontology("file://" + path + file).load()
@@ -19,3 +20,6 @@ GoT.search(isFromHouse = "*"))
 
 print("\nListe des parents de Jon Snow :\n",\
 GoT.Jon_Snow.isChildOf)
+
+print("\nTest propriete inverse :\n",\
+GoT.Eddard_Stark.hasChild)
