@@ -12,7 +12,7 @@ Pour utiliser ce programme, il est nécessaire de posséder les packets suivants
 > `owlready2` `easygui`
 
 Vous pouvez les installer grâce à la commande suivante :
-> `pip install <packet>``
+> `pip install <packet>`
 
 ## Documentation
 
@@ -26,8 +26,5 @@ L'ontologie a été créée avec [*protégé*](https://protege.stanford.edu/). L
 
 Toute l'interface graphique est regroupée dans le fichier `window.py`. Elle a
 été réalisée grâce au module `easygui`.
-
-Ce programme a été testé avec Linux Manjaro et Python 3.7.3.
 ___
-## Récupération du texte d'une page Internet
-Tout est regroupé dans le fichier beautifulsoup.py
+Ce programme a été testé avec Linux Manjaro et Python 3.7.3.
