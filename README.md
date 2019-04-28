@@ -1,6 +1,8 @@
 # Chatbot *Game of Thrones*
 Ce git regroupe l'ensemble des fichiers nécessaires au lancement du chatbot.
-Le fichier à exécuter est le fichier ``chatbot.py``
+Le fichier à exécuter est le fichier ``chatbot.py``. Le fichier
+``indexOntology`` est un lien symbolique vers l'index de l'ontologie présent
+dans le dossier `ontology`.
 
 ## Contenu du dossier ``src``
 
@@ -17,7 +19,5 @@ ___
 L'ontologie a été créée avec [*protégé*](https://protege.stanford.edu/) et se
 situe dans le dossier ``ontology``.
 L'index de l'ontologie se situe dans ce dossier et permet de parcourir
-l'ontologie via des fichiers ``html``. Un lien symbolique vers ce fichier est
-présent dans le dossier racine. De plus, le fichier ``ontology_graphe``
-est
-un graphe de l'ontologie au format ``png``.
+l'ontologie via des fichiers ``html``. De plus, le fichier ``ontology_graphe``
+est un graphe de l'ontologie au format ``png``.
