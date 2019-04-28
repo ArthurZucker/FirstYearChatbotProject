@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Chatbot Game of Thrones's documentation!
-===================================================
+Made by Belkada, Bonacchi, Capuano, Zucker from [Polytech Sorbonne](https://www.polytech.upmc.fr/fr)
+====================================================================================================
 
 .. toctree::
 	:maxdepth: 2
@@ -17,12 +17,17 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-chatbot.py
-==========
+``chatbot``
+===========
 .. automodule:: chatbot
 	:members:
 
-window.py
-=========
+``window``
+==========
 .. automodule:: source.window
+	:members:
+
+``reply``
+=========
+.. automodule:: source.reply
 	:members:

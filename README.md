@@ -1,10 +1,16 @@
 # Chatbot *Game of Thrones*
 Ce git regroupe l'ensemble des fichiers nécessaires au lancement du chatbot.
-Le fichier à exécuter est le fichier ``chatbot.py``. Le fichier
-``indexOntology`` est un lien symbolique vers l'index de l'ontologie présent
-dans le dossier `ontology`.
+Pour exécuter ce programme, il suffit de cloner le repertoire en faisant :
+``git clone <lien_du_git>``
+et de tapper la commande :
+``./chatbot.py``
+Le fichier ``doc.html`` est un lien symbolique vers la documentation du programme présente dans le dossier ``doc``. Le fichier ``indexOntology.html`` est un lien symbolique vers l'index de l'ontologie présent dans le dossier ```ontology``.
+L'ontologie a été créée avec [*protégé*](https://protege.stanford.edu/) et se
+situe dans le dossier ``ontology``. Le fichier ``ontology_graphe`` est un graphe de l'ontologie au format ``png``.
+___
+# Le reste est a changer (ne pas supprimer)
 
-## Contenu du dossier ``src``
+## Contenu du dossier ``source``
 
 ### Interface graphique
 Toute l'interface graphique est regroupée dans le fichier ``window.py``. Elle a
@@ -16,8 +22,3 @@ ___
 Tout est regroupé dans le fichier beautifulsoup.py
 ___
 ### Ontologie
-L'ontologie a été créée avec [*protégé*](https://protege.stanford.edu/) et se
-situe dans le dossier ``ontology``.
-L'index de l'ontologie se situe dans ce dossier et permet de parcourir
-l'ontologie via des fichiers ``html``. De plus, le fichier ``ontology_graphe``
-est un graphe de l'ontologie au format ``png``.

@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    This is the GUI of the chatbot
+This is the GUI of the chatbot.
 """
 
 from easygui import indexbox, enterbox, multenterbox, ccbox, msgbox, textbox
@@ -21,8 +21,6 @@ def selectModeBox():
 	title = "Chatbot Game of Thrones"
 	choices = ("One line mode", "Multi line mode")
 	mode = indexbox(message, title, choices)
-	if mode >= len(choices):
-		return None
 	return mode
 
 def queryBox(mode):
@@ -58,7 +56,7 @@ def answerBox(mode, query, answer):
 	textbox(message, title, answer)
 
 def endBox():
-	message = "Shall we continue?".center(80)
+	message = "Do you want to continue?".center(80)
 	title = "Chatbot Game of Thrones"
 	choices = ("Continue", "Quit")
 	still = ccbox(message, title, choices)
@@ -68,6 +66,9 @@ def main():
 	still = True
 	while still:
 		mode = selectModeBox()
+		if mode == None:
+			still = endBox()
+			continue
 		query = queryBox(mode)
 		if query == None:
 			cancelBox()
