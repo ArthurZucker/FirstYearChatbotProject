@@ -1,7 +1,7 @@
 from owlready2 import *
 #https://pythonhosted.org/Owlready2/
 
-path = "./Ontology/"
+path = "../ontology/"
 file = "testOntologyGoT.owl"
 GoT = get_ontology("file://" + path + file).load()
 
