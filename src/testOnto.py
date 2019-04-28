@@ -29,5 +29,16 @@ def main():
   GoT.Daenerys_Targaryen.hasSibling,\
   GoT.Rhaegar_Targaryen.hasSibling)
 
+  print("\nNouveau test, difference instance/attribut nom de l instance :")
+  query = "Daenerys_Targaryen"
+  test = GoT.Rhaegar_Targaryen.hasSibling[0]
+  print("query\t\t:",query, "type :",type(query))
+  print("individual\t:",test,"type :", type(test))
+  print("query == test ?",query == test)
+  test = GoT.Rhaegar_Targaryen.hasSibling[0].name
+  print("query\t:",query, "type :",type(query))
+  print("name\t:",test,"type :", type(test))
+  print("query == test ?",query == test)
+
 if __name__ == "__main__":
   main()
