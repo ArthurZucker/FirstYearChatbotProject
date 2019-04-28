@@ -196,6 +196,26 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#charName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#charName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -363,6 +383,7 @@
     <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Daenerys_Targaryen">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <charName>Daenerys_Targaryen</charName>
     </owl:Thing>
     
 
@@ -506,6 +527,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
         <hasSibling rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Daenerys_Targaryen"/>
+        <charName>Rhaegar_Targaryen</charName>
     </owl:Thing>
     
 
