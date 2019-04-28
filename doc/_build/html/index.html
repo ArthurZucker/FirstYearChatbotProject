@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Made by Belkada, Bonacchi, Capuano, Zucker from [Polytech Sorbonne](https://www.polytech.upmc.fr/fr) &#8212; Chatbot Game of Thrones v1 documentation</title>
+    <title>A chatbot Game of Thrones made with Python by Belkada, Bonacchi, Capuano, Zucker from Polytech Sorbonne &#8212; Chatbot Game of Thrones v1 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -36,8 +36,6 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h3><a href="#">Table of Contents</a></h3>
-
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
@@ -56,8 +54,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="made-by-belkada-bonacchi-capuano-zucker-from-polytech-sorbonne-https-www-polytech-upmc-fr-fr">
-<h1>Made by Belkada, Bonacchi, Capuano, Zucker from [Polytech Sorbonne](<a class="reference external" href="https://www.polytech.upmc.fr/fr">https://www.polytech.upmc.fr/fr</a>)<a class="headerlink" href="#made-by-belkada-bonacchi-capuano-zucker-from-polytech-sorbonne-https-www-polytech-upmc-fr-fr" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="a-chatbot-game-of-thrones-made-with-python-by-belkada-bonacchi-capuano-zucker-from-polytech-sorbonne">
+<h1>A chatbot <em>Game of Thrones</em> made with Python by Belkada, Bonacchi, Capuano, Zucker from <a class="reference external" href="https://www.polytech.upmc.fr/fr">Polytech Sorbonne</a><a class="headerlink" href="#a-chatbot-game-of-thrones-made-with-python-by-belkada-bonacchi-capuano-zucker-from-polytech-sorbonne" title="Permalink to this headline">¶</a></h1>
+<p>This chatbot was made with Python 3.7.3 on Linux Manjaro.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -66,7 +65,6 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="module-chatbot">
@@ -75,13 +73,21 @@
 </div>
 <div class="section" id="module-source.window">
 <span id="window"></span><h1><code class="docutils literal notranslate"><span class="pre">window</span></code><a class="headerlink" href="#module-source.window" title="Permalink to this headline">¶</a></h1>
-<p>This is the GUI of the chatbot.</p>
+<p>This is the GUI of the chatbot.
+Each box is made by a function. There are two input modes: a one line mode and a multi lines mode.</p>
 <dl class="function">
 <dt id="source.window.selectModeBox">
 <code class="descclassname">source.window.</code><code class="descname">selectModeBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.window.selectModeBox" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display a window in order to select between One line mode and Multi line
-mode. Returns  0 ( = one line mode) or 1 ( = Multi line mode).
-:rtype: int or None</p>
+mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 ( = one line mode) or 1 ( = Multi line mode).</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int or None</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -91,15 +97,22 @@ mode. Returns  0 ( = one line mode) or 1 ( = Multi line mode).
 <dt id="source.reply.reply">
 <code class="descclassname">source.reply.</code><code class="descname">reply</code><span class="sig-paren">(</span><em>mode</em>, <em>query</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.reply.reply" title="Permalink to this definition">¶</a></dt>
 <dd><p>If the query is right according to the mode, this function looks for an
-answer in the ontology.
-:param mode: 0 ( = one line mode) or 1 ( = Multi line mode)
-:param query: the query to ask to the chatbot
-:param ontology: the ontology
-:type mode: int
-:type query: str
-!type ontology: owlready2.namespace.Ontology
-:return: the answer of the query
-:rtype: str</p>
+answer in the ontology.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<em>int</em>) – 0 ( = one line mode) or 1 ( = Multi line mode)</p></li>
+<li><p><strong>query</strong> (<em>str</em>) – the query to ask to the chatbot</p></li>
+<li><p><strong>ontology</strong> (<em>owlready2.namespace.Ontology</em>) – the ontology</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the answer of the query</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

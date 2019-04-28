@@ -4,6 +4,7 @@
 
 """
 This is the GUI of the chatbot.
+Each box is made by a function. There are two input modes: a one line mode and a multi lines mode.
 """
 
 from easygui import indexbox, enterbox, multenterbox, ccbox, msgbox, textbox
@@ -14,7 +15,9 @@ from easygui import indexbox, enterbox, multenterbox, ccbox, msgbox, textbox
 def selectModeBox():
 	"""
 	Display a window in order to select between One line mode and Multi line
-	mode. Returns  0 ( = one line mode) or 1 ( = Multi line mode).
+	mode.
+
+	:return: 0 ( = one line mode) or 1 ( = Multi line mode).
 	:rtype: int or None
 	"""
 	message = "Select the mode".center(80)

@@ -12,12 +12,10 @@ def reply(mode, query, ontology):
 	"""
 	If the query is right according to the mode, this function looks for an
 	answer in the ontology.
-	:param mode: 0 ( = one line mode) or 1 ( = Multi line mode)
-	:param query: the query to ask to the chatbot
-	:param ontology: the ontology
-	:type mode: int
-	:type query: str
-	!type ontology: owlready2.namespace.Ontology
+
+	:param int mode: 0 ( = one line mode) or 1 ( = Multi line mode)
+	:param str query: the query to ask to the chatbot
+	:param owlready2.namespace.Ontology ontology: the ontology
 	:return: the answer of the query
 	:rtype: str
 	"""

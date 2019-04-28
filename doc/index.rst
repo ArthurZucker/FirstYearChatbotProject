@@ -3,19 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Made by Belkada, Bonacchi, Capuano, Zucker from [Polytech Sorbonne](https://www.polytech.upmc.fr/fr)
-====================================================================================================
+A chatbot *Game of Thrones* made with Python by Belkada, Bonacchi, Capuano, Zucker from `Polytech Sorbonne <https://www.polytech.upmc.fr/fr>`_
+==================================================================================================================================================
+
+This chatbot was made with Python 3.7.3 on Linux Manjaro.
 
 .. toctree::
 	:maxdepth: 2
 	:caption: Contents:
+
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`
 
 ``chatbot``
 ===========

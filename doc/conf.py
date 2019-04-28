@@ -55,6 +55,6 @@ html_theme = 'bizstyle'
 html_static_path = ['_static']
 
 html_sidebars = {
-   '**': ['globaltoc.html', 'searchbox.html'],
+   '**': ['searchbox.html'],
    'using/windows': ['windowssidebar.html', 'searchbox.html'],
-}
+}# 'globaltoc.html', 
