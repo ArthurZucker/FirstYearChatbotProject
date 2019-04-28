@@ -1,2 +1,2 @@
-import testOnto
-import window
+import src/testOnto
+import src/window
