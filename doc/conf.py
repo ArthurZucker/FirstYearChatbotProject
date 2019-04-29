@@ -57,4 +57,6 @@ html_static_path = ['_static']
 html_sidebars = {
    '**': ['searchbox.html'],
    'using/windows': ['windowssidebar.html', 'searchbox.html'],
-}# 'globaltoc.html', 
+}# 'globaltoc.html',
+
+language = 'fr'

@@ -3,33 +3,45 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-A chatbot *Game of Thrones* made with Python by Belkada, Bonacchi, Capuano, Zucker from `Polytech Sorbonne <https://www.polytech.upmc.fr/fr>`_
-==================================================================================================================================================
+Un chatbot *Game of Thrones* fait avec Python par Belkada, Bonacchi, Capuano, Zucker de `Polytech Sorbonne <https://www.polytech.upmc.fr/fr>`_.
+================================================================================================================================================
 
-This chatbot was made with Python 3.7.3 on Linux Manjaro.
+Ce *chatbot* a ete fait sous Python 3.7.3 sous Linux Manjaro.
+L ensemble de la documentation se situe dans le dossier ``doc``.
 
 .. toctree::
 	:maxdepth: 2
 	:caption: Contents:
 
 
-Indices and tables
-==================
+Index
+=====
 
 * :ref:`genindex`
 * :ref:`modindex`
 
-``chatbot``
-===========
+Programme principal
+===================
+
+:mod:`chatbot`
+**************
 .. automodule:: chatbot
 	:members:
+	:undoc-members:
 
-``window``
-==========
+Modules necessaires au programme principal
+==========================================
+
+Les modules necessaires au programme principal sont regroupes dans le dossier ``source``.
+
+:mod:`source.window`
+********************
 .. automodule:: source.window
 	:members:
+	:undoc-members:
 
-``reply``
-=========
+:mod:`source.reply`
+*******************
 .. automodule:: source.reply
 	:members:
+	:undoc-members:

@@ -2,21 +2,25 @@
 
 # -*- coding: utf-8 -*-
 
+"""
+Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcourt sur l ontologie.
+"""
+
 from .window import endBox # pour charger l interface graphique
 
 """
-This is the program that replies the user.
+Ce programme cree la reponse que retourne le chatbot.
 """
 
 def reply(mode, query, ontology):
 	"""
-	If the query is right according to the mode, this function looks for an
-	answer in the ontology.
+	Recherche une reponse a la requete donnee dans l ontologie, si la requete est correcte eu egard au mode choisi.
 
-	:param int mode: 0 ( = one line mode) or 1 ( = Multi line mode)
-	:param str query: the query to ask to the chatbot
-	:param owlready2.namespace.Ontology ontology: the ontology
-	:return: the answer of the query
+	:param int mode: le mode selectionne soit 0 (mode une ligne) soit 1 (mode plusieurs lignes).
+	:param query: la requete a demander au chatbot.
+	:param owlready2.namespace.Ontology ontology: l ontologie.
+	:type query: str ou list(str)
+	:return: la reponse de la requete.
 	:rtype: str
 	"""
   # format requete : "Individual #1", "Property", "Individual #2"

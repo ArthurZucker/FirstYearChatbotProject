@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 
 """
-This is a chatbot Game of Thrones.
+Ce fichier execute le chatbot Game of Thrones.
 """
 
 from os.path import dirname, abspath
