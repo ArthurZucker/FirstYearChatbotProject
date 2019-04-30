@@ -6,8 +6,9 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ontologyGoT="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#"
      xmlns:untitled-ontology-6="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6"/>
+    <owl:Ontology rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT"/>
     
 
 
@@ -22,173 +23,30 @@
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasAncestor -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#hasVisited -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasAncestor">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasDescendant"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#hasVisited">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#wasVisitedBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#isLoyalTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#isLoyalTo">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasCapital -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#wasVisitedBy -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasCapital">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasCity"/>
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isCapitalOf"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Capital"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasChild -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasChild">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isChildOf"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasCity -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasCity">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isInKingdom"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#City"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasDescendant -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasDescendant">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasOrigin -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasOrigin">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasPersonality -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasPersonality">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Personality"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasReligion -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasReligion">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Religion"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasSibling -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasSibling">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasSpouse -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasSpouse">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasVisited -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#hasVisited">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#wasVisitedBy"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isCapitalOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isCapitalOf">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isInKingdom"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#City"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isChildOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isChildOf">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isFromHouse -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isFromHouse">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isInKingdom -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isInKingdom">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#City"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isLoyalTo -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isLoyalTo">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#wasVisitedBy -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#wasVisitedBy">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#wasVisitedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:ObjectProperty>
     
 
@@ -204,11 +62,32 @@
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#charName -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#visitedCity -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#charName">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#visitedCity">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#visitedPlace"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#visitedKingdom"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#visitedKingdom -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#visitedKingdom">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#visitedPlace"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#visitedPlace -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#visitedPlace">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
     </owl:DatatypeProperty>
     
 
@@ -224,69 +103,58 @@
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Capital -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Capital -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Capital">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#City"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#isCapitalOf"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#City"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Capital">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#City"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#City -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#City -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#City">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#City">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Personality -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Personality -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Personality"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Personality"/>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Religion -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Religion -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Religion"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Religion"/>
     
 
 
@@ -301,397 +169,376 @@
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Arryn -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Arryn -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Arryn">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Arryn">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Arya_Stark -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Arya_Stark -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Arya_Stark">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Arya_Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <hasReligion rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#ManyFacedGod"/>
-        <isFromHouse rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Stark"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Baratheon -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Baratheon -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Baratheon">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Baratheon">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Benjen_Stark -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Benjen_Stark -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Benjen_Stark">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Benjen_Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <isFromHouse rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Stark"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#BeyondTheWall -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#BeyondTheWall -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#BeyondTheWall">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#BeyondTheWall">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Bolton -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Bolton -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Bolton">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Bolton">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Brandon_Stark -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Brandon_Stark -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Brandon_Stark">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Brandon_Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <isFromHouse rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Stark"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
+        <ontologyGoT:visitedKingdom>BeyondTheWall, TheNorth</ontologyGoT:visitedKingdom>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Brandon_Stark_2 -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Daenerys_Targaryen -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Brandon_Stark_2">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Daenerys_Targaryen">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Daenerys_Targaryen -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Dorne -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Daenerys_Targaryen">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Dorne">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <charName>Daenerys_Targaryen</charName>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Dorne -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#DrownedGod -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Dorne">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#DrownedGod">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Religion"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#DrownedGod -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Eddard_Stark -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#DrownedGod">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Eddard_Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Religion"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Eddard_Stark -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#FaithOfTheSeven -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Eddard_Stark">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#FaithOfTheSeven">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Religion"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#FaithOfTheSeven -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Frey -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#FaithOfTheSeven">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Frey">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Religion"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Frey -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#GreatStallion -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Frey">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#GreatStallion">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Religion"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#GreatStallion -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Greyjoy -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#GreatStallion">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Greyjoy">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Religion"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Greyjoy -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Jon_Snow -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Greyjoy">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Jon_Snow">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
+        <ontologyGoT:isLoyalTo rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Daenerys_Targaryen"/>
+        <ontologyGoT:isLoyalTo rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Sansa_Stark"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Jon_Snow -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Lannister -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Jon_Snow">
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <isChildOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Eddard_Stark"/>
-        <isChildOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Lyanna_Stark"/>
-        <isChildOf rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Rhaegar_Targaryen"/>
-        <isFromHouse rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Stark"/>
-        <isFromHouse rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Targaryen"/>
-        <isLoyalTo rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Daenerys_Targaryen"/>
-        <isLoyalTo rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Sansa_Stark"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Lannister -->
-
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Lannister">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Lannister">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#LordOfLight -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#LordOfLight -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#LordOfLight">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#LordOfLight">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Religion"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Religion"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Lyanna_Stark -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Lyanna_Stark -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Lyanna_Stark">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Lyanna_Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#ManyFacedGod -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#ManyFacedGod -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#ManyFacedGod">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#ManyFacedGod">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Religion"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Religion"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Martell -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Martell -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Martell">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Martell">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#OldGods -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#OldGods -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#OldGods">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#OldGods">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Religion"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Religion"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Rhaegar_Targaryen -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Rhaegar_Targaryen -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Rhaegar_Targaryen">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Rhaegar_Targaryen">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <hasSibling rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Daenerys_Targaryen"/>
-        <charName>Rhaegar_Targaryen</charName>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Rickard_Stark -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Rickard_Stark -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Rickard_Stark">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Rickard_Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Rickon_Stark -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Rickon_Stark -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Rickon_Stark">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Rickon_Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Robb_Stark -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Robb_Stark -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Robb_Stark">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Robb_Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Sansa_Stark -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Sansa_Stark -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Sansa_Stark">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Sansa_Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Stark -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Stark -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Stark">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Stark">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Targaryen -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Targaryen -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Targaryen">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Targaryen">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheCrownlands -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheCrownlands -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheCrownlands">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheCrownlands">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheIronIslands -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheIronIslands -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheIronIslands">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheIronIslands">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheNorth -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheNorth -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheNorth">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheNorth">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheReach -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheReach -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheReach">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheReach">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheRiverlands -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheRiverlands -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheRiverlands">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheRiverlands">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheStormlands -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheStormlands -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheStormlands">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheStormlands">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheVale -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheVale -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheVale">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheVale">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheWesterlands -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheWesterlands -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#TheWesterlands">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheWesterlands">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Kingdom"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Kingdom"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Theon_Greyjoy -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Theon_Greyjoy -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Theon_Greyjoy">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Theon_Greyjoy">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-        <isFromHouse rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Greyjoy"/>
-        <isFromHouse rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Stark"/>
-        <isLoyalTo rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Robb_Stark"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
+        <ontologyGoT:isLoyalTo rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Robb_Stark"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Tully -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Tully -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Tully">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Tully">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
 
-    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Tyrell -->
+    <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Tyrell -->
 
-    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Tyrell">
+    <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Tyrell">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
     </owl:Thing>
     
 
@@ -707,12 +554,57 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Character"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#House"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Personality"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Place"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#Religion"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#House"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Personality"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Place"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Religion"/>
         </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Arryn"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Arya_Stark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Baratheon"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Benjen_Stark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#BeyondTheWall"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Bolton"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Brandon_Stark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Daenerys_Targaryen"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Dorne"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#DrownedGod"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Eddard_Stark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#FaithOfTheSeven"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Frey"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#GreatStallion"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Greyjoy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Jon_Snow"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Lannister"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#LordOfLight"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Lyanna_Stark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#ManyFacedGod"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Martell"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#OldGods"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Rhaegar_Targaryen"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Rickard_Stark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Rickon_Stark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Robb_Stark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Sansa_Stark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Stark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Targaryen"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheCrownlands"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheIronIslands"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheNorth"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheReach"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheRiverlands"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheStormlands"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheVale"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#TheWesterlands"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Theon_Greyjoy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Tully"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Tyrell"/>
+        </owl:distinctMembers>
     </rdf:Description>
 </rdf:RDF>
 

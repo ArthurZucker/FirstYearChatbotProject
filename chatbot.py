@@ -16,6 +16,8 @@ from source.reply import * 	# pour charger la reponse
 
 ontology_path = "file://" + dirname(abspath(__file__)) + "/ontology/" + \
 "ontologyGoT.owl"
+print(ontology_path)
+
 GoT = get_ontology(ontology_path).load()
 
 still = True
