@@ -19,7 +19,7 @@ La documentation du programme est accessible en ouvrant le fichier doc.html.
 
 Ontologie :
 
-L'ontologie a été créée avec protégé (https://protege.stanford.edu/). L'index de l'ontologie est accessible en ouvrant le fichier indexOntology.html. Le fichier ontology_graphe.png est un graphe des classes de l'ontologie. Le fichier ontologyGoT.pdf est un graphe complet de l'ontologie.
+L'ontologie a été créée avec protégé (https://protege.stanford.edu/). Le fichier ontology_graphe.png est un graphe des classes de l'ontologie. Le fichier ontologyGoT.pdf est un graphe complet de l'ontologie.
 
 Interface graphique :
 

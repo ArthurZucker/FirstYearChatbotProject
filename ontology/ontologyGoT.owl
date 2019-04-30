@@ -8,7 +8,9 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:ontologyGoT="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#"
      xmlns:untitled-ontology-6="http://www.semanticweb.org/jerome/ontologies/2019/3/untitled-ontology-6#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT"/>
+    <owl:Ontology rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT">
+        <owl:imports rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT"/>
+    </owl:Ontology>
     
 
 
