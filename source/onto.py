@@ -2,17 +2,27 @@
 
 # -*- coding: utf-8 -*-
 
+from os.path import dirname, realpath
+
 from owlready2 import *
+
 #https://pythonhosted.org/Owlready2/
 
-path = "../ontology/"
-file = "ontologyGoT.owl"
-GoT = get_ontology("file://" + path + file).load()
+onto_path.append(dirname(dirname(realpath(__file__))) + "/ontology/")
+ontologyGoT_path = onto_path[0] + "ontologyGoT.owl"
+GoT = get_ontology("file://" + ontologyGoT_path).load()
+
+# creation d une nouvelle ontologie
+# new_ontology_IRI = "http://www.semanticweb.org/jerome/ontologies/2019/3/newOntologyGoT.owl"
+# newOntologyGoT_path = onto_path[0] + "newOntologyGoT.owl"
+# newGoT = get_ontology(new_ontology_IRI)
 
 def main():
 	print("\nListe des classes :\n",list(GoT.classes()))
 	print("\nListe des instances :\n",list(GoT.individuals()))
-	print("\nListe des propriétés :\n",list(GoT.object_properties()))
+	print("\nListe des propriétés objet :\n",list(GoT.object_properties()))
+	print("\nListe des propriétés data :\n",list(GoT.data_properties()))
+	print("\nListe des propriétés :\n",list(GoT.properties()))
 
 	print("\nListe des sous-classes de Place :\n",\
 	GoT.search(subclass_of = GoT.Place))
@@ -22,30 +32,20 @@ def main():
 	GoT.search(type = GoT.Place))
 	print("\nListe des entites avec la relation desiree :\n",\
 	GoT.search(isLoyalTo = "*"))
+	print("\nListe des entites de Place :\n",\
+	GoT.search(is_a = GoT.Place))
 
-	print(dir(GoT.Jon_Snow))
-	print(GoT.TheWesterlands.__dict__)
+	# liste des proprietes
+	print(dir(GoT.Jon_Snow),'\n')
+	print(GoT.TheWesterlands.__dict__,'\n')
 
-	# print("\nListe des parents de Jon Snow :\n",\
-	# GoT.Jon_Snow.isChildOf)
-	#
-	# print("\nTest propriete inverse, fils de Ned :\n",\
-	# GoT.Eddard_Stark.hasChild)
-	#
-	# print("\nTest propriete symétrique, frere et soeur :\n",\
-	# GoT.Daenerys_Targaryen.hasSibling,\
-	# GoT.Rhaegar_Targaryen.hasSibling)
+	# ajout d une propriete
+	print(GoT.Jon_Snow.isLoyalTo)
+	GoT.Jon_Snow.isLoyalTo.append(GoT.Arya_Stark)
+	print(GoT.Jon_Snow.isLoyalTo)
 
-	# print("\nNouveau test, difference instance/attribut nom de l instance :")
-	# query = "Daenerys_Targaryen"
-	# test = GoT.Rhaegar_Targaryen.hasSibling[0]
-	# print("query\t\t:",query, "type :",type(query))
-	# print("individual\t:",test,"type :", type(test))
-	# print("query == test ?",query == test)
-	# test = GoT.Rhaegar_Targaryen.hasSibling[0].name
-	# print("query\t:",query, "type :",type(query))
-	# print("name\t:",test,"type :", type(test))
-	# print("query == test ?",query == test)
+	# sauvegarde dans un nouveau fichier
+	GoT.save(file = onto_path[0] + "newOntologyGoT.owl")
 
 if __name__ == "__main__":
 	main()

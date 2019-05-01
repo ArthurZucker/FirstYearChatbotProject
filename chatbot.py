@@ -6,7 +6,7 @@
 Ce fichier execute le chatbot Game of Thrones.
 """
 
-from os.path import dirname, abspath
+from os.path import dirname, realpath
 
 from owlready2 import *			# pour charger l ontologie
 
@@ -14,10 +14,8 @@ from source.window import * # pour charger l interface graphique
 from source.reply import * 	# pour charger la reponse
  														# fichier de Younes et Romain
 
-ontology_path = "file://" + dirname(abspath(__file__)) + "/ontology/" + \
+ontology_path = "file://" + dirname(realpath(__file__)) + "/ontology/" + \
 "ontologyGoT.owl"
-print(ontology_path)
-
 GoT = get_ontology(ontology_path).load()
 
 still = True
