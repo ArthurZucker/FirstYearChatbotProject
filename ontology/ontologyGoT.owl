@@ -608,6 +608,14 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Tyrell"/>
         </owl:distinctMembers>
     </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#hasVisited"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#isLoyalTo"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#wasVisitedBy"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
