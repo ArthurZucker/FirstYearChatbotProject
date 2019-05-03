@@ -5,14 +5,18 @@ Pour exécuter ce programme, il faut ouvrir un terminal, cloner le repertoire gr
 >`git clone <lien_du_git>`
 
 et exécuter le fichier principal grâce à la commande :
->`./chatbot.py`
+>`./chatbot.py` ou, si une erreur est renvoyée, `python3 chatbot.py`
+
+##Version de python nécessaire :
+
+Python 3 doit être installé. Ce programme a été testé avec Python 3.7.3.
 
 ## Packets nécessaires
 Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
-> `owlready2` `easygui`
+> `sys` `os` `types` `tempfile` `subprocess` `weakref` `re` `urllib` `warnings` `itertools` `owlready2` `easygui`
 
 Vous pouvez les installer grâce à la commande suivante :
-> `pip install <packet>`
+> `pip install <nom_du_packet>` ou `pip3 install <nom_du_packet>`
 
 ## Documentation
 
@@ -26,5 +30,3 @@ L'ontologie a été créée avec [*protégé*](https://protege.stanford.edu/). L
 
 Toute l'interface graphique est regroupée dans le fichier `window.py`. Elle a
 été réalisée grâce au module `easygui`.
-___
-Ce programme a été testé avec Linux Manjaro et Python 3.7.3.
