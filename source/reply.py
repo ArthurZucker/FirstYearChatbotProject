@@ -8,11 +8,28 @@ Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requ
 
 from .window import endBox # pour charger l interface graphique
 
-"""
-Ce programme cree la reponse que retourne le chatbot.
-"""
 
-def reply(mode, query, ontology):
+def check(raw_query, ontology):
+	"""
+	Verifie si la requete est valide.
+
+	:param str query: la requete.
+	:param owlready2.namespace.Ontology ontology: l ontologie.
+	"""
+	if (raw_query.find(",") == 2 and raw_query.find("?") == 1):
+		raw_query.replace("?","")
+		query = raw_query.split(",")
+		if (
+		query[0] in list(ontology.individuals()) and
+		query[1] in list(ontology.properties()) and
+		query[2] in list(ontology.individuals())):
+			return query
+		else:
+			return None
+	else:
+		return None
+
+def reply(mode, raw_query, ontology):
 	"""
 	Recherche une reponse a la requete donnee dans l ontologie, si la requete est correcte eu egard au mode choisi.
 
@@ -25,10 +42,13 @@ def reply(mode, query, ontology):
 	"""
   # format requete : "Individual #1", "Property", "Individual #2"
 	if mode == 0:
-		query = query.split(",")
-		if len(query) != 3:
+		query = check(raw_query, ontology)
+		if query == None:
 			errorBox()
-			return None
+		# query = query.split(",")
+		# if len(query) != 3:
+		# 	errorBox()
+		# 	return None
 	else:
 		for str in query:
 			if str == "":
@@ -40,16 +60,3 @@ def reply(mode, query, ontology):
   # ...
 	answer = ""
 	return answer
-
-def elem_question(question, GoT):
-	if (question.find(",") == 2 and question.find("?") == 1):
-		question.replace("?","")
-		x = question.split(",")
-		if (x[0] in list(GoT.individuals()) and x[1] in list(GoT.properties()) and x[2] in list(GoT.individuals())):
-			return x
-		else:
-			errorbox()
-			return None
-	else:
-		errorbox()
-		return None
