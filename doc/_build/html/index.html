@@ -57,8 +57,8 @@
             
   <div class="section" id="un-chatbot-game-of-thrones-fait-avec-python-par-belkada-bonacchi-capuano-zucker-de-polytech-sorbonne">
 <h1>Un chatbot <em>Game of Thrones</em> fait avec Python par Belkada, Bonacchi, Capuano, Zucker de <a class="reference external" href="https://www.polytech.upmc.fr/fr">Polytech Sorbonne</a>.<a class="headerlink" href="#un-chatbot-game-of-thrones-fait-avec-python-par-belkada-bonacchi-capuano-zucker-de-polytech-sorbonne" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Ce <em>chatbot</em> a ete fait sous Python 3.7.3 sous Linux Manjaro.
-L ensemble de la documentation se situe dans le dossier <code class="docutils literal notranslate"><span class="pre">doc</span></code>.</p>
+<p>Ce <em>chatbot</em> a ete fait sous Python 3.7.3, il necessite Python 3 pour fonctionner. Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
+<code class="docutils literal notranslate"><span class="pre">sys</span></code> <code class="docutils literal notranslate"><span class="pre">os</span></code> <code class="docutils literal notranslate"><span class="pre">types</span></code> <code class="docutils literal notranslate"><span class="pre">tempfile</span></code> <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> <code class="docutils literal notranslate"><span class="pre">weakref</span></code> <code class="docutils literal notranslate"><span class="pre">re</span></code> <code class="docutils literal notranslate"><span class="pre">urllib</span></code> <code class="docutils literal notranslate"><span class="pre">warnings</span></code> <code class="docutils literal notranslate"><span class="pre">itertools</span></code> <code class="docutils literal notranslate"><span class="pre">owlready2</span></code> <code class="docutils literal notranslate"><span class="pre">easygui</span></code>.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -79,14 +79,14 @@ L ensemble de la documentation se situe dans le dossier <code class="docutils li
 <div class="section" id="modules-necessaires-au-programme-principal">
 <h1>Modules necessaires au programme principal<a class="headerlink" href="#modules-necessaires-au-programme-principal" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Les modules necessaires au programme principal sont regroupes dans le dossier <code class="docutils literal notranslate"><span class="pre">source</span></code>.</p>
-<div class="section" id="module-source.window">
-<span id="source-window"></span><h2><a class="reference internal" href="#module-source.window" title="source.window"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.window</span></code></a><a class="headerlink" href="#module-source.window" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="module-source.ui">
+<span id="source-ui"></span><h2><a class="reference internal" href="#module-source.ui" title="source.ui"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.ui</span></code></a><a class="headerlink" href="#module-source.ui" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Ce fichier contient les fonctions necessaires a l interface graphique du chatbot.
 Chaque boite de dialogue est realisee par une fonction.
 Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusieurs lignes.</p>
 <dl class="function">
-<dt id="source.window.answerBox">
-<code class="descclassname">source.window.</code><code class="descname">answerBox</code><span class="sig-paren">(</span><em>mode</em>, <em>query</em>, <em>answer</em><span class="sig-paren">)</span><a class="headerlink" href="#source.window.answerBox" title="Lien permanent vers cette définition">¶</a></dt>
+<dt id="source.ui.answerBox">
+<code class="descclassname">source.ui.</code><code class="descname">answerBox</code><span class="sig-paren">(</span><em>mode</em>, <em>query</em>, <em>answer</em><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.answerBox" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Affiche la fenetre rappelant la requete entree par l utilisateur ainsi que la reponse donnee par le chatbot.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
@@ -100,14 +100,14 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 </dd></dl>
 
 <dl class="function">
-<dt id="source.window.cancelBox">
-<code class="descclassname">source.window.</code><code class="descname">cancelBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.window.cancelBox" title="Lien permanent vers cette définition">¶</a></dt>
+<dt id="source.ui.cancelBox">
+<code class="descclassname">source.ui.</code><code class="descname">cancelBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.cancelBox" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Affiche la fenetre indiquant que l utilisateur a appuye sur le bouton d annulation.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="source.window.endBox">
-<code class="descclassname">source.window.</code><code class="descname">endBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.window.endBox" title="Lien permanent vers cette définition">¶</a></dt>
+<dt id="source.ui.endBox">
+<code class="descclassname">source.ui.</code><code class="descname">endBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.endBox" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Affiche la fenetre permettant de recommencer le jeu ou de le quitter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Renvoie</dt>
@@ -120,20 +120,26 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 </dd></dl>
 
 <dl class="function">
-<dt id="source.window.errorBox">
-<code class="descclassname">source.window.</code><code class="descname">errorBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.window.errorBox" title="Lien permanent vers cette définition">¶</a></dt>
+<dt id="source.ui.errorBox">
+<code class="descclassname">source.ui.</code><code class="descname">errorBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.errorBox" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Affiche la fenetre indiquant que l utilisateur a entre une requete dont le format est incorrecte.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="source.window.main">
-<code class="descclassname">source.window.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.window.main" title="Lien permanent vers cette définition">¶</a></dt>
+<dt id="source.ui.main">
+<code class="descclassname">source.ui.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.main" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Fonction principale permettant de tester l interface graphique independamment du programme principale.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="source.window.queryBox">
-<code class="descclassname">source.window.</code><code class="descname">queryBox</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#source.window.queryBox" title="Lien permanent vers cette définition">¶</a></dt>
+<dt id="source.ui.notInOntologyBox">
+<code class="descclassname">source.ui.</code><code class="descname">notInOntologyBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.notInOntologyBox" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Affiche la fenetre indiquant que l utilisateur a entre une requete dont les elements ne sont pas dans l ontologie.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="source.ui.queryBox">
+<code class="descclassname">source.ui.</code><code class="descname">queryBox</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.queryBox" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Affiche la fenetre permettant d entrer la requete avec le mode de saisie dependant du mode donne en argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
@@ -149,8 +155,8 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 </dd></dl>
 
 <dl class="function">
-<dt id="source.window.selectModeBox">
-<code class="descclassname">source.window.</code><code class="descname">selectModeBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.window.selectModeBox" title="Lien permanent vers cette définition">¶</a></dt>
+<dt id="source.ui.selectModeBox">
+<code class="descclassname">source.ui.</code><code class="descname">selectModeBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.selectModeBox" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Affiche la fenetre permettant de selectionner soit le mode une ligne, soit le mode sur plusieurs lignes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Renvoie</dt>
@@ -163,13 +169,74 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 </dd></dl>
 
 </div>
-<div class="section" id="module-source.reply">
-<span id="source-reply"></span><h2><a class="reference internal" href="#module-source.reply" title="source.reply"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.reply</span></code></a><a class="headerlink" href="#module-source.reply" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="module-source.processing">
+<span id="source-processing"></span><h2><a class="reference internal" href="#module-source.processing" title="source.processing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.processing</span></code></a><a class="headerlink" href="#module-source.processing" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcourt sur l ontologie.</p>
 <dl class="function">
-<dt id="source.reply.reply">
-<code class="descclassname">source.reply.</code><code class="descname">reply</code><span class="sig-paren">(</span><em>mode</em>, <em>query</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.reply.reply" title="Lien permanent vers cette définition">¶</a></dt>
-<dd><p>Recherche une reponse a la requete donnee dans l ontologie, si la requete est correcte eu egard au mode choisi.</p>
+<dt id="source.processing.answer">
+<code class="descclassname">source.processing.</code><code class="descname">answer</code><span class="sig-paren">(</span><em>query</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.answer" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Recherche une reponse a la requete dans l ontologie.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – la requete.</p></li>
+<li><p><strong>ontology</strong> (<em>owlready2.namespace.Ontology</em>) – l ontologie.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>la reponse a la requete.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="source.processing.check">
+<code class="descclassname">source.processing.</code><code class="descname">check</code><span class="sig-paren">(</span><em>mode</em>, <em>raw_query</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.check" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Verifie si la requete entree a le bon format eu egard au mode choisi. Puis, met la requete sous la forme conventionnelle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<em>int</em>) – le mode selectionne soit 0 (mode une ligne) soit 1 (mode plusieurs lignes).</p></li>
+<li><p><strong>raw_query</strong> (<em>str ou list</em><em>(</em><em>str</em><em>)</em>) – la requete.</p></li>
+<li><p><strong>ontology</strong> (<em>owlready2.namespace.Ontology</em>) – l ontologie.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>la requete sous forme de liste.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p>list(str) ou None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="source.processing.isInOntology">
+<code class="descclassname">source.processing.</code><code class="descname">isInOntology</code><span class="sig-paren">(</span><em>query</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.isInOntology" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Retourne True si les elements de la requete sont dans l ontologie et False sinon.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – la requete.</p></li>
+<li><p><strong>ontology</strong> (<em>owlready2.namespace.Ontology</em>) – l ontologie.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>True si les elements de la requete sont dans l ontologie et False sinon.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="source.processing.reply">
+<code class="descclassname">source.processing.</code><code class="descname">reply</code><span class="sig-paren">(</span><em>mode</em>, <em>raw_query</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.reply" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Si la requete donnee est correcte, retourne la reponse de la requete.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">

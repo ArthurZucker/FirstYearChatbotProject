@@ -9,7 +9,7 @@ et exécuter le fichier principal grâce à la commande :
 
 ##Version de python nécessaire :
 
-Python 3 doit être installé. Ce programme a été testé avec Python 3.7.3.
+Ce programme a été testé avec Python 3.7.3, il necessite Python 3 pour fonctionner.
 
 ## Packets nécessaires
 Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :

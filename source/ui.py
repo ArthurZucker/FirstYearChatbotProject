@@ -92,6 +92,14 @@ def endBox():
 	still = ccbox(message, title, choices)
 	return still
 
+def notInOntologyBox():
+	"""
+	Affiche la fenetre indiquant que l utilisateur a entre une requete dont les elements ne sont pas dans l ontologie.
+	"""
+	title = "Chatbot Game of Thrones"
+	message = ("There is no answer for your query in the ontology").center(80)
+	msgbox(message, title, "OK")
+
 def main():
 	"""
 	Fonction principale permettant de tester l interface graphique independamment du programme principale.
