@@ -6,6 +6,11 @@ Pour exécuter ce programme, il faut décomprésser le repertoire chatbot et ex�
 ou, si une erreur est renvoyée :
 python3 chatbot.py
 
+## Syntaxe
+
+Pour utiliser le chatbot, il faut suivre la syntaxe suivante :
+instance1,propriete,instance2?
+
 Version de python nécessaire :
 
 Python 3 doit être installé. Ce programme a été testé avec Python 3.7.3.

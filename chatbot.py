@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Ce fichier execute le chatbot Game of Thrones.
+Ce fichier execute le chatbot.
 """
 
 from os.path import dirname, realpath
@@ -11,12 +11,11 @@ from os.path import dirname, realpath
 from owlready2 import *	# pour charger l ontologie
 
 from source.ui import * # pour charger l interface graphique
-from source.processing import * 	# pour charger la reponse
- 																	# fichier de Younes et Romain
+from source.processing import reply # pour charger la reponse
 
 ontology_path = "file://" + dirname(realpath(__file__)) + "/ontology/" + \
 "ontologyGoT.owl"
-GoT = get_ontology(ontology_path).load()
+ontology = get_ontology(ontology_path).load()
 
 still = True
 while still:
@@ -28,7 +27,9 @@ while still:
 	if query == None:
 		cancelBox()
 	else:
-		answer = reply(mode, query, GoT)
-		if answer != None:
+		answer = reply(mode, query, ontology)
+		if answer == None:
+			noResultBox()
+		else:
 			answerBox(mode, query, answer)
 	still = endBox()

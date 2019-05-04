@@ -6,11 +6,14 @@
 Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcourt sur l ontologie.
 """
 
-from .ui import endBox, notInOntologyBox # pour charger l interface graphique
+from .ui import endBox, notInOntologyBox, errorBox # pour charger l interface graphique
 
 def check(mode, raw_query, ontology):
 	"""
-	Verifie si la requete entree a le bon format eu egard au mode choisi. Puis, met la requete sous la forme conventionnelle.
+	Verifie si la requete entree a le bon format eu egard au mode choisi.
+	Le format adequat pour le mode sur une ligne est :
+	instance1,propriete,instance2?
+	Puis, met la requete sous la forme conventionnelle.
 
 	:param int mode: le mode selectionne soit 0 (mode une ligne) soit 1 (mode plusieurs lignes).
 	:param raw_query: la requete.
@@ -23,11 +26,6 @@ def check(mode, raw_query, ontology):
 		if (raw_query.find(",") == 2 and raw_query.find("?") == 1):
 			raw_query.replace("?","")
 			query = raw_query.split(",")
-			if (
-			query[0] in list(ontology.individuals()) and
-			query[1] in list(ontology.properties()) and
-			query[2] in list(ontology.individuals())):
-				return query
 	elif mode == 1:
 		for str in raw_query:
 			if str == "":
@@ -44,10 +42,23 @@ def isInOntology(query, ontology):
 	:return: True si les elements de la requete sont dans l ontologie et False sinon.
 	:rtype: bool
 	"""
-	isInOntology = (
-	query[0] in list(ontology.individuals()) and
-	query[1] in list(ontology.properties()) and
-	query[2] in list(ontology.individuals()))
+	isInOntology = False
+	for entities in ontology.individuals():
+		if query[0] == entities.name:
+			isInOntology = True
+			break
+	if isInOntology:
+		isInOntology = False
+		for entities in ontology.properties():
+			if query[1] == entities.name:
+				isInOntology = True
+				break
+		if isInOntology:
+			isInOntology = False
+			for entities in ontology.individuals():
+				if query[2] == entities.name:
+					isInOntology = True
+					break
 	return isInOntology
 
 def answer(query, ontology):
@@ -59,14 +70,18 @@ def answer(query, ontology):
 	:return: la reponse a la requete.
 	:rtype: str
 	"""
+	# Jon_Snow,isLoyalTo,Sansa_Stark?
+	# query[0] = Jon_Snow
+	# query[1] = isLoyalTo
+	# query[2] = Sansa_Stark
+	# results = [GoT.Daenerys_Targaryen, GoT.Arya_Stark, GoT.Sansa_Stark]
+
 	# Creation d'une liste de réponses
-	# Jon_Snow, isLoyalTo, Sansa_Stark ?
-	lists = list(ontology.query[0].query[1]) # Exemple si query[0] = Jon Snow et query[1] = isLoyalto
-	# lists = [GoT.Danearys, GoT.Arya, GoT.Sansa]
-	if ontology.quey[2] in lists:
+	results = list(ontology.query[0].query[1])
+	if ontology.query[2] in results:
 		return "Yes"
 	return "No"
-	
+
 
 def reply(mode, raw_query, ontology):
 	"""

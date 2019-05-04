@@ -7,11 +7,17 @@ Pour exécuter ce programme, il faut ouvrir un terminal, cloner le repertoire gr
 et exécuter le fichier principal grâce à la commande :
 >`./chatbot.py` ou, si une erreur est renvoyée, `python3 chatbot.py`
 
-##Version de python nécessaire :
+## Syntaxe
+
+Pour utiliser le chatbot, il faut suivre la syntaxe suivante :
+>`instance1`,`propriete`,`instance2`?
+
+## Version de python nécessaire :
 
 Ce programme a été testé avec Python 3.7.3, il necessite Python 3 pour fonctionner.
 
 ## Packets nécessaires
+
 Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
 > `sys` `os` `types` `tempfile` `subprocess` `weakref` `re` `urllib` `warnings` `itertools` `owlready2` `easygui`
 

@@ -23,6 +23,9 @@ Index
 Programme principal
 ===================
 
+Le format adequat pour le mode sur une ligne est :
+``instance1``,``propriete``,``instance2``?
+
 :mod:`chatbot`
 **************
 .. automodule:: chatbot

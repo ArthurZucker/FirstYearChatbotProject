@@ -58,7 +58,7 @@ def errorBox():
 	"""
 	title = "Chatbot Game of Thrones"
 	message = ("Your query was void because the format used is wrong. "
-	"Please read README.md.").center(80)
+	"Please read README.md or README.txt.").center(80)
 	msgbox(message, title, "OK")
 
 def answerBox(mode, query, answer):
@@ -95,6 +95,14 @@ def endBox():
 def notInOntologyBox():
 	"""
 	Affiche la fenetre indiquant que l utilisateur a entre une requete dont les elements ne sont pas dans l ontologie.
+	"""
+	title = "Chatbot Game of Thrones"
+	message = ("At least one of the terms of your query is not in the ontology").center(80)
+	msgbox(message, title, "OK")
+
+def noResultBox():
+	"""
+	Affiche la fenetre indiquant qu il n y a pas de resultat a la requete entree.
 	"""
 	title = "Chatbot Game of Thrones"
 	message = ("There is no answer for your query in the ontology").center(80)
