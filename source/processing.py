@@ -23,8 +23,8 @@ def check(mode, raw_query, ontology):
 	:rtype: list(str) ou None
 	"""
 	if mode == 0:
-		if (raw_query.find(",") == 2 and raw_query.find("?") == 1):
-			raw_query.replace("?","")
+		if (raw_query.find(',') == 2 and raw_query.find('?') == 1):
+			raw_query.replace('?','')
 			query = raw_query.split(",")
 	elif mode == 1:
 		for str in raw_query:

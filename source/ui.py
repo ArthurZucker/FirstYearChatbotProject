@@ -57,7 +57,8 @@ def errorBox():
 	Affiche la fenetre indiquant que l utilisateur a entre une requete dont le format est incorrecte.
 	"""
 	title = "Chatbot Game of Thrones"
-	message = ("Your query was void because the format used is wrong. "
+	message = ("Your query was void because the format used is wrong.\n"
+	"Use format: <Individual>,<Property>,<Individual>?\n"
 	"Please read README.md or README.txt.").center(80)
 	msgbox(message, title, "OK")
 
