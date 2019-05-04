@@ -584,6 +584,7 @@
     <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Tywin_Lannister -->
 
     <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Tywin_Lannister">
+    </owl:Thing>
 
     <!-- http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Jaqen_h_ghar -->
 
