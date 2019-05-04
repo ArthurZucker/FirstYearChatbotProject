@@ -20,8 +20,8 @@ def check(mode, raw_query, ontology):
 	:rtype: list(str) ou None
 	"""
 	if mode == 0:
-		if (raw_query.find(",") == 2 and raw_query.find("?") == 1):
-			raw_query.replace("?","")
+		if (raw_query.find(',') == 2 and raw_query.find('?') == 1):
+			raw_query.replace('?','')
 			query = raw_query.split(",")
 			if (
 			query[0] in list(ontology.individuals()) and
@@ -63,10 +63,10 @@ def answer(query, ontology):
 	# Jon_Snow, isLoyalTo, Sansa_Stark ?
 	lists = list(ontology.query[0].query[1]) # Exemple si query[0] = Jon Snow et query[1] = isLoyalto
 	# lists = [GoT.Danearys, GoT.Arya, GoT.Sansa]
-	if ontology.quey[2] in lists:
+	if ontology.query[2] in lists:
 		return "Yes"
 	return "No"
-	
+
 
 def reply(mode, raw_query, ontology):
 	"""
