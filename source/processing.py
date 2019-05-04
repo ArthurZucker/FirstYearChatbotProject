@@ -59,7 +59,14 @@ def answer(query, ontology):
 	:return: la reponse a la requete.
 	:rtype: str
 	"""
-	pass
+	# Creation d'une liste de réponses
+	# Jon_Snow, isLoyalTo, Sansa_Stark ?
+	lists = list(ontology.query[0].query[1]) # Exemple si query[0] = Jon Snow et query[1] = isLoyalto
+	# lists = [GoT.Danearys, GoT.Arya, GoT.Sansa]
+	if ontology.quey[2] in lists:
+		return "Yes"
+	return "No"
+	
 
 def reply(mode, raw_query, ontology):
 	"""

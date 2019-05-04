@@ -40,9 +40,10 @@ def main():
 	print(GoT.TheWesterlands.__dict__,'\n')
 
 	# ajout d une propriete
-	print(GoT.Jon_Snow.isLoyalTo)
+	print(GoT.Jon_Snow.isLoyalTo,'\n')
 	GoT.Jon_Snow.isLoyalTo.append(GoT.Arya_Stark)
 	print(GoT.Jon_Snow.isLoyalTo)
+	print(GoT.Arya_Stark in GoT.Jon_Snow.isLoyalTo)
 
 	# sauvegarde dans un nouveau fichier
 	GoT.save(file = onto_path[0] + "newOntologyGoT.owl")
