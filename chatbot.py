@@ -5,7 +5,7 @@
 """
 Ce fichier execute le chatbot.
 """
-
+# Jon_Snow,isLoyalTo,Sansa_Stark?
 from os.path import dirname, realpath
 
 from owlready2 import *	# pour charger l ontologie
