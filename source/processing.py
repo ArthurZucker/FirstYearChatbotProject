@@ -55,6 +55,7 @@ def isInOntology(query, ontology):
 	if indiv1==None:
 		print("indiv1 pas dans les entite")
 		formatErrorBox()
+	# EREUR ICI
 	if isInOntology:
 		isInOntology = False
 		for entities in dir(indiv1):
