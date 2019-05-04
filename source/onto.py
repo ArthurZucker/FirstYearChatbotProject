@@ -20,6 +20,7 @@ ontologyGoT = get_ontology("file://" + ontologyGoT_path).load()
 # for entities in ontologyGoT.properties():
 	# print("isLoyalTo" == entities.name)
 def main():
+	ontologyGoT = get_ontology("file://" + ontologyGoT_path).load()
 	# print("\nListe des classes :\n",list(GoT.classes()))
 	# print("\nListe des instances :\n",list(ontologyGoT.individuals()))
 	# print("\nListe des propriétés objet :\n",list(ontologyGoT.object_properties()))
@@ -42,7 +43,7 @@ def main():
 	# print(ontologyGoT.TheWesterlands.__dict__,'\n')
 
 	# ajout d une propriete
-	# print(ontologyGoT.Jon_Snow.isLoyalTo,'\n')
+	print(ontologyGoT.Jaqen_h_ghar.comment)
 	# GoT.Jon_Snow.isLoyalTo.append(GoT.Arya_Stark)
 	# print(GoT.Jon_Snow.isLoyalTo)
 	# print(GoT.Arya_Stark in GoT.Jon_Snow.isLoyalTo)
