@@ -52,16 +52,19 @@ def isInOntology(query, ontology):
 			isInOntology = True
 			indiv1 = entities
 			break
-	if indiv1:
+	if indiv1==None:
 		print("indiv1 pas dans les entite")
 		formatErrorBox()
 	if isInOntology:
 		isInOntology = False
-		for entities in ontology.properties():
+		for entities in dir(indiv1):
 			if query[1] == entities.name:
 				isInOntology = True
 				prop = entities
 				break
+		if prop==None:
+			print("Propriete inexistante pas dans les entite")
+			formatErrorBox()
 		if isInOntology:
 			isInOntology = False
 			for entities in ontology.individuals():
@@ -69,6 +72,9 @@ def isInOntology(query, ontology):
 					isInOntology = True
 					indiv2 = entities
 					break
+		if indiv2==None:
+			print("indiv2 inexistante pas dans les entite")
+			formatErrorBox()
 	return (isInOntology, indiv1, prop, indiv2) #Retourne un tuple => utile pour la suite pour
 												# éviter de tout reparcourir
 
@@ -81,18 +87,11 @@ def answer(query, ontology):
 	:return: la reponse a la requete.
 	:rtype: str
 	"""
-	# Jon_Snow,isLoyalTo,Sansa_Stark?
-	# query[0] = Jon_Snow
-	# query[1] = isLoyalTo
-	# query[2] = Sansa_Stark
-	# results = [GoT.Daenerys_Targaryen, GoT.Arya_Stark, GoT.Sansa_Stark]
-
-	# Creation d'une liste de réponses
-
 	#Vérification de la condition:
 	liste = isInOntology(query, ontology)
+	print(liste)
 	if liste[0]:
-		if liste[3] in ontology.liste[1].liste[2]:
+		if liste[3] in liste[1].liste[2]:
 			return "Yes"
 		return "No"
 	formatErrorBox()
@@ -112,7 +111,7 @@ def reply(mode, raw_query, ontology):
 	query = check(mode, raw_query, ontology)
 	if query == None:
 		formatErrorBox()
-	elif isInOntology(query, ontology)(0):
+	elif isInOntology(query, ontology)[0]:
 		response = answer(query,ontology)
 		return response
 	else:
