@@ -78,8 +78,9 @@ def answer(query, ontology):
 
 	# Creation d'une liste de réponses
 	results = list(ontology.query[0].query[1])
-	if ontology.query[2] in results:
-		return "Yes"
+	for entities in results:
+		if ontology.query[2] in results:
+			return "Yes"
 	return "No"
 
 

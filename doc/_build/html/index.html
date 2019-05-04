@@ -71,9 +71,11 @@
 </div>
 <div class="section" id="programme-principal">
 <h1>Programme principal<a class="headerlink" href="#programme-principal" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le format adequat pour le mode de saisie sur une ligne est :
+<code class="docutils literal notranslate"><span class="pre">instance1,propriete,instance2?</span></code></p>
 <div class="section" id="module-chatbot">
 <span id="chatbot"></span><h2><a class="reference internal" href="#module-chatbot" title="chatbot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">chatbot</span></code></a><a class="headerlink" href="#module-chatbot" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Ce fichier execute le chatbot Game of Thrones.</p>
+<p>Ce fichier execute le chatbot.</p>
 </div>
 </div>
 <div class="section" id="modules-necessaires-au-programme-principal">
@@ -129,6 +131,12 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 <dt id="source.ui.main">
 <code class="descclassname">source.ui.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.main" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Fonction principale permettant de tester l interface graphique independamment du programme principale.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="source.ui.noResultBox">
+<code class="descclassname">source.ui.</code><code class="descname">noResultBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.noResultBox" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Affiche la fenetre indiquant qu il n y a pas de resultat a la requete entree.</p>
 </dd></dl>
 
 <dl class="function">
@@ -195,7 +203,10 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 <dl class="function">
 <dt id="source.processing.check">
 <code class="descclassname">source.processing.</code><code class="descname">check</code><span class="sig-paren">(</span><em>mode</em>, <em>raw_query</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.check" title="Lien permanent vers cette définition">¶</a></dt>
-<dd><p>Verifie si la requete entree a le bon format eu egard au mode choisi. Puis, met la requete sous la forme conventionnelle.</p>
+<dd><p>Verifie si la requete entree a le bon format eu egard au mode choisi.
+Le format adequat pour le mode sur une ligne est :
+instance1,propriete,instance2?
+Puis, met la requete sous la forme conventionnelle.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
