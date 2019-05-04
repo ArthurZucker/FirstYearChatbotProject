@@ -23,8 +23,8 @@ Index
 Programme principal
 ===================
 
-Le format adequat pour le mode sur une ligne est :
-``instance1``,``propriete``,``instance2``?
+Le format adequat pour le mode de saisie sur une ligne est :
+``instance1,propriete,instance2?``
 
 :mod:`chatbot`
 **************

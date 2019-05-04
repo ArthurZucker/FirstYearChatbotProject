@@ -43,7 +43,6 @@ def isInOntology(query, ontology):
 	:rtype: bool
 	"""
 	isInOntology = False
-
 	for entities in ontology.individuals():
 		# Initialisation pour éviter les problèmes
 		indiv1 = entities
@@ -93,11 +92,6 @@ def answer(query, ontology):
 		if liste[3] in ontology.liste[1].liste[2]:
 			return "Yes"
 		return "No"
-	"""results = list(ontology.query[0].query[1])
-	if ontology.query[2] in results:
-		return "Yes"
-	return "No"
-	"""
 	errorBox()
 	return "No"
 
