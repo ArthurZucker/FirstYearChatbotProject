@@ -52,7 +52,7 @@ def cancelBox():
 	"cancel button.").center(80)
 	msgbox(message, title, "OK")
 
-def errorBox():
+def formatErrorBox():
 	"""
 	Affiche la fenetre indiquant que l utilisateur a entre une requete dont le format est incorrecte.
 	"""

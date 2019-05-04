@@ -31,6 +31,9 @@ while still:
 		answer = reply(mode, query, ontology)
 		if answer == None:
 			noResultBox()
+		elif answer == 1:
+			still = endBox()
+			continue
 		else:
 			answerBox(mode, query, answer)
 	still = endBox()
