@@ -39,8 +39,9 @@ def isInOntology(query, ontology):
 
 	:param list(str) query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
-	:return: True si les elements de la requete sont dans l ontologie et False sinon.
-	:rtype: bool
+	:return: un 4-uplet compose de :
+	True si les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete.
+	:rtype: (bool, owlready2.entity.ThingClass, owlready2.prop.ObjectPropertyClass, owlready2.entity.ThingClass)
 	"""
 	isInOntology = False
 	for entities in ontology.individuals():
@@ -109,9 +110,9 @@ def reply(mode, raw_query, ontology):
 	query = check(mode, raw_query, ontology)
 	if query == None:
 		formatErrorBox()
-	elif isInOntology(query, ontology):
-		answer = answer(query,ontology)
-		return answer
+	elif isInOntology(query, ontology)[0]:
+		response = answer(query,ontology)
+		return response
 	else:
 		notInOntologyBox()
 	return None
