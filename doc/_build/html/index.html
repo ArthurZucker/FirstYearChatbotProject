@@ -122,8 +122,8 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 </dd></dl>
 
 <dl class="function">
-<dt id="source.ui.errorBox">
-<code class="descclassname">source.ui.</code><code class="descname">errorBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.errorBox" title="Lien permanent vers cette définition">¶</a></dt>
+<dt id="source.ui.formatErrorBox">
+<code class="descclassname">source.ui.</code><code class="descname">formatErrorBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.formatErrorBox" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Affiche la fenetre indiquant que l utilisateur a entre une requete dont le format est incorrecte.</p>
 </dd></dl>
 
@@ -236,10 +236,10 @@ Puis, met la requete sous la forme conventionnelle.</p>
 </ul>
 </dd>
 <dt class="field-even">Renvoie</dt>
-<dd class="field-even"><p>True si les elements de la requete sont dans l ontologie et False sinon.</p>
+<dd class="field-even"><p>un 4-uplet compose de : True si les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete.</p>
 </dd>
 <dt class="field-odd">Type renvoyé</dt>
-<dd class="field-odd"><p>bool</p>
+<dd class="field-odd"><p>(bool, owlready2.entity.ThingClass, owlready2.prop.ObjectPropertyClass, owlready2.entity.ThingClass)</p>
 </dd>
 </dl>
 </dd></dl>

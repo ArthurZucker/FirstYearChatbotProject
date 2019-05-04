@@ -39,8 +39,8 @@ def isInOntology(query, ontology):
 
 	:param list(str) query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
-	:return: True si les elements de la requete sont dans l ontologie et False sinon.
-	:rtype: bool
+	:return: un 4-uplet compose de : True si les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete.
+	:rtype: (bool, owlready2.entity.ThingClass, owlready2.prop.ObjectPropertyClass, owlready2.entity.ThingClass)
 	"""
 	isInOntology = False
 	indiv1 = None

@@ -1,6 +1,5 @@
-# New ontology
-ontology/newOntologyGoT.owl
-ontology/catalog*
+# Ontology
+catalog-v001.xml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

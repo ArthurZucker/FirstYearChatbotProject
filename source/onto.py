@@ -16,8 +16,9 @@ ontologyGoT = get_ontology("file://" + ontologyGoT_path).load()
 # new_ontology_IRI = "http://www.semanticweb.org/jerome/ontologies/2019/3/newOntologyGoT.owl"
 # newOntologyGoT_path = onto_path[0] + "newOntologyGoT.owl"
 # newGoT = get_ontology(new_ontology_IRI)
-for entities in ontologyGoT.properties():
-	print("isLoyalTo" == entities.name)
+
+# for entities in ontologyGoT.properties():
+	# print("isLoyalTo" == entities.name)
 def main():
 	ontologyGoT = get_ontology("file://" + ontologyGoT_path).load()
 	# print("\nListe des classes :\n",list(GoT.classes()))
