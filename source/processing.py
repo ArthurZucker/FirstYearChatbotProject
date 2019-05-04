@@ -6,7 +6,7 @@
 Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcourt sur l ontologie.
 """
 
-from .ui import endBox, notInOntologyBox # pour charger l interface graphique
+from .ui import endBox, notInOntologyBox, errorBox# pour charger l interface graphique
 
 def check(mode, raw_query, ontology):
 	"""
