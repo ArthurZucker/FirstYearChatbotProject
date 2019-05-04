@@ -43,23 +43,32 @@ def isInOntology(query, ontology):
 	:rtype: bool
 	"""
 	isInOntology = False
+
 	for entities in ontology.individuals():
+		# Initialisation pour éviter les problèmes
+		indiv1 = entities
+		prop = entities
+		indiv2 = entities
 		if query[0] == entities.name:
 			isInOntology = True
+			indiv1 = entities
 			break
 	if isInOntology:
 		isInOntology = False
 		for entities in ontology.properties():
 			if query[1] == entities.name:
 				isInOntology = True
+				prop = entities
 				break
 		if isInOntology:
 			isInOntology = False
 			for entities in ontology.individuals():
 				if query[2] == entities.name:
 					isInOntology = True
+					indiv2 = entities
 					break
-	return isInOntology
+	return (isInOntology, indiv1, prop, indiv2) #Retourne un tuple => utile pour la suite pour
+												# éviter de tout reparcourir
 
 def answer(query, ontology):
 	"""
@@ -77,11 +86,20 @@ def answer(query, ontology):
 	# results = [GoT.Daenerys_Targaryen, GoT.Arya_Stark, GoT.Sansa_Stark]
 
 	# Creation d'une liste de réponses
-	results = list(ontology.query[0].query[1])
+
+	#Vérification de la condition:
+	liste = isInOntology(query, ontology)
+	if liste[0]:
+		if liste[3] in ontology.liste[1].liste[2]:
+			return "Yes"
+		return "No"
+	"""results = list(ontology.query[0].query[1])
 	if ontology.query[2] in results:
 		return "Yes"
 	return "No"
-
+	"""
+	errorBox()
+	return "No"
 
 def reply(mode, raw_query, ontology):
 	"""
