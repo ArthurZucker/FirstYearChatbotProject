@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Ce fichier execute le chatbot.
+Ce fichier execute le chatbot en faisant appel au fonctions des modules se situant dans le repertoire source.
 """
 # Jon_Snow,isLoyalTo,Sansa_Stark?
 from os.path import dirname, realpath
@@ -29,11 +29,6 @@ while still:
 		cancelBox()
 	else:
 		answer = reply(mode, query, ontology)
-		if answer == None:
-			noResultBox()
-		elif answer == 1:
-			still = endBox()
-			continue
-		else:
+		if answer != None:
 			answerBox(mode, query, answer)
 	still = endBox()

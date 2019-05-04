@@ -75,7 +75,7 @@
 <code class="docutils literal notranslate"><span class="pre">instance1,propriete,instance2?</span></code></p>
 <div class="section" id="module-chatbot">
 <span id="chatbot"></span><h2><a class="reference internal" href="#module-chatbot" title="chatbot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">chatbot</span></code></a><a class="headerlink" href="#module-chatbot" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Ce fichier execute le chatbot.</p>
+<p>Ce fichier execute le chatbot en faisant appel au fonctions des modules se situant dans le repertoire source.</p>
 </div>
 </div>
 <div class="section" id="modules-necessaires-au-programme-principal">
@@ -182,13 +182,13 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 <p>Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcourt sur l ontologie.</p>
 <dl class="function">
 <dt id="source.processing.answer">
-<code class="descclassname">source.processing.</code><code class="descname">answer</code><span class="sig-paren">(</span><em>individual1</em>, <em>property</em>, <em>individual2</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.answer" title="Lien permanent vers cette définition">¶</a></dt>
-<dd><p>Recherche une reponse a la requete, donnee sous forme d objets, dans l ontologie.</p>
+<code class="descclassname">source.processing.</code><code class="descname">answer</code><span class="sig-paren">(</span><em>individual1</em>, <em>propertyName</em>, <em>individual2</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.answer" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Recherche une reponse a la requete dans l ontologie, donnee sous forme d instance pour les individus et sous la forme de str pour la propriete.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>individual1</strong> (<em>owlready2.entity.ThingClass</em>) – l instance 1</p></li>
-<li><p><strong>property</strong> (<em>owlready2.prop.ObjectPropertyClass</em>) – la propriete</p></li>
+<li><p><strong>propertyName</strong> (<em>str</em>) – le nom de la propriete.</p></li>
 <li><p><strong>individual2</strong> (<em>owlready2.entity.ThingClass</em>) – l instance 2</p></li>
 <li><p><strong>ontology</strong> (<em>owlready2.namespace.Ontology</em>) – l ontologie.</p></li>
 </ul>
@@ -218,7 +218,7 @@ Puis, met la requete sous la forme conventionnelle.</p>
 </ul>
 </dd>
 <dt class="field-even">Renvoie</dt>
-<dd class="field-even"><p>la requete sous forme de liste.</p>
+<dd class="field-even"><p>la requete sous forme de liste de str.</p>
 </dd>
 <dt class="field-odd">Type renvoyé</dt>
 <dd class="field-odd"><p>list(str) ou None</p>
@@ -229,7 +229,7 @@ Puis, met la requete sous la forme conventionnelle.</p>
 <dl class="function">
 <dt id="source.processing.isInOntology">
 <code class="descclassname">source.processing.</code><code class="descname">isInOntology</code><span class="sig-paren">(</span><em>query</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.isInOntology" title="Lien permanent vers cette définition">¶</a></dt>
-<dd><p>Verifie la presence des entites recherchees dans l ontologie. Retourne 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete ou None s il n existe pas dans l ontologie.</p>
+<dd><p>Verifie la presence des entites recherchees dans l ontologie. Retourne 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
@@ -238,10 +238,10 @@ Puis, met la requete sous la forme conventionnelle.</p>
 </ul>
 </dd>
 <dt class="field-even">Renvoie</dt>
-<dd class="field-even"><p>un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete.</p>
+<dd class="field-even"><p>un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.</p>
 </dd>
 <dt class="field-odd">Type renvoyé</dt>
-<dd class="field-odd"><p>(bool, owlready2.entity.ThingClass ou None, owlready2.prop.ObjectPropertyClass ou None, owlready2.entity.ThingClass ou None)</p>
+<dd class="field-odd"><p>(bool, owlready2.entity.ThingClass ou None, str ou None, owlready2.entity.ThingClass ou None)</p>
 </dd>
 </dl>
 </dd></dl>

@@ -6,7 +6,7 @@
 Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcourt sur l ontologie.
 """
 
-from .ui import endBox, notInOntologyBox, formatErrorBox # pour charger l interface graphique
+from .ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
 
 def check(mode, raw_query, ontology):
 	"""
@@ -19,99 +19,80 @@ def check(mode, raw_query, ontology):
 	:param raw_query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	:type raw_query: str ou list(str)
-	:return: la requete sous forme de liste.
+	:return: la requete sous forme de liste de str.
 	:rtype: list(str) ou None
 	"""
+	query = None
 	if mode == 0:
-		if (raw_query.find(',') == 2 and raw_query.find('?') == 1):
-			raw_query.replace('?','')
-			query = raw_query.split(",")
+		print(raw_query)
+		if (raw_query.find(',') != -1 and raw_query.find('?') != -1):
+			tempQuery = raw_query.replace('?','')
+			print(tempQuery)
+			query = tempQuery.split(",")
+			print(query)
 	elif mode == 1:
 		for str in raw_query:
 			if str == "":
 				return None
-		return raw_query
-	return None
+		query = raw_query
+	return query
 
 def isInOntology(query, ontology):
 	"""
-	Verifie la presence des entites recherchees dans l ontologie. Retourne 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete ou None s il n existe pas dans l ontologie.
+	Verifie la presence des entites recherchees dans l ontologie. Retourne 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.
 
 	:param list(str) query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
-	:return: un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete.
-	:rtype: (bool, owlready2.entity.ThingClass ou None, owlready2.prop.ObjectPropertyClass ou None, owlready2.entity.ThingClass ou None)
+	:return: un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.
+	:rtype: (bool, owlready2.entity.ThingClass ou None, str ou None, owlready2.entity.ThingClass ou None)
 	"""
-	# Initialisation pour éviter les problèmes
 	isInOntology = False
-	indiv1 = None
-	prop = None
-	indiv2 = None
-	for entities in ontology.individuals():
-		if query[0] == entities.name:
-			isInOntology = True
-			indiv1 = entities
-			break
-	# if indiv1==None:
-	# 	print("indiv1 pas dans les entite")
-	# 	formatErrorBox()
+	individual1 = None
+	propertyName = None
+	individual2 = None
 
-	# EREUR ICI
+	for individual in ontology.individuals():
+		if query[0] == individual.name:
+			isInOntology = True
+			individual1 = individual
+			break
+
 	if isInOntology:
 		isInOntology = False
-		for entities in dir(indiv1):
-			if query[1] == entities.name:
+		for str in dir(individual1):
+			if query[1] == str:
 				isInOntology = True
-				prop = entities
+				propertyName = str
+				# searchList = ontology.search(iri = "*"+propertyName+"*")
+				# if len(searchList) == 1 and propertyName == searchList[0].name:
+				# 	property = searchList[0]
+				# else:
+				# 	print("Error : at least two properties are similar.")
 				break
-		if prop==None:
-			print("Propriete inexistante pas dans les entite")
-			formatErrorBox()
+
 		if isInOntology:
 			isInOntology = False
-			for entities in ontology.individuals():
-				if query[2] == entities.name:
+			for individual in individual1.__getattr__(propertyName):
+				if query[2] == individual.name:
 					isInOntology = True
-					indiv2 = entities
+					individual2 = individual
 					break
-		if indiv2==None:
-			print("indiv2 inexistante pas dans les entite")
-			formatErrorBox()
-	return (isInOntology, indiv1, prop, indiv2) #Retourne un tuple => utile pour la suite pour
-												# éviter de tout reparcourir
 
-# def answer(query, ontology):
-# 	"""
-# 	Recherche une reponse a la requete dans l ontologie.
-#
-# 	:param list(str) query: la requete.
-# 	:param owlready2.namespace.Ontology ontology: l ontologie.
-# 	:return: la reponse a la requete.
-# 	:rtype: str
-# 	"""
-# 	#Vérification de la condition:
-#		liste = isInOntology(query, ontology)
-# 	print(liste)
-# 	if liste[0]:
-# 		if liste[3] in liste[1].liste[2]:
-# 			return "Yes"
-# 		return "No"
-# 	formatErrorBox()
-# 	return "No"
+	return (isInOntology, individual1, propertyName, individual2)
 
-def answer(individual1, property, individual2, ontology):
+def answer(individual1, propertyName, individual2, ontology):
 	"""
-	Recherche une reponse a la requete, donnee sous forme d objets, dans l ontologie.
+	Recherche une reponse a la requete dans l ontologie, donnee sous forme d instance pour les individus et sous la forme de str pour la propriete.
 
 	:param owlready2.entity.ThingClass individual1: l instance 1
-	:param owlready2.prop.ObjectPropertyClass property: la propriete
+	:param str propertyName: le nom de la propriete.
 	:param owlready2.entity.ThingClass individual2: l instance 2
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	:return: la reponse a la requete.
 	:rtype: str
 	"""
-	# ERREUR ICI CAR LISTE2 EST ONTOLOGY.PROP ET NON JUSTE PROP
-	if liste[3] in liste[1].liste[2]:
+	# :param owlready2.prop.ObjectPropertyClass property: la propriete
+	if individual2 in individual1.__getattr__(propertyName):
 		return "Yes"
 	return "No"
 
@@ -130,10 +111,11 @@ def reply(mode, raw_query, ontology):
 	if query == None:
 		formatErrorBox()
 		return None
-	isInOntology, indiv1, prop, indiv2 = isInOntology(query, ontology)
-	if isInOntology:
-		# response = answer(query,ontology)
-		response = answer(indiv1, prop, indiv2, ontology)
+	isInOnto, individual1, property, individual2 = isInOntology(query, ontology)
+	if isInOnto:
+		response = answer(individual1, property, individual2, ontology)
+		if response == None:
+			noResultBox()
 		return response
 	else:
 		notInOntologyBox()
