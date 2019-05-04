@@ -52,6 +52,9 @@ def isInOntology(query, ontology):
 			isInOntology = True
 			indiv1 = entities
 			break
+	if indiv1:
+		print("indiv1 pas dans les entite")
+		formatErrorBox()
 	if isInOntology:
 		isInOntology = False
 		for entities in ontology.properties():
