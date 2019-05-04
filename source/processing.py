@@ -6,7 +6,7 @@
 Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcourt sur l ontologie.
 """
 
-from .ui import endBox, notInOntologyBox, errorBox # pour charger l interface graphique
+from .ui import endBox, notInOntologyBox, formatErrorBox # pour charger l interface graphique
 
 def check(mode, raw_query, ontology):
 	"""
@@ -92,7 +92,7 @@ def answer(query, ontology):
 		if liste[3] in ontology.liste[1].liste[2]:
 			return "Yes"
 		return "No"
-	errorBox()
+	formatErrorBox()
 	return "No"
 
 def reply(mode, raw_query, ontology):
@@ -108,7 +108,7 @@ def reply(mode, raw_query, ontology):
 	"""
 	query = check(mode, raw_query, ontology)
 	if query == None:
-		errorBox()
+		formatErrorBox()
 	elif isInOntology(query, ontology):
 		answer = answer(query,ontology)
 		return answer
