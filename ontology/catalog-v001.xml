@@ -2,6 +2,6 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="User Entered Import Resolution" name="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT" uri="ontologyGoT.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1556996376954" name="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT" uri="ontology_new.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1556996532237" name="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT" uri="ontology_new.owl"/>
     </group>
 </catalog>
