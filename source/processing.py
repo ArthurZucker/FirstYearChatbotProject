@@ -35,26 +35,27 @@ def check(mode, raw_query, ontology):
 
 def isInOntology(query, ontology):
 	"""
-	Retourne True si les elements de la requete sont dans l ontologie et False sinon.
+	Verifie la presence des entites recherchees dans l ontologie. Retourne 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete ou None s il n existe pas dans l ontologie.
 
 	:param list(str) query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
-	:return: un 4-uplet compose de : True si les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete.
-	:rtype: (bool, owlready2.entity.ThingClass, owlready2.prop.ObjectPropertyClass, owlready2.entity.ThingClass)
+	:return: un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete.
+	:rtype: (bool, owlready2.entity.ThingClass ou None, owlready2.prop.ObjectPropertyClass ou None, owlready2.entity.ThingClass ou None)
 	"""
+	# Initialisation pour éviter les problèmes
 	isInOntology = False
 	indiv1 = None
 	prop = None
 	indiv2 = None
 	for entities in ontology.individuals():
-		# Initialisation pour éviter les problèmes
 		if query[0] == entities.name:
 			isInOntology = True
 			indiv1 = entities
 			break
-	if indiv1==None:
-		print("indiv1 pas dans les entite")
-		formatErrorBox()
+	# if indiv1==None:
+	# 	print("indiv1 pas dans les entite")
+	# 	formatErrorBox()
+
 	# EREUR ICI
 	if isInOntology:
 		isInOntology = False
@@ -79,23 +80,39 @@ def isInOntology(query, ontology):
 	return (isInOntology, indiv1, prop, indiv2) #Retourne un tuple => utile pour la suite pour
 												# éviter de tout reparcourir
 
-def answer(query, ontology):
-	"""
-	Recherche une reponse a la requete dans l ontologie.
+# def answer(query, ontology):
+# 	"""
+# 	Recherche une reponse a la requete dans l ontologie.
+#
+# 	:param list(str) query: la requete.
+# 	:param owlready2.namespace.Ontology ontology: l ontologie.
+# 	:return: la reponse a la requete.
+# 	:rtype: str
+# 	"""
+# 	#Vérification de la condition:
+#		liste = isInOntology(query, ontology)
+# 	print(liste)
+# 	if liste[0]:
+# 		if liste[3] in liste[1].liste[2]:
+# 			return "Yes"
+# 		return "No"
+# 	formatErrorBox()
+# 	return "No"
 
-	:param list(str) query: la requete.
+def answer(individual1, property, individual2, ontology):
+	"""
+	Recherche une reponse a la requete, donnee sous forme d objets, dans l ontologie.
+
+	:param owlready2.entity.ThingClass individual1: l instance 1
+	:param owlready2.prop.ObjectPropertyClass property: la propriete
+	:param owlready2.entity.ThingClass individual2: l instance 2
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	:return: la reponse a la requete.
 	:rtype: str
 	"""
-	#Vérification de la condition:
-	liste = isInOntology(query, ontology)
-	print(liste)
-	if liste[0]:
-		if liste[3] in liste[1].liste[2]:
-			return "Yes"
-		return "No"
-	formatErrorBox()
+	# ERREUR ICI CAR LISTE2 EST ONTOLOGY.PROP ET NON JUSTE PROP
+	if liste[3] in liste[1].liste[2]:
+		return "Yes"
 	return "No"
 
 def reply(mode, raw_query, ontology):
@@ -112,8 +129,11 @@ def reply(mode, raw_query, ontology):
 	query = check(mode, raw_query, ontology)
 	if query == None:
 		formatErrorBox()
-	elif isInOntology(query, ontology)[0]:
-		response = answer(query,ontology)
+		return None
+	isInOntology, indiv1, prop, indiv2 = isInOntology(query, ontology)
+	if isInOntology:
+		# response = answer(query,ontology)
+		response = answer(indiv1, prop, indiv2, ontology)
 		return response
 	else:
 		notInOntologyBox()
