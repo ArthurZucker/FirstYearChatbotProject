@@ -40,7 +40,7 @@ def isInOntology(query, ontology):
 	:param list(str) query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	:return: True si les elements de la requete sont dans l ontologie et False sinon.
-	:rtype: bool
+	:rtype: bool 
 	"""
 	isInOntology = False
 	for entities in ontology.individuals():

@@ -330,9 +330,8 @@
     <owl:Thing rdf:about="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Jaqen_h_ghar">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/jerome/ontologies/2019/3/ontologyGoT#Character"/>
-        <rdfs:comment xml:lang="en">&quot;Jaqen H&apos;ghar&quot; is the alias assumed by one of the Faceless Men of Braavos, a feared order of mysterious assassins with the ability to change their appearance at will. He was first introduced as a Lorathi criminal - who was arrested and put in the dungeons of King&apos;s Landing, before being recruited by Yoren to join the Night&apos;s Watch. He is in Yoren&apos;s party as the latter smuggles Arya Stark out of King&apos;s Landing. He travels with them to the lands south of Harrenhal, where they are captured by Lannister forces.
-
-After the Jaqen persona is of no more use to him, the Faceless Man shapeshifts into a new appearance and tells Arya he will train her to be a Faceless Man if she goes with him. Eventually, Arya travels to Braavos to look for Jaqen and finds him, and he trains her. Her training is complete upon killing the Waif and he fully deems her to be &quot;no one&quot;.</rdfs:comment>
+        <rdfs:comment xml:lang="en">&quot;Jaqen H&apos;ghar&quot; is the alias assumed by one of the Faceless Men of Braavos, a feared order of mysterious assassins with the ability to change their appearance at will. He was first introduced as a Lorathi criminal - who was arrested and put in the dungeons of King&apos;s Landing, before being recruited by Yoren to join the Night&apos;s Watch. He is in Yoren&apos;s party as the latter smuggles Arya Stark out of King&apos;s Landing. He travels with them to the lands south of Harrenhal, where they are captured by Lannister forces.</rdfs:comment>
+        <owl:versionInfo>INFOOOO</owl:versionInfo>
     </owl:Thing>
     
 
