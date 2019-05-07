@@ -8,8 +8,8 @@ Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requ
 
 from .ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
 
-def check2(raw_query):
-	D = {"loyal":"isLoyalTo"}
+def check2(sentence):
+	"""D = {"loyal":"isLoyalTo"}
 	raw_query = raw_query.split(",")
 
 	s2 = raw_query[1].split(" ")
@@ -22,7 +22,29 @@ def check2(raw_query):
 			raw_query[1] = raw_query[1].replace(words, "")
 
 	return "".join(raw_query)
-	#print(sentence[1])
+	#print(sentence[1])"""
+	D = {"loyal":"isLoyalTo", "arya":"Arya_Stark", "sansa":"Sansa_Stark", "cersei":"Cersei_Lannister"}
+
+	#sentence = "Arya , is loyal to, Sansa ?"
+
+	sentence = sentence.split(",")
+
+	s2 = sentence[1].split(" ")
+	#print(s2)
+	#print(sentence)
+	for i in range(len(sentence)):
+		sentence[i] = sentence[i].lower()
+		s2 = sentence[i].split(" ")
+		for words in s2:
+			if words in D:
+				print(D[words])
+				sentence[i] = sentence[i].replace(words, D[words])
+				print(sentence[i])
+			else:
+				sentence[i] = sentence[i].replace(words, "")
+
+
+	return "".join(sentence)
 
 
 def check(mode, raw_query, ontology):
