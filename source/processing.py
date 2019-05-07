@@ -8,6 +8,23 @@ Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requ
 
 from .ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
 
+def check2(raw_query):
+	D = {"loyal":"isLoyalTo"}
+	raw_query = raw_query.split(",")
+
+	s2 = raw_query[1].split(" ")
+
+	for words in s2:
+		if words in D:
+			#print(words)
+			raw_query[1] = raw_query[1].replace(words, D[words])
+		else:
+			raw_query[1] = raw_query[1].replace(words, "")
+
+	return "".join(raw_query)
+	#print(sentence[1])
+
+
 def check(mode, raw_query, ontology):
 	"""
 	Verifie si la requete entree a le bon format eu egard au mode choisi.
@@ -22,6 +39,8 @@ def check(mode, raw_query, ontology):
 	:return: la requete sous forme de liste de str.
 	:rtype: list(str) ou None
 	"""
+	raw_query = check2(raw_query)
+
 	query = None
 	if mode == 0:
 		print(raw_query)
