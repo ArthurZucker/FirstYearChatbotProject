@@ -100,10 +100,11 @@ def isInOntology(query, ontology):
 
 	if isInOntology:
 		isInOntology = False
-		for str in dir(individual1):
-			if query[1] == str:
+		for str1 in dir(individual1):
+			if query[1] == str1:
 				isInOntology = True
-				propertyName = str
+				propertyName = str1
+				# search_one
 				# searchList = ontology.search(iri = "*"+propertyName+"*")
 				# if len(searchList) == 1 and propertyName == searchList[0].name:
 				# 	property = searchList[0]
