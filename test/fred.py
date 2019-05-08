@@ -1,4 +1,8 @@
-#from __future__ import print_statement
+#!/usr/bin/env python
+
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
 import fredlibs
 import time
 import swagger_client
