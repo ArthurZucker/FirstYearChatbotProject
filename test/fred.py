@@ -1,11 +1,11 @@
+from __future__ import print_function
 import fredlib
 #!/usr/bin/env python
 
 # -*- coding: utf-8 -*-
-
-from __future__ import print_function
-
 import time
+import sys
+sys.path.insert(0, '../python-client/')
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
