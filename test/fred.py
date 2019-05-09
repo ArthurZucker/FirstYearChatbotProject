@@ -4,9 +4,10 @@
 
 from __future__ import print_function
 import fredlib
-# import fredlibs
 import time
-import .pythonclient.swagger_client
+import sys
+sys.path.insert(0, '../python-client/')
+import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
