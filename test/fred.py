@@ -1,5 +1,5 @@
-#from __future__ import print_statement
-import fredlibs
+#from __future__ import print_function
+import fredlib
 import time
 import swagger_client
 from swagger_client.rest import ApiException
