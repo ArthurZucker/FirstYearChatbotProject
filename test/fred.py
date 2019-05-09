@@ -1,12 +1,12 @@
-import fredlib
 #!/usr/bin/env python
 
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
-
+import fredlib
+# import fredlibs
 import time
-import swagger_client
+import .pythonclient.swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
