@@ -8,6 +8,45 @@ Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requ
 
 from .ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
 
+def check2(sentence):
+	"""D = {"loyal":"isLoyalTo"}
+	raw_query = raw_query.split(",")
+
+	s2 = raw_query[1].split(" ")
+
+	for words in s2:
+		if words in D:
+			#print(words)
+			raw_query[1] = raw_query[1].replace(words, D[words])
+		else:
+			raw_query[1] = raw_query[1].replace(words, "")
+
+	return "".join(raw_query)
+	#print(sentence[1])"""
+	D = {"loyal":"isLoyalTo", "arya":"Arya_Stark", "sansa":"Sansa_Stark", "cersei":"Cersei_Lannister"}
+
+	#sentence = "Arya , is loyal to, Sansa ?"
+
+	sentence = sentence.split(",")
+
+	s2 = sentence[1].split(" ")
+	#print(s2)
+	#print(sentence)
+	for i in range(len(sentence)):
+		sentence[i] = sentence[i].lower()
+		s2 = sentence[i].split(" ")
+		for words in s2:
+			if words in D:
+				print(D[words])
+				sentence[i] = sentence[i].replace(words, D[words])
+				print(sentence[i])
+			else:
+				sentence[i] = sentence[i].replace(words, "")
+
+
+	return "".join(sentence)
+
+
 def check(mode, raw_query, ontology):
 	"""
 	Verifie si la requete entree a le bon format eu egard au mode choisi.
@@ -22,6 +61,8 @@ def check(mode, raw_query, ontology):
 	:return: la requete sous forme de liste de str.
 	:rtype: list(str) ou None
 	"""
+	raw_query = check2(raw_query)
+
 	query = None
 	if mode == 0:
 		print(raw_query)
@@ -59,10 +100,11 @@ def isInOntology(query, ontology):
 
 	if isInOntology:
 		isInOntology = False
-		for str in dir(individual1):
-			if query[1] == str:
+		for str1 in dir(individual1):
+			if query[1] == str1:
 				isInOntology = True
-				propertyName = str
+				propertyName = str1
+				# search_one
 				# searchList = ontology.search(iri = "*"+propertyName+"*")
 				# if len(searchList) == 1 and propertyName == searchList[0].name:
 				# 	property = searchList[0]
