@@ -2,10 +2,18 @@
 
 Ce git regroupe l'ensemble des fichiers nécessaires au lancement du chatbot.
 Pour exécuter ce programme, il faut ouvrir un terminal, cloner le repertoire grâce à la commande :
->`git clone <lien_du_git>`
+```sh
+git clone <lien_du_git>
+```
 
 et exécuter le fichier principal grâce à la commande :
->`./chatbot.py` ou, si une erreur est renvoyée, `python3 chatbot.py`
+```sh
+./chatbot.py
+```
+ou, si une erreur est renvoyée,
+```
+python3 chatbot.py
+```
 
 ## Syntaxe
 
@@ -22,7 +30,13 @@ Pour utiliser ce programme, il est nécessaire de posséder les packets suivants
 > `sys` `os` `types` `tempfile` `subprocess` `weakref` `re` `urllib` `warnings` `itertools` `owlready2` `easygui`
 
 Vous pouvez les installer grâce à la commande suivante :
-> `pip install <nom_du_packet>` ou `pip3 install <nom_du_packet>`
+```sh
+pip install <nom_du_packet>
+```
+ou
+```sh
+pip3 install <nom_du_packet>
+```
 
 ## Documentation
 

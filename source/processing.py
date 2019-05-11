@@ -6,7 +6,46 @@
 Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcourt sur l ontologie.
 """
 
-from .ui import endBox, notInOntologyBox, formatErrorBox # pour charger l interface graphique
+from .ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
+
+def check2(sentence):
+	"""D = {"loyal":"isLoyalTo"}
+	raw_query = raw_query.split(",")
+
+	s2 = raw_query[1].split(" ")
+
+	for words in s2:
+		if words in D:
+			#print(words)
+			raw_query[1] = raw_query[1].replace(words, D[words])
+		else:
+			raw_query[1] = raw_query[1].replace(words, "")
+
+	return "".join(raw_query)
+	#print(sentence[1])"""
+	D = {"loyal":"isLoyalTo", "arya":"Arya_Stark", "sansa":"Sansa_Stark", "cersei":"Cersei_Lannister"}
+
+	#sentence = "Arya , is loyal to, Sansa ?"
+
+	sentence = sentence.split(",")
+
+	s2 = sentence[1].split(" ")
+	#print(s2)
+	#print(sentence)
+	for i in range(len(sentence)):
+		sentence[i] = sentence[i].lower()
+		s2 = sentence[i].split(" ")
+		for words in s2:
+			if words in D:
+				print(D[words])
+				sentence[i] = sentence[i].replace(words, D[words])
+				print(sentence[i])
+			else:
+				sentence[i] = sentence[i].replace(words, "")
+
+
+	return "".join(sentence)
+
 
 def check(mode, raw_query, ontology):
 	"""
@@ -19,38 +58,44 @@ def check(mode, raw_query, ontology):
 	:param raw_query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	:type raw_query: str ou list(str)
-	:return: la requete sous forme de liste.
+	:return: la requete sous forme de liste de str.
 	:rtype: list(str) ou None
 	"""
+	raw_query = check2(raw_query)
+
+	query = None
 	if mode == 0:
-		if (raw_query.find(',') == 2 and raw_query.find('?') == 1):
-			raw_query.replace('?','')
-			query = raw_query.split(",")
+		print(raw_query)
+		if (raw_query.find(',') != -1 and raw_query.find('?') != -1):
+			tempQuery = raw_query.replace('?','')
+			print(tempQuery)
+			query = tempQuery.split(",")
+			print(query)
 	elif mode == 1:
 		for str in raw_query:
 			if str == "":
 				return None
-		return raw_query
-	return None
+		query = raw_query
+	return query
 
 def isInOntology(query, ontology):
 	"""
-	Retourne True si les elements de la requete sont dans l ontologie et False sinon.
+	Verifie la presence des entites recherchees dans l ontologie. Retourne 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.
 
 	:param list(str) query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
-	:return: un 4-uplet compose de : True si les elements de la requete sont dans l ontologie et False sinon, les objets correspondant aux elements de la requete.
-	:rtype: (bool, owlready2.entity.ThingClass, owlready2.prop.ObjectPropertyClass, owlready2.entity.ThingClass)
+	:return: un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.
+	:rtype: (bool, owlready2.entity.ThingClass ou None, str ou None, owlready2.entity.ThingClass ou None)
 	"""
 	isInOntology = False
-	indiv1 = None
-	prop = None
-	indiv2 = None
-	for entities in ontology.individuals():
-		# Initialisation pour éviter les problèmes
-		if query[0] == entities.name:
+	individual1 = None
+	propertyName = None
+	individual2 = None
+
+	for individual in ontology.individuals():
+		if query[0] == individual.name:
 			isInOntology = True
-			indiv1 = entities
+			individual1 = individual
 			break
 	if indiv1==None:
 		print("indiv1 pas dans les entite")
@@ -58,10 +103,16 @@ def isInOntology(query, ontology):
 	# ERrEUR ICI
 	if isInOntology:
 		isInOntology = False
-		for entities in dir(indiv1):
-			if query[1] == entities.name:
+		for str1 in dir(individual1):
+			if query[1] == str1:
 				isInOntology = True
-				prop = entities
+				propertyName = str1
+				# search_one
+				# searchList = ontology.search(iri = "*"+propertyName+"*")
+				# if len(searchList) == 1 and propertyName == searchList[0].name:
+				# 	property = searchList[0]
+				# else:
+				# 	print("Error : at least two properties are similar.")
 				break
 		# ideal faire list = indiv1.prop
 		if prop==None:
@@ -69,22 +120,21 @@ def isInOntology(query, ontology):
 			formatErrorBox()
 		if isInOntology:
 			isInOntology = False
-			for entities in ontology.individuals():
-				if query[2] == entities.name:
+			for individual in individual1.__getattr__(propertyName):
+				if query[2] == individual.name:
 					isInOntology = True
-					indiv2 = entities
+					individual2 = individual
 					break
-		if indiv2==None:
-			print("indiv2 inexistante pas dans les entite")
-			formatErrorBox()
-	return (isInOntology, indiv1, prop, indiv2) #Retourne un tuple => utile pour la suite pour
-												# éviter de tout reparcourir
 
-def answer(query, ontology):
+	return (isInOntology, individual1, propertyName, individual2)
+
+def answer(individual1, propertyName, individual2, ontology):
 	"""
-	Recherche une reponse a la requete dans l ontologie.
+	Recherche une reponse a la requete dans l ontologie, donnee sous forme d instance pour les individus et sous la forme de str pour la propriete.
 
-	:param list(str) query: la requete.
+	:param owlready2.entity.ThingClass individual1: l instance 1
+	:param str propertyName: le nom de la propriete.
+	:param owlready2.entity.ThingClass individual2: l instance 2
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	:return: la reponse a la requete.
 	:rtype: str
@@ -114,8 +164,12 @@ def reply(mode, raw_query, ontology):
 	query = check(mode, raw_query, ontology)
 	if query == None:
 		formatErrorBox()
-	elif isInOntology(query, ontology)[0]:
-		response = answer(query,ontology)
+		return None
+	isInOnto, individual1, property, individual2 = isInOntology(query, ontology)
+	if isInOnto:
+		response = answer(individual1, property, individual2, ontology)
+		if response == None:
+			noResultBox()
 		return response
 	else:
 		notInOntologyBox()
