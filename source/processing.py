@@ -55,7 +55,7 @@ def isInOntology(query, ontology):
 	if indiv1==None:
 		print("indiv1 pas dans les entite")
 		formatErrorBox()
-	# EREUR ICI
+	# ERrEUR ICI
 	if isInOntology:
 		isInOntology = False
 		for entities in dir(indiv1):
@@ -63,6 +63,7 @@ def isInOntology(query, ontology):
 				isInOntology = True
 				prop = entities
 				break
+		# ideal faire list = indiv1.prop
 		if prop==None:
 			print("Propriete inexistante pas dans les entite")
 			formatErrorBox()
@@ -91,6 +92,7 @@ def answer(query, ontology):
 	#Vérification de la condition:
 	liste = isInOntology(query, ontology)
 	print(liste)
+	# isInOntology BUG!
 	if liste[0]:
 		if liste[3] in liste[1].liste[2]:
 			return "Yes"
