@@ -546,7 +546,8 @@ def preprocessText(text):
     return nt
 
 def getFredGraph(sentence,key,filename):
-    command_to_exec = "curl -G -X GET -H \"Accept: application/rdf+xml\" -H \"Authorization: Bearer " + key + "\" --data-urlencode text=\"" + sentence+ "\" -d semantic-subgraph=\"true\" http://wit.istc.cnr.it/stlab-tools/fred > " + filename
+    #http://wit.istc.cnr.it/stlab-tools/fred
+    command_to_exec = "curl -G -X GET -H \"Accept: application/rdf+xml\" -H \"Authorization: Bearer " + key + "\" --data-urlencode text=\"" + sentence+ "\" -d semantic-subgraph=\"true\" http://wit.istc.cnr.it:9191/fred> " + filename
     try:
         os.system(command_to_exec)
     except:
@@ -564,7 +565,7 @@ if __name__ == "__main__":
 
     def checkFredSentence(sentence, key, graph):
         g = getFredGraph(preprocessText(sentence), key, graph)
-        #g = openFredGraph(graph)
+        g = openFredGraph(graph)
         checkFredGraph(g)
 
     def checkFredFile(filename):
@@ -679,7 +680,7 @@ if __name__ == "__main__":
         motif_occurrences = g.getNaryMotif(NaryMotif.Situation)
         for situation in motif_occurrences:
             roles = motif_occurrences[situation]
-            print(event,"{",)
+            print(situation,"{",)
             for r in roles:
                 print(r,":",roles[r],";",)
             print("}")
@@ -688,7 +689,7 @@ if __name__ == "__main__":
         motif_occurrences = g.getNaryMotif(NaryMotif.OtherEvent)
         for other_event in motif_occurrences:
             roles = motif_occurrences[other_event]
-            print(event,"{",)
+            print(other_event,"{",)
             for r in roles:
                 print(r,":",roles[r],";",)
             print("}")
@@ -697,9 +698,9 @@ if __name__ == "__main__":
         motif_occurrences = g.getNaryMotif(NaryMotif.Concept)
         for concept in motif_occurrences:
             roles = motif_occurrences[concept]
-            print(event,"{",)
+            print(concept,"{",)
             for r in roles:
                 print(r,":",roles[r],";",)
             print("}")
 
-    g = checkFredSentence('The radio said that Pippo went to France', sys.argv[1],'pippo.rdf')
+    g = checkFredSentence('Sansa Stark was loyal to Jon Snow but she is a hoe', sys.argv[1],'pippo.owl')
