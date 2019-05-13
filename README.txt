@@ -44,6 +44,54 @@ Ontologie :
 
 L'ontologie a été créée avec protégé (https://protege.stanford.edu/). Le fichier ontology_graphe.png est un graphe des classes de l'ontologie. Le fichier ontologyGoT.pdf est un graphe complet de l'ontologie.
 
+Liste des instances présentes dans l'ontologie :
+
+Arryn
+Arya_Stark
+Baratheon
+Benjen_Stark
+BeyondTheWall
+Bolton
+Brandon_Stark
+Cersei_Lannister
+Daenerys_Targaryen
+Dorne
+DrownedGod
+Eddard_Stark
+FaithOfTheSeven
+Frey
+GreatStallion
+Greyjoy
+Jaqen_h_ghar
+Jon_Snow
+Lannister
+LordOfLight
+Lyanna_Stark
+ManyFacedGod
+Martell
+Oberyn_Martell
+OldGods
+Rhaegar_Targaryen
+Rickard_Stark
+Rickon_Stark
+Robb_Stark
+Sansa_Stark
+Stark
+Targaryen
+TheCrownlands
+TheIronIslands
+TheNorth
+Theon_Greyjoy
+TheReach
+TheRiverlands
+TheStormlands
+TheVale
+TheWesterlands
+Tully
+Tyrell
+Tyrion_Lannister
+Tywin_Lannister
+
 Interface graphique :
 
 Toute l'interface graphique est regroupée dans le fichier window.py. Elle a
