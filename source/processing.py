@@ -23,6 +23,7 @@ def check2(sentence):
 
 	return "".join(raw_query)
 	#print(sentence[1])"""
+
 	D = {"loyal":"isLoyalTo", "arya":"Arya_Stark", "sansa":"Sansa_Stark", "cersei":"Cersei_Lannister"}
 
 	#sentence = "Arya , is loyal to, Sansa ?"
@@ -42,8 +43,6 @@ def check2(sentence):
 				print(sentence[i])
 			else:
 				sentence[i] = sentence[i].replace(words, "")
-
-
 	return "".join(sentence)
 
 
@@ -61,16 +60,11 @@ def check(mode, raw_query, ontology):
 	:return: la requete sous forme de liste de str.
 	:rtype: list(str) ou None
 	"""
-	raw_query = check2(raw_query)
-
 	query = None
 	if mode == 0:
-		print(raw_query)
 		if (raw_query.find(',') != -1 and raw_query.find('?') != -1):
 			tempQuery = raw_query.replace('?','')
-			print(tempQuery)
 			query = tempQuery.split(",")
-			print(query)
 	elif mode == 1:
 		for str in raw_query:
 			if str == "":
@@ -80,7 +74,7 @@ def check(mode, raw_query, ontology):
 
 def isInOntology(query, ontology):
 	"""
-	Verifie la presence des entites recherchees dans l ontologie. Retourne 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.
+	Verifie la presence des entites recherchees dans l ontologie. Retourne un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.
 
 	:param list(str) query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
@@ -92,15 +86,14 @@ def isInOntology(query, ontology):
 	propertyName = None
 	individual2 = None
 
+	# verifier la fonction check 2
+	# raw_query = check2(raw_query)
+
 	for individual in ontology.individuals():
 		if query[0] == individual.name:
 			isInOntology = True
 			individual1 = individual
 			break
-	if indiv1==None:
-		print("indiv1 pas dans les entite")
-		formatErrorBox()
-	# ERrEUR ICI
 	if isInOntology:
 		isInOntology = False
 		for str1 in dir(individual1):
@@ -114,10 +107,6 @@ def isInOntology(query, ontology):
 				# else:
 				# 	print("Error : at least two properties are similar.")
 				break
-		# ideal faire list = indiv1.prop
-		if prop==None:
-			print("Propriete inexistante pas dans les entite")
-			formatErrorBox()
 		if isInOntology:
 			isInOntology = False
 			for individual in individual1.__getattr__(propertyName):
@@ -125,7 +114,6 @@ def isInOntology(query, ontology):
 					isInOntology = True
 					individual2 = individual
 					break
-
 	return (isInOntology, individual1, propertyName, individual2)
 
 def answer(individual1, propertyName, individual2, ontology):
@@ -139,15 +127,8 @@ def answer(individual1, propertyName, individual2, ontology):
 	:return: la reponse a la requete.
 	:rtype: str
 	"""
-	#Vérification de la condition:
-	liste = isInOntology(query, ontology)
-	print(liste)
-	# isInOntology BUG!
-	if liste[0]:
-		if liste[3] in liste[1].liste[2]:
-			return "Yes"
-		return "No"
-	formatErrorBox()
+	if individual2 in individual1.__getattr__(propertyName):
+		return "Yes"
 	return "No"
 
 def reply(mode, raw_query, ontology):
@@ -165,9 +146,9 @@ def reply(mode, raw_query, ontology):
 	if query == None:
 		formatErrorBox()
 		return None
-	isInOnto, individual1, property, individual2 = isInOntology(query, ontology)
+	isInOnto, individual1, propertyName, individual2 = isInOntology(query, ontology)
 	if isInOnto:
-		response = answer(individual1, property, individual2, ontology)
+		response = answer(individual1, propertyName, individual2, ontology)
 		if response == None:
 			noResultBox()
 		return response
