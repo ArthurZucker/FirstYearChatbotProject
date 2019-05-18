@@ -13,6 +13,8 @@ from easygui import indexbox, enterbox, multenterbox, ccbox, msgbox, textbox
 # http://easygui.sourceforge.net/tutorial.html#enterbox
 # http://hebergement.u-psud.fr/iut-orsay/Pedagogie/MPHY/Python/easygui.pdf
 
+image_path = "source/image.gif"
+
 def selectModeBox():
 	"""
 	Affiche la fenetre permettant de selectionner soit le mode une ligne, soit le mode sur plusieurs lignes.
@@ -23,7 +25,7 @@ def selectModeBox():
 	message = "Select the mode".center(80)
 	title = "Chatbot Game of Thrones"
 	choices = ("One line mode", "Multi line mode")
-	mode = indexbox(message, title, choices)
+	mode = indexbox(message, title, choices, image=image_path)
 	return mode
 
 def queryBox(mode):
