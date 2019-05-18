@@ -13,7 +13,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-authorization = '\"Bearer xxx-yyy-zzz\"' # str | The authorization bearear. Type \"Bearer xxx-yyy-zzz\", where is your secret token.
+authorization = '\"Bearer 03c14f7b-9ab2-345a-a1ed-d75c0b314d34\"' # str | The authorization bearear. Type \"Bearer xxx-yyy-zzz\", where is your secret token.
 text = 'This is an example' # str | The input natural language text.
 prefix = 'GoT' # str | The prefix used for the namespace of terms introduced by FRED in the output. If not specified fred: is used as default. (optional)
 namespace = 'namespace_example' # str | The namespace used for the terms introduced by FRED in the output. If not specified http://www.ontologydesignpatterns.org/ont/fred/domain.owl# is used as default. (optional)
