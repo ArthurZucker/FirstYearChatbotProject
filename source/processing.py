@@ -52,9 +52,12 @@ def isInOntology(query, ontology):
 			isInOntology = True
 			individual1 = individual
 			break
-	if not isInOntology and query[0].find(" ") != -1 :
-		individualWords = query[0].replace(" ","_")
-		search = ontology.search_one(iri = "*"+individualWords+"*")
+	if not isInOntology :
+		if query[0].find(" ") == -1 :
+			search = ontology.search_one(iri = "*"+query[0]+"*")
+		else :
+			individualWords = query[0].replace(" ","_")
+			search = ontology.search_one(iri = "*"+individualWords+"*")
 		if search :
 			individual1 = search
 			isInOntology = True
@@ -71,20 +74,27 @@ def isInOntology(query, ontology):
 				# else:
 				# 	print("Error : at least two properties are similar.")
 				break
-		if not isInOntology and query[1].find(" ") != -1 :
-			propertyWords = query[1].split(" ")
-			max = 1
-			maxIndex = 0
-			for i,word in enumerate(propertyWords) :
-				l = len(word)
-				if l > max :
-					max = l
-					maxIndex = i
-			for str1 in dir(individual1) :
-				if str1.find(propertyWords[maxIndex]) != -1 :
-					isInOntology = True
-					propertyName = str1
-					break
+		if not isInOntology :
+			if query[1].find(" ") == -1 :
+				for str1 in dir(individual1) :
+					if str1.find(query[1]) != -1 :
+						isInOntology = True
+						propertyName = str1
+						break
+			else :
+				propertyWords = query[1].split(" ")
+				max = 1
+				maxIndex = 0
+				for i,word in enumerate(propertyWords) :
+					l = len(word)
+					if l > max :
+						max = l
+						maxIndex = i
+				for str1 in dir(individual1) :
+					if str1.find(propertyWords[maxIndex]) != -1 :
+						isInOntology = True
+						propertyName = str1
+						break
 		if isInOntology :
 			isInOntology = False
 			for individual in individual1.__getattr__(propertyName):
@@ -92,12 +102,15 @@ def isInOntology(query, ontology):
 					isInOntology = True
 					individual2 = individual
 					break
-			if not isInOntology and query[2].find(" ") != -1 :
+		if not isInOntology :
+			if query[2].find(" ") == -1 :
+				search = ontology.search_one(iri = "*"+query[2]+"*")
+			else :
 				individualWords = query[2].replace(" ","_")
 				search = ontology.search_one(iri = "*"+individualWords+"*")
-				if search :
-					individual1 = search
-					isInOntology = True
+			if search :
+				individual2 = search
+				isInOntology = True
 	return (isInOntology, individual1, propertyName, individual2)
 
 def answer(individual1, propertyName, individual2, ontology):
