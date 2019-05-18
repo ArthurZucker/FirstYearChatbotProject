@@ -8,44 +8,6 @@ Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requ
 
 from .ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
 
-def check2(sentence):
-	"""D = {"loyal":"isLoyalTo"}
-	raw_query = raw_query.split(",")
-
-	s2 = raw_query[1].split(" ")
-
-	for words in s2:
-		if words in D:
-			#print(words)
-			raw_query[1] = raw_query[1].replace(words, D[words])
-		else:
-			raw_query[1] = raw_query[1].replace(words, "")
-
-	return "".join(raw_query)
-	#print(sentence[1])"""
-
-	D = {"loyal":"isLoyalTo", "arya":"Arya_Stark", "sansa":"Sansa_Stark", "cersei":"Cersei_Lannister"}
-
-	#sentence = "Arya , is loyal to, Sansa ?"
-
-	sentence = sentence.split(",")
-
-	s2 = sentence[1].split(" ")
-	#print(s2)
-	#print(sentence)
-	for i in range(len(sentence)):
-		sentence[i] = sentence[i].lower()
-		s2 = sentence[i].split(" ")
-		for words in s2:
-			if words in D:
-				print(D[words])
-				sentence[i] = sentence[i].replace(words, D[words])
-				print(sentence[i])
-			else:
-				sentence[i] = sentence[i].replace(words, "")
-	return "".join(sentence)
-
-
 def check(mode, raw_query, ontology):
 	"""
 	Verifie si la requete entree a le bon format eu egard au mode choisi.
@@ -85,35 +47,57 @@ def isInOntology(query, ontology):
 	individual1 = None
 	propertyName = None
 	individual2 = None
-
-	# verifier la fonction check 2
-	# raw_query = check2(raw_query)
-
 	for individual in ontology.individuals():
-		if query[0] == individual.name:
+		if query[0] == individual.name :
 			isInOntology = True
 			individual1 = individual
 			break
-	if isInOntology:
+	if not isInOntology and query[0].find(" ") != -1 :
+		individualWords = query[0].replace(" ","_")
+		search = ontology.search_one(iri = "*"+individualWords+"*")
+		if search :
+			individual1 = search
+			isInOntology = True
+	if isInOntology :
 		isInOntology = False
-		for str1 in dir(individual1):
-			if query[1] == str1:
+		for str1 in dir(individual1) :
+			if query[1] == str1 :
 				isInOntology = True
 				propertyName = str1
-				# search_one
+				# pour recuperer l objet propriete :
 				# searchList = ontology.search(iri = "*"+propertyName+"*")
 				# if len(searchList) == 1 and propertyName == searchList[0].name:
 				# 	property = searchList[0]
 				# else:
 				# 	print("Error : at least two properties are similar.")
 				break
-		if isInOntology:
+		if not isInOntology and query[1].find(" ") != -1 :
+			propertyWords = query[1].split(" ")
+			max = 1
+			maxIndex = 0
+			for i,word in enumerate(propertyWords) :
+				l = len(word)
+				if l > max :
+					max = l
+					maxIndex = i
+			for str1 in dir(individual1) :
+				if str1.find(propertyWords[maxIndex]) != -1 :
+					isInOntology = True
+					propertyName = str1
+					break
+		if isInOntology :
 			isInOntology = False
 			for individual in individual1.__getattr__(propertyName):
-				if query[2] == individual.name:
+				if query[2] == individual.name :
 					isInOntology = True
 					individual2 = individual
 					break
+			if not isInOntology and query[2].find(" ") != -1 :
+				individualWords = query[2].replace(" ","_")
+				search = ontology.search_one(iri = "*"+individualWords+"*")
+				if search :
+					individual1 = search
+					isInOntology = True
 	return (isInOntology, individual1, propertyName, individual2)
 
 def answer(individual1, propertyName, individual2, ontology):

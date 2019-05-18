@@ -39,8 +39,8 @@ def main():
 	# GoT.search(is_a = GoT.Place))
 
 	# liste des proprietes
-	print(dir(ontologyGoT.Jon_Snow),'\n')
-	print(ontologyGoT.Jon_Snow.__getattr__("isLoyalTo"))
+	# print(dir(ontologyGoT.Jon_Snow),'\n')
+	# print(ontologyGoT.Jon_Snow.__getattr__("isLoyalTo"))
 	# print(type((dir(ontologyGoT.Jon_Snow)[-9])))
 	# print(ontologyGoT.TheWesterlands.__dict__,'\n')
 
@@ -49,10 +49,11 @@ def main():
 	# GoT.Jon_Snow.isLoyalTo.append(GoT.Arya_Stark)
 	# print(GoT.Jon_Snow.isLoyalTo)
 	# print(GoT.Arya_Stark in GoT.Jon_Snow.isLoyalTo)
-
+	search = ontologyGoT.search_one(iri = "*"+"Jon Snow"+"*")
+	print(search)
 	# sauvegarde dans un nouveau fichier
 	# GoT.save(file = onto_path[0] + "newOntologyGoT.owl")
-	ontologyGoT.save()
+	# ontologyGoT.save()
 
 if __name__ == "__main__":
 	main()
