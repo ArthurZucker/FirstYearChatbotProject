@@ -58,8 +58,8 @@ def formatErrorBox():
 	"""
 	title = "Chatbot Game of Thrones"
 	message = (
-	"Your query was void because the format used is wrong.".center(80) +
-	"Use format: <Individual>,<Property>,<Individual>?".center(80) +
+	"Your query was void because the format used is wrong.".center(80) + '\n' +
+	"Use format: <Individual>,<Property>,<Individual>?".center(80) + '\n' +
 	"Please read README.md or README.txt.".center(80))
 	msgbox(message, title, "OK")
 
@@ -74,12 +74,13 @@ def answerBox(mode, query, answer):
 	"""
 	title = "Chatbot Game of Thrones"
 	if mode == 0:
-		message = ("Your query was \"" + query + "\".\n"
-		"The result of your query is:")
+		message = "Your query was \"" + query + "\"."
 	elif mode == 1:
-		message = ("Your query was \"" + ",".join(query) + "\".\n"
-		"The result of your query is:")
-	textbox(message, title, answer)
+		message = "Your query was \"" + ",".join(query) + "\"."
+	message = message.center(80) + '\n'
+	message += "The result of your query is:".center(80) + '\n'
+	message +=	answer.center(80)
+	msgbox(message, title, "OK")
 
 def endBox():
 	"""
