@@ -1,19 +1,14 @@
 Chatbot Game of Thrones
 
 Ce dossier regroupe l'ensemble des fichiers nécessaires au lancement du chatbot.
-Pour exécuter ce programme, il faut décomprésser le repertoire chatbot et exécuter le fichier principal grâce à la commande :
+Pour exécuter ce programme, il faut décomprésser le fichier chatbot.zip et exécuter le fichier principal grâce à la commande :
 ./chatbot.py
 ou, si une erreur est renvoyée :
 python3 chatbot.py
 
-## Syntaxe
-
-Pour utiliser le chatbot, il faut suivre la syntaxe suivante :
-instance1,propriete,instance2?
-
 Version de python nécessaire :
 
-Python 3 doit être installé. Ce programme a été testé avec Python 3.7.3.
+Ce programme a été testé avec Python 3.7.3. Il necessite Python 3 pour fonctionner.
 
 Packets nécessaires :
 
@@ -42,7 +37,7 @@ La documentation du programme est accessible en ouvrant le fichier doc.html.
 
 Ontologie :
 
-L'ontologie a été créée avec protégé (https://protege.stanford.edu/). Le fichier ontology_graphe.png est un graphe des classes de l'ontologie. Le fichier ontologyGoT.pdf est un graphe complet de l'ontologie.
+L'ontologie a été créée avec protégé (https://protege.stanford.edu/). Le fichier ontology_graphe.png est un graphe des classes de l'ontologie. Le fichier ontologyGoT.pdf est un graphe des classes et des instances de l'ontologie.
 
 Liste des instances présentes dans l'ontologie :
 
@@ -92,7 +87,11 @@ Tyrell
 Tyrion_Lannister
 Tywin_Lannister
 
+Syntaxe :
+
+Pour utiliser le chatbot en mode sur une seule ligne, il faut suivre la syntaxe suivante :
+instance1,propriete,instance2?
+
 Interface graphique :
 
-Toute l'interface graphique est regroupée dans le fichier window.py. Elle a
-été réalisée grâce au module easygui.
+Toute l'interface graphique est regroupée dans le fichier source/ui.py. Elle a été réalisée grâce au module easygui.

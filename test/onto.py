@@ -49,10 +49,17 @@ def main():
 	# GoT.Jon_Snow.isLoyalTo.append(GoT.Arya_Stark)
 	# print(GoT.Jon_Snow.isLoyalTo)
 	# print(GoT.Arya_Stark in GoT.Jon_Snow.isLoyalTo)
-	search = ontologyGoT.search_one(iri = "*"+"Jon"+"*")
-	print(search)
-	if search:
-		print("yes")
+
+
+
+	# pour recuperer l objet propriete :
+	# searchList = ontology.search(iri = "*"+propertyName+"*")
+	# if len(searchList) == 1 and propertyName == searchList[0].name:
+	# 	property = searchList[0]
+	# else:
+	# 	print("Error : at least two properties are similar.")
+
+
 	# sauvegarde dans un nouveau fichier
 	# GoT.save(file = onto_path[0] + "newOntologyGoT.owl")
 	# ontologyGoT.save()

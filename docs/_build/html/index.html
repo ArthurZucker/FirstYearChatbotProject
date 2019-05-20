@@ -57,7 +57,8 @@
             
   <div class="section" id="un-chatbot-game-of-thrones-fait-avec-python-par-belkada-bonacchi-capuano-zucker-de-polytech-sorbonne">
 <h1>Un chatbot <em>Game of Thrones</em> fait avec Python par Belkada, Bonacchi, Capuano, Zucker de <a class="reference external" href="https://www.polytech.upmc.fr/fr">Polytech Sorbonne</a>.<a class="headerlink" href="#un-chatbot-game-of-thrones-fait-avec-python-par-belkada-bonacchi-capuano-zucker-de-polytech-sorbonne" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Ce <em>chatbot</em> a ete fait sous Python 3.7.3, il necessite Python 3 pour fonctionner. Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
+<p>Ce <em>chatbot</em> a ete fait sous Python 3.7.3. Il necessite Python 3 pour fonctionner.
+Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
 <code class="docutils literal notranslate"><span class="pre">sys</span></code> <code class="docutils literal notranslate"><span class="pre">os</span></code> <code class="docutils literal notranslate"><span class="pre">types</span></code> <code class="docutils literal notranslate"><span class="pre">tempfile</span></code> <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> <code class="docutils literal notranslate"><span class="pre">weakref</span></code> <code class="docutils literal notranslate"><span class="pre">re</span></code> <code class="docutils literal notranslate"><span class="pre">urllib</span></code> <code class="docutils literal notranslate"><span class="pre">warnings</span></code> <code class="docutils literal notranslate"><span class="pre">itertools</span></code> <code class="docutils literal notranslate"><span class="pre">owlready2</span></code> <code class="docutils literal notranslate"><span class="pre">easygui</span></code>.</p>
 <div class="toctree-wrapper compound">
 </div>
@@ -73,9 +74,8 @@
 <h1>Programme principal<a class="headerlink" href="#programme-principal" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Le format adequat pour le mode de saisie sur une ligne est :
 <code class="docutils literal notranslate"><span class="pre">instance1,propriete,instance2?</span></code></p>
-<div class="section" id="module-chatbot">
-<span id="chatbot"></span><h2><a class="reference internal" href="#module-chatbot" title="chatbot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">chatbot</span></code></a><a class="headerlink" href="#module-chatbot" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Ce fichier execute le chatbot en faisant appel au fonctions des modules se situant dans le repertoire source.</p>
+<div class="section" id="chatbot">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">chatbot</span></code><a class="headerlink" href="#chatbot" title="Lien permanent vers ce titre">¶</a></h2>
 </div>
 </div>
 <div class="section" id="modules-necessaires-au-programme-principal">
@@ -128,12 +128,6 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 </dd></dl>
 
 <dl class="function">
-<dt id="source.ui.main">
-<code class="descclassname">source.ui.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.main" title="Lien permanent vers cette définition">¶</a></dt>
-<dd><p>Fonction principale permettant de tester l interface graphique independamment du programme principale.</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="source.ui.noResultBox">
 <code class="descclassname">source.ui.</code><code class="descname">noResultBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.noResultBox" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Affiche la fenetre indiquant qu il n y a pas de resultat a la requete entree.</p>
@@ -148,7 +142,7 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 <dl class="function">
 <dt id="source.ui.queryBox">
 <code class="descclassname">source.ui.</code><code class="descname">queryBox</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.queryBox" title="Lien permanent vers cette définition">¶</a></dt>
-<dd><p>Affiche la fenetre permettant d entrer la requete avec le mode de saisie dependant du mode donne en argument.</p>
+<dd><p>Affiche la fenetre permettant d entrer la requete avec le mode de saisie selon du mode donne en argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><p><strong>mode</strong> (<em>int</em>) – mode est le mode selectionne par l utilisateur.</p>
@@ -179,11 +173,21 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 </div>
 <div class="section" id="module-source.processing">
 <span id="source-processing"></span><h2><a class="reference internal" href="#module-source.processing" title="source.processing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.processing</span></code></a><a class="headerlink" href="#module-source.processing" title="Lien permanent vers ce titre">¶</a></h2>
-<p>Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcourt sur l ontologie.</p>
+<p>Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcours sur l ontologie.</p>
+<dl class="function">
+<dt id="source.processing.FindIndivdualByName">
+<code class="descclassname">source.processing.</code><code class="descname">FindIndivdualByName</code><span class="sig-paren">(</span><em>name</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.FindIndivdualByName" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Parcourt l ontologie et recupere l individu qui a plus de 60% de similitude avec le nom veritable.
+:param str name: nom de l individu recherche.
+:param owlready2.namespace.Ontology ontology: l ontologie.
+:return: l instance correspondant a l individu ou None si non trouve.
+:rtype: owlready2.entity.ThingClass ou None</p>
+</dd></dl>
+
 <dl class="function">
 <dt id="source.processing.answer">
 <code class="descclassname">source.processing.</code><code class="descname">answer</code><span class="sig-paren">(</span><em>individual1</em>, <em>propertyName</em>, <em>individual2</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.answer" title="Lien permanent vers cette définition">¶</a></dt>
-<dd><p>Recherche une reponse a la requete dans l ontologie, donnee sous forme d instance pour les individus et sous la forme de str pour la propriete.</p>
+<dd><p>Rend une reponse binaire a la requete par rapport a l ontologie, donnee sous forme d instance pour les individus et sous la forme de str pour la propriete.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
@@ -218,27 +222,30 @@ Puis, met la requete sous la forme conventionnelle.</p>
 </ul>
 </dd>
 <dt class="field-even">Renvoie</dt>
-<dd class="field-even"><p>la requete sous forme de liste de str.</p>
+<dd class="field-even"><p>la requete sous forme de liste de str et un booleen decrivant le mode de saisie.</p>
 </dd>
 <dt class="field-odd">Type renvoyé</dt>
-<dd class="field-odd"><p>list(str) ou None</p>
+<dd class="field-odd"><p>(list(str) ou None, bool)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="source.processing.isInOntology">
-<code class="descclassname">source.processing.</code><code class="descname">isInOntology</code><span class="sig-paren">(</span><em>query</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.isInOntology" title="Lien permanent vers cette définition">¶</a></dt>
-<dd><p>Verifie la presence des entites recherchees dans l ontologie. Retourne 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.</p>
+<code class="descclassname">source.processing.</code><code class="descname">isInOntology</code><span class="sig-paren">(</span><em>query</em>, <em>indice</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.processing.isInOntology" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Verifie la presence des entites recherchees dans l ontologie.
+Si la requete demandee n est pas exactement dans l ontologie, la fonction va chercher et renvoyer ce qui correspond a plus 85% a la donnee initiale.
+Retourne un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>query</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – la requete.</p></li>
+<li><p><strong>indice</strong> (<em>bool</em>) – booleen decrivant le mode de saisie.</p></li>
 <li><p><strong>ontology</strong> (<em>owlready2.namespace.Ontology</em>) – l ontologie.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Renvoie</dt>
-<dd class="field-even"><p>un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.</p>
+<dd class="field-even"><p>un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme. Si l un des termes n est pas trouve, il est retourne None a la place.</p>
 </dd>
 <dt class="field-odd">Type renvoyé</dt>
 <dd class="field-odd"><p>(bool, owlready2.entity.ThingClass ou None, str ou None, owlready2.entity.ThingClass ou None)</p>
@@ -254,7 +261,7 @@ Puis, met la requete sous la forme conventionnelle.</p>
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mode</strong> (<em>int</em>) – le mode selectionne soit 0 (mode une ligne) soit 1 (mode plusieurs lignes).</p></li>
-<li><p><strong>query</strong> (<em>str ou list</em><em>(</em><em>str</em><em>)</em>) – la requete a demander au chatbot.</p></li>
+<li><p><strong>raw_query</strong> (<em>str ou list</em><em>(</em><em>str</em><em>)</em>) – la requete a demander au chatbot.</p></li>
 <li><p><strong>ontology</strong> (<em>owlready2.namespace.Ontology</em>) – l ontologie.</p></li>
 </ul>
 </dd>
