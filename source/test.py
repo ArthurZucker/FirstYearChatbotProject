@@ -1,22 +1,56 @@
 
-D = {"loyal":"isLoyalTo"}
+from os.path import dirname, realpath
 
-sentence = "Arya, is loyal to, Sansa ?"
+from owlready2 import *
 
-sentence = sentence.split(",")
 
-s2 = sentence[1].split(" ")
+ontology_path = "file://" + dirname(realpath(__file__)) + "/.."+"/ontology/" + \
+"ontologyGoT.owl"
+ontology = get_ontology(ontology_path).load()
 
-print(s2)
-
-print(sentence[1])
-
-for words in s2:
-	if words in D:
-		#print(words)
-		sentence[1] = sentence[1].replace(words, D[words])
-	else:
-		sentence[1] = sentence[1].replace(words, "")
-
-print(sentence[1])
-#print(D["loyal"])
+def FindIndivdualByName(name, ontology):
+	name = name.strip()
+	for individuals in ontology.individuals():
+		iterate = 0
+		str1 = individuals.name
+		for c in range(min(len(name), len(str1))):
+			if str1[c].lower() == (name)[c].lower():
+				iterate = iterate+1
+				
+		percent = (iterate/min(len(name), len(str1)))*100
+		print(percent)
+		if percent >= 60:
+				propertyName = str1
+				isInOntology = True
+				return individuals
+				break
+	return None
+print('Enter the name :')
+x = input()
+print(FindIndivdualByName(x, ontology))
+"""
+def FindIndivdualByName(name, ontology):
+	name = name.strip()
+	tab_indiv = []
+	for individuals in ontology.individuals():
+		iterate = 0
+		str1 = individuals.name
+		for c in range(min(len(name), len(str1))):
+			if str1[c].lower() == (name)[c].lower():
+				iterate = iterate+1
+				
+		percent = (iterate/min(len(name), len(str1)))*100
+		#print(percent)
+		if percent >= 40:
+				propertyName = str1
+				tab_indiv.append((individuals, percent))
+				#return individuals
+				break
+	if len(tab_indiv) == 0:
+		return None
+	indiv = tab_indiv[0]
+	for T in tab_indiv:
+		if indiv[1] < T[1]:
+			indiv = T
+			pass
+	return indiv[0]"""
