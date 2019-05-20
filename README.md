@@ -18,7 +18,7 @@ python3 chatbot.py
 
 Sinon, vous pouvez extraire l'archive `chatbot.zip`.
 
-## Version de python nécessaire :
+## Version de python nécessaire
 
 Ce programme a été testé avec Python 3.7.3. Il necessite Python 3 pour fonctionner.
 
