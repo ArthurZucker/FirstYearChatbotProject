@@ -74,8 +74,9 @@ Pour utiliser ce programme, il est nécessaire de posséder les packets suivants
 <h1>Programme principal<a class="headerlink" href="#programme-principal" title="Lien permanent vers ce titre">¶</a></h1>
 <p>Le format adequat pour le mode de saisie sur une ligne est :
 <code class="docutils literal notranslate"><span class="pre">instance1,propriete,instance2?</span></code></p>
-<div class="section" id="chatbot">
-<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">chatbot</span></code><a class="headerlink" href="#chatbot" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="module-chatbot">
+<span id="chatbot"></span><h2><a class="reference internal" href="#module-chatbot" title="chatbot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">chatbot</span></code></a><a class="headerlink" href="#module-chatbot" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Ce fichier execute le chatbot en faisant appel au fonctions des modules se situant dans le repertoire source.</p>
 </div>
 </div>
 <div class="section" id="modules-necessaires-au-programme-principal">
@@ -88,13 +89,14 @@ Chaque boite de dialogue est realisee par une fonction.
 Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusieurs lignes.</p>
 <dl class="function">
 <dt id="source.ui.answerBox">
-<code class="descclassname">source.ui.</code><code class="descname">answerBox</code><span class="sig-paren">(</span><em>mode</em>, <em>query</em>, <em>answer</em><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.answerBox" title="Lien permanent vers cette définition">¶</a></dt>
+<code class="descclassname">source.ui.</code><code class="descname">answerBox</code><span class="sig-paren">(</span><em>mode</em>, <em>query</em>, <em>queryFound</em>, <em>answer</em><span class="sig-paren">)</span><a class="headerlink" href="#source.ui.answerBox" title="Lien permanent vers cette définition">¶</a></dt>
 <dd><p>Affiche la fenetre rappelant la requete entree par l utilisateur ainsi que la reponse donnee par le chatbot.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Paramètres</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mode</strong> (<em>int</em>) – mode est le mode selectionne par l utilisateur.</p></li>
 <li><p><strong>query</strong> (<em>str ou list</em><em>(</em><em>str</em><em>)</em>) – la requete entree par l utilisateur.</p></li>
+<li><p><strong>queryFound</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – la requete effectuee par le chatbot composee du nom de l individu 1, du nom de la propriete, du nom de l individu 2.</p></li>
 <li><p><strong>answer</strong> (<em>str</em>) – la reponse retournee par le chatbot.</p></li>
 </ul>
 </dd>
@@ -222,7 +224,7 @@ Puis, met la requete sous la forme conventionnelle.</p>
 </ul>
 </dd>
 <dt class="field-even">Renvoie</dt>
-<dd class="field-even"><p>la requete sous forme de liste de str et un booleen decrivant le mode de saisie.</p>
+<dd class="field-even"><p>un couple forme de la requete sous forme de liste de str et un booleen decrivant le mode de saisie.</p>
 </dd>
 <dt class="field-odd">Type renvoyé</dt>
 <dd class="field-odd"><p>(list(str) ou None, bool)</p>
@@ -266,10 +268,10 @@ Retourne un 4-uplet compose de : True si tous les elements de la requete sont da
 </ul>
 </dd>
 <dt class="field-even">Renvoie</dt>
-<dd class="field-even"><p>la reponse de la requete.</p>
+<dd class="field-even"><p>un couple forme de la reponse de la requete et la requete que le chatbot a effectue ou None s il n a rien fait.</p>
 </dd>
 <dt class="field-odd">Type renvoyé</dt>
-<dd class="field-odd"><p>str</p>
+<dd class="field-odd"><p>(str, list(str) ou None)</p>
 </dd>
 </dl>
 </dd></dl>

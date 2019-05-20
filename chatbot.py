@@ -28,7 +28,7 @@ while still:
 	if query == None:
 		cancelBox()
 	else:
-		answer = reply(mode, query, ontology)
+		answer, queryFound = reply(mode, query, ontology)
 		if answer != None:
-			answerBox(mode, query, answer)
+			answerBox(mode, query, queryFound, answer)
 	still = endBox()

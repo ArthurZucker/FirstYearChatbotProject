@@ -63,12 +63,13 @@ def formatErrorBox():
 	"Please read README.md or README.txt.".center(80))
 	msgbox(message, title, "OK")
 
-def answerBox(mode, query, answer):
+def answerBox(mode, query, queryFound, answer):
 	"""
 	Affiche la fenetre rappelant la requete entree par l utilisateur ainsi que la reponse donnee par le chatbot.
 
 	:param int mode: mode est le mode selectionne par l utilisateur.
 	:param query: la requete entree par l utilisateur.
+	:param list(str) queryFound: la requete effectuee par le chatbot composee du nom de l individu 1, du nom de la propriete, du nom de l individu 2.
 	:param str answer: la reponse retournee par le chatbot.
 	:type query: str ou list(str)
 	"""
@@ -76,9 +77,11 @@ def answerBox(mode, query, answer):
 	if mode == 0:
 		message = "Your query was \"" + query + "\"."
 	elif mode == 1:
-		message = "Your query was \"" + ",".join(query) + "\"."
+		message = "Your query was \"" + ",".join(query) + "?\"."
 	message = message.center(80) + '\n'
-	message += "The result of your query is:".center(80) + '\n'
+	message += "The chatbot understood the query:".center(80) +'\n'
+	message += ("\"" + ",".join(queryFound) + "?\"").center(80) + '\n'
+	message += "The result of your query is:".center(80) + '\n\n'
 	message +=	answer.center(80)
 	msgbox(message, title, "OK")
 

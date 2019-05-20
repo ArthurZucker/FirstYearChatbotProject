@@ -40,7 +40,7 @@ def check(mode, raw_query, ontology):
 	:param raw_query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	:type raw_query: str ou list(str)
-	:return: la requete sous forme de liste de str et un booleen decrivant le mode de saisie.
+	:return: un couple forme de la requete sous forme de liste de str et un booleen decrivant le mode de saisie.
 	:rtype: (list(str) ou None, bool)
 	"""
 	punctuation = {'?', ',', '.', ':', ';'}
@@ -145,19 +145,21 @@ def reply(mode, raw_query, ontology):
 	:param raw_query: la requete a demander au chatbot.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	:type raw_query: str ou list(str)
-	:return: la reponse de la requete.
-	:rtype: str
+	:return: un couple forme de la reponse de la requete et la requete que le chatbot a effectue ou None s il n a rien fait.
+	:rtype: (str, list(str) ou None)
 	"""
 	query,indice = check(mode, raw_query, ontology)
 	if query == None:
 		formatErrorBox()
-		return None
+		return None, None
 	isInOnto, individual1, propertyName, individual2 = isInOntology(query, indice, ontology)
 	if isInOnto:
 		response = answer(individual1, propertyName, individual2, ontology)
-		if response == None:
+		if response != None:
+			queryFound = [individual1.name,propertyName,individual2.name]
+			return response, queryFound
+		else:
 			noResultBox()
-		return response
 	else:
 		notInOntologyBox()
-	return None
+	return None, None
