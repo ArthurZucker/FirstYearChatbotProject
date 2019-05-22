@@ -17,6 +17,9 @@ Index
 * :ref:`genindex`
 * :ref:`modindex`
 
+.. include:: README.rst
+
+
 Version de Python et modules necessaires
 ========================================
 
