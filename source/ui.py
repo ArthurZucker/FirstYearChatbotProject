@@ -10,7 +10,7 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 
 from easygui import indexbox, enterbox, multenterbox, ccbox, msgbox, textbox
 
-# image_path = "source/image.gif"
+image_path = "source/image.gif"
 
 def selectModeBox():
 	"""
@@ -22,8 +22,7 @@ def selectModeBox():
 	message = "Select the mode".center(80)
 	title = "Chatbot Game of Thrones"
 	choices = ("One line mode", "Multi line mode")
-	# mode = indexbox(message, title, choices, image=image_path)
-	mode = indexbox(message, title, choices)
+	mode = indexbox(message, title, choices, image=image_path)
 	return mode
 
 def queryBox(mode):
@@ -72,6 +71,8 @@ def answerBox(mode, query, queryFound, answer):
 	:param list(str) queryFound: la requete effectuee par le chatbot composee du nom de l individu 1, du nom de la propriete, du nom de l individu 2.
 	:param str answer: la reponse retournee par le chatbot.
 	:type query: str ou list(str)
+	:return: le message affiche.
+	:rtype: str
 	"""
 	title = "Chatbot Game of Thrones"
 	if mode == 0:
@@ -84,6 +85,7 @@ def answerBox(mode, query, queryFound, answer):
 	message += "The result of your query is:".center(80) + '\n\n'
 	message +=	answer.center(80)
 	msgbox(message, title, "OK")
+	return message
 
 def endBox():
 	"""
@@ -113,3 +115,12 @@ def noResultBox():
 	title = "Chatbot Game of Thrones"
 	message = ("There is no answer for your query in the ontology").center(80)
 	msgbox(message, title, "OK")
+
+def historyBox(answerList):
+	"""
+	Affiche la fenetre presentant la liste des requetes precedentes entrees par l utilisateur.
+	:param list(str) answerList:
+	"""
+	title = "Chatbot Game of Thrones"
+	message = "List of the former queries :"
+	textbox(message,title,answerList)

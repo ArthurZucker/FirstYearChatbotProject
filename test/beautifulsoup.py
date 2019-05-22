@@ -1,10 +1,12 @@
-# utf-8 encoding
+#!/usr/bin/env python
+
+# -*- coding: utf-8 -*-
 
 import requests
 from bs4 import BeautifulSoup
 
 # utf-8 encoding
-url = "https://garden.org/plants/view/533137/Bananas-Musa/"
+url = "https://gameofthrones.fandom.com/wiki/Jon_Snow"
 cookies = dict(BCPermissionLevel='PERSONAL')
 html = requests.get(url, cookies=cookies, headers={'User-agent':'Mozilla/5.0'})
 #r.encoding = 'ISO-8859-1'
@@ -32,5 +34,9 @@ for c in text:
 		pass
 #text = text.replace(u'\xa0', u' ')
 #text = text.replace(u'\xa9', u'')
-with open("parseddata.txt", "wb") as logfile:
-    logfile.write(text)
+# with open("parseddata.txt", "wb") as logfile:
+#     logfile.write(text)
+
+f = open("parseddata.txt","w")
+f.write(text)
+f.close()
