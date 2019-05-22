@@ -123,15 +123,12 @@ def historyBox(answerList, Fenetre):
 	Affiche la fenetre presentant la liste des requetes precedentes entrees par l utilisateur.
 	:param list(str) answerList:
 	"""
-	
 	## proposition avec easygui ##
 	#title = "Chatbot Game of Thrones"
 	#message = "List of the former queries :"
 	#textbox(message,title,answerList)
-	
+
 	## proposition avec tkinter ##
-	# la fenetre est creee en dehors de la fonction: Fenetre = Tk()
-	# la loop de la fenetre est en dehors de la fonction: Fenetre.mainloop()
 	texte = label(Fenetre, texte = join(answerList))
 	texte['fg'] = 'black'
 	texte.pack()

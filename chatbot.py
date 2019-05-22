@@ -19,6 +19,7 @@ ontology_path = "file://" + dirname(realpath(__file__)) + "/ontology/" + \
 ontology = get_ontology(ontology_path).load()
 
 answerList = []
+Fenetre = Tk()
 
 still = True
 while still:
@@ -37,4 +38,5 @@ while still:
 		if answer != None:
 			result = answerBox(mode, query, queryFound, answer)
 			answerList.append(result)
+			Fenetre.mainloop()
 	still = endBox()
