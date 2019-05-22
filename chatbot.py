@@ -14,12 +14,15 @@ from source.ui import * # pour charger l interface graphique
 
 from source.processing import reply # pour charger la reponse
 
+from source.comment import * # pour commenter l ontologie
+
 ontology_path = "file://" + dirname(realpath(__file__)) + "/ontology/" + \
 "ontologyGoT.owl"
 ontology = get_ontology(ontology_path).load()
 
+initComment(ontology)
+
 answerList = []
-Fenetre = Tk()
 
 still = True
 while still:
@@ -38,5 +41,4 @@ while still:
 		if answer != None:
 			result = answerBox(mode, query, queryFound, answer)
 			answerList.append(result)
-			Fenetre.mainloop()
 	still = endBox()

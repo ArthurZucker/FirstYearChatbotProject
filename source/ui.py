@@ -9,7 +9,6 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 """
 
 from easygui import indexbox, enterbox, multenterbox, ccbox, msgbox, textbox
-from tkinter import *
 
 image_path = "source/image.gif"
 
@@ -118,17 +117,18 @@ def noResultBox():
 	message = ("There is no answer for your query in the ontology").center(80)
 	msgbox(message, title, "OK")
 
-def historyBox(answerList, Fenetre):
-	"""
-	Affiche la fenetre presentant la liste des requetes precedentes entrees par l utilisateur.
-	:param list(str) answerList:
-	"""
-	## proposition avec easygui ##
-	#title = "Chatbot Game of Thrones"
-	#message = "List of the former queries :"
-	#textbox(message,title,answerList)
-
-	## proposition avec tkinter ##
-	texte = label(Fenetre, texte = join(answerList))
-	texte['fg'] = 'black'
-	texte.pack()
+# def historyBox(answerList, Fenetre):
+# 	"""
+# 	Affiche la fenetre presentant la liste des requetes precedentes entrees par l utilisateur.
+# 	:param list(str) answerList:
+# 	"""
+# 	## proposition avec easygui ##
+# 	#title = "Chatbot Game of Thrones"
+# 	#message = "List of the former queries :"
+# 	#textbox(message,title,answerList)
+#
+# 	## proposition avec tkinter ##
+# 	message = '\n'.join(answerList)
+# 	texte = label(Fenetre, text = message)
+# 	texte['fg'] = 'black'
+# 	texte.pack()
