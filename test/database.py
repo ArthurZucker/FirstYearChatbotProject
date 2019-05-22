@@ -2,11 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 from textblob import classifiers
 from os.path import dirname, realpath
-from owlready2 import *	
+from owlready2 import *
 from textblob import TextBlob
 import shelve
-
-
 
 # utf-8 encoding
 
