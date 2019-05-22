@@ -9,6 +9,7 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 """
 
 from easygui import indexbox, enterbox, multenterbox, ccbox, msgbox, textbox
+from tkinter import *
 
 image_path = "source/image.gif"
 
@@ -22,7 +23,8 @@ def selectModeBox():
 	message = "Select the mode".center(80)
 	title = "Chatbot Game of Thrones"
 	choices = ("One line mode", "Multi line mode")
-	mode = indexbox(message, title, choices, image=image_path)
+	# mode = indexbox(message, title, choices, image=image_path)
+	mode = indexbox(message, title, choices, image = image_path)
 	return mode
 
 def queryBox(mode):
@@ -116,11 +118,20 @@ def noResultBox():
 	message = ("There is no answer for your query in the ontology").center(80)
 	msgbox(message, title, "OK")
 
-def historyBox(answerList):
+def historyBox(answerList, Fenetre):
 	"""
 	Affiche la fenetre presentant la liste des requetes precedentes entrees par l utilisateur.
 	:param list(str) answerList:
 	"""
-	title = "Chatbot Game of Thrones"
-	message = "List of the former queries :"
-	textbox(message,title,answerList)
+	
+	## proposition avec easygui ##
+	#title = "Chatbot Game of Thrones"
+	#message = "List of the former queries :"
+	#textbox(message,title,answerList)
+	
+	## proposition avec tkinter ##
+	# la fenetre est creee en dehors de la fonction: Fenetre = Tk()
+	# la loop de la fenetre est en dehors de la fonction: Fenetre.mainloop()
+	texte = label(Fenetre, texte = join(answerList))
+	texte['fg'] = 'black'
+	texte.pack()
