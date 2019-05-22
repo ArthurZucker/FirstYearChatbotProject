@@ -7,7 +7,6 @@ Ce fichier execute le chatbot en faisant appel au fonctions des modules se situa
 """
 
 from os.path import dirname, realpath
-from threading import Thread
 
 from owlready2 import *	# pour charger l ontologie
 
@@ -20,7 +19,6 @@ ontology_path = "file://" + dirname(realpath(__file__)) + "/ontology/" + \
 ontology = get_ontology(ontology_path).load()
 
 answerList = []
-thread_answer = Thread()
 
 still = True
 while still:
@@ -39,5 +37,4 @@ while still:
 		if answer != None:
 			result = answerBox(mode, query, queryFound, answer)
 			answerList.append(result)
-	thread_answer.start(historyBox,answerList)
 	still = endBox()

@@ -317,15 +317,177 @@ After the Jaqen persona is of no more use to him, the Faceless Man shapeshifts i
   <rdf:type rdf:resource="#House"/>
 </owl:Thing>
 
-<owl:AllDisjointClasses>
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#Theon_Greyjoy"/>
+  <owl:annotatedProperty rdf:resource="#isLoyalTo"/>
+  <owl:annotatedTarget rdf:resource="#Robb_Stark"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#Tyrion_Lannister"/>
+  <owl:annotatedProperty rdf:resource="#isLoyalTo"/>
+  <owl:annotatedTarget rdf:resource="#Oberyn_Martell"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#Oberyn_Martell"/>
+  <owl:annotatedProperty rdf:resource="#isLoyalTo"/>
+  <owl:annotatedTarget rdf:resource="#Tyrion_Lannister"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#Oberyn_Martell"/>
+  <owl:annotatedProperty rdf:resource="#isFromHouse"/>
+  <owl:annotatedTarget rdf:resource="#Lannister"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#Jon_Snow"/>
+  <owl:annotatedProperty rdf:resource="#isLoyalTo"/>
+  <owl:annotatedTarget rdf:resource="#Sansa_Stark"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#Jon_Snow"/>
+  <owl:annotatedProperty rdf:resource="#isLoyalTo"/>
+  <owl:annotatedTarget rdf:resource="#Daenerys_Targaryen"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#Jon_Snow"/>
+  <owl:annotatedProperty rdf:resource="#isFromHouse"/>
+  <owl:annotatedTarget rdf:resource="#Targaryen"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#Cersei_Lannister"/>
+  <owl:annotatedProperty rdf:resource="#isLoyalTo"/>
+  <owl:annotatedTarget rdf:resource="#Tywin_Lannister"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#Arya_Stark"/>
+  <owl:annotatedProperty rdf:resource="#isLoyalTo"/>
+  <owl:annotatedTarget rdf:resource="#Jaqen_h_ghar"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#Arya_Stark"/>
+  <owl:annotatedProperty rdf:resource="#isFromHouse"/>
+  <owl:annotatedTarget rdf:resource="#Stark"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</rdfs:comment>
+</owl:Axiom>
+
+<owl:AllDisjointProperties>
   <owl:members rdf:parseType="Collection">
-    <rdf:Description rdf:about="#Character"/>
-    <rdf:Description rdf:about="#House"/>
-    <rdf:Description rdf:about="#Personality"/>
-    <rdf:Description rdf:about="#Place"/>
-    <rdf:Description rdf:about="#Religion"/>
+    <rdf:Description rdf:about="#hasVisited"/>
+    <rdf:Description rdf:about="#isLoyalTo"/>
+    <rdf:Description rdf:about="#wasVisitedBy"/>
   </owl:members>
-</owl:AllDisjointClasses>
+</owl:AllDisjointProperties>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Arryn"/>
+    <rdf:Description rdf:about="#Arya_Stark"/>
+    <rdf:Description rdf:about="#Baratheon"/>
+    <rdf:Description rdf:about="#Benjen_Stark"/>
+    <rdf:Description rdf:about="#BeyondTheWall"/>
+    <rdf:Description rdf:about="#Bolton"/>
+    <rdf:Description rdf:about="#Brandon_Stark"/>
+    <rdf:Description rdf:about="#Daenerys_Targaryen"/>
+    <rdf:Description rdf:about="#Dorne"/>
+    <rdf:Description rdf:about="#DrownedGod"/>
+    <rdf:Description rdf:about="#Eddard_Stark"/>
+    <rdf:Description rdf:about="#FaithOfTheSeven"/>
+    <rdf:Description rdf:about="#Frey"/>
+    <rdf:Description rdf:about="#GreatStallion"/>
+    <rdf:Description rdf:about="#Greyjoy"/>
+    <rdf:Description rdf:about="#Jaqen_h_ghar"/>
+    <rdf:Description rdf:about="#Jon_Snow"/>
+    <rdf:Description rdf:about="#Lannister"/>
+    <rdf:Description rdf:about="#LordOfLight"/>
+    <rdf:Description rdf:about="#Lyanna_Stark"/>
+    <rdf:Description rdf:about="#ManyFacedGod"/>
+    <rdf:Description rdf:about="#Martell"/>
+    <rdf:Description rdf:about="#OldGods"/>
+    <rdf:Description rdf:about="#Rhaegar_Targaryen"/>
+    <rdf:Description rdf:about="#Rickard_Stark"/>
+    <rdf:Description rdf:about="#Rickon_Stark"/>
+    <rdf:Description rdf:about="#Robb_Stark"/>
+    <rdf:Description rdf:about="#Sansa_Stark"/>
+    <rdf:Description rdf:about="#Stark"/>
+    <rdf:Description rdf:about="#Targaryen"/>
+    <rdf:Description rdf:about="#TheCrownlands"/>
+    <rdf:Description rdf:about="#TheIronIslands"/>
+    <rdf:Description rdf:about="#TheNorth"/>
+    <rdf:Description rdf:about="#TheReach"/>
+    <rdf:Description rdf:about="#TheRiverlands"/>
+    <rdf:Description rdf:about="#TheStormlands"/>
+    <rdf:Description rdf:about="#TheVale"/>
+    <rdf:Description rdf:about="#TheWesterlands"/>
+    <rdf:Description rdf:about="#Theon_Greyjoy"/>
+    <rdf:Description rdf:about="#Tully"/>
+    <rdf:Description rdf:about="#Tyrell"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Arryn"/>
+    <rdf:Description rdf:about="#Arya_Stark"/>
+    <rdf:Description rdf:about="#Baratheon"/>
+    <rdf:Description rdf:about="#Benjen_Stark"/>
+    <rdf:Description rdf:about="#BeyondTheWall"/>
+    <rdf:Description rdf:about="#Bolton"/>
+    <rdf:Description rdf:about="#Brandon_Stark"/>
+    <rdf:Description rdf:about="#Cersei_Lannister"/>
+    <rdf:Description rdf:about="#Daenerys_Targaryen"/>
+    <rdf:Description rdf:about="#Dorne"/>
+    <rdf:Description rdf:about="#DrownedGod"/>
+    <rdf:Description rdf:about="#Eddard_Stark"/>
+    <rdf:Description rdf:about="#FaithOfTheSeven"/>
+    <rdf:Description rdf:about="#Frey"/>
+    <rdf:Description rdf:about="#GreatStallion"/>
+    <rdf:Description rdf:about="#Greyjoy"/>
+    <rdf:Description rdf:about="#Jon_Snow"/>
+    <rdf:Description rdf:about="#Lannister"/>
+    <rdf:Description rdf:about="#LordOfLight"/>
+    <rdf:Description rdf:about="#Lyanna_Stark"/>
+    <rdf:Description rdf:about="#ManyFacedGod"/>
+    <rdf:Description rdf:about="#Martell"/>
+    <rdf:Description rdf:about="#Oberyn_Martell"/>
+    <rdf:Description rdf:about="#OldGods"/>
+    <rdf:Description rdf:about="#Rhaegar_Targaryen"/>
+    <rdf:Description rdf:about="#Rickard_Stark"/>
+    <rdf:Description rdf:about="#Rickon_Stark"/>
+    <rdf:Description rdf:about="#Robb_Stark"/>
+    <rdf:Description rdf:about="#Sansa_Stark"/>
+    <rdf:Description rdf:about="#Stark"/>
+    <rdf:Description rdf:about="#Targaryen"/>
+    <rdf:Description rdf:about="#TheCrownlands"/>
+    <rdf:Description rdf:about="#TheIronIslands"/>
+    <rdf:Description rdf:about="#TheNorth"/>
+    <rdf:Description rdf:about="#TheReach"/>
+    <rdf:Description rdf:about="#TheRiverlands"/>
+    <rdf:Description rdf:about="#TheStormlands"/>
+    <rdf:Description rdf:about="#TheVale"/>
+    <rdf:Description rdf:about="#TheWesterlands"/>
+    <rdf:Description rdf:about="#Theon_Greyjoy"/>
+    <rdf:Description rdf:about="#Tully"/>
+    <rdf:Description rdf:about="#Tyrell"/>
+    <rdf:Description rdf:about="#Tywin_Lannister"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
 
 <owl:AllDifferent>
   <owl:distinctMembers rdf:parseType="Collection">
@@ -376,107 +538,15 @@ After the Jaqen persona is of no more use to him, the Faceless Man shapeshifts i
   </owl:distinctMembers>
 </owl:AllDifferent>
 
-<owl:AllDifferent>
-  <owl:distinctMembers rdf:parseType="Collection">
-    <rdf:Description rdf:about="#Arryn"/>
-    <rdf:Description rdf:about="#Arya_Stark"/>
-    <rdf:Description rdf:about="#Baratheon"/>
-    <rdf:Description rdf:about="#Benjen_Stark"/>
-    <rdf:Description rdf:about="#BeyondTheWall"/>
-    <rdf:Description rdf:about="#Bolton"/>
-    <rdf:Description rdf:about="#Brandon_Stark"/>
-    <rdf:Description rdf:about="#Cersei_Lannister"/>
-    <rdf:Description rdf:about="#Daenerys_Targaryen"/>
-    <rdf:Description rdf:about="#Dorne"/>
-    <rdf:Description rdf:about="#DrownedGod"/>
-    <rdf:Description rdf:about="#Eddard_Stark"/>
-    <rdf:Description rdf:about="#FaithOfTheSeven"/>
-    <rdf:Description rdf:about="#Frey"/>
-    <rdf:Description rdf:about="#GreatStallion"/>
-    <rdf:Description rdf:about="#Greyjoy"/>
-    <rdf:Description rdf:about="#Jon_Snow"/>
-    <rdf:Description rdf:about="#Lannister"/>
-    <rdf:Description rdf:about="#LordOfLight"/>
-    <rdf:Description rdf:about="#Lyanna_Stark"/>
-    <rdf:Description rdf:about="#ManyFacedGod"/>
-    <rdf:Description rdf:about="#Martell"/>
-    <rdf:Description rdf:about="#Oberyn_Martell"/>
-    <rdf:Description rdf:about="#OldGods"/>
-    <rdf:Description rdf:about="#Rhaegar_Targaryen"/>
-    <rdf:Description rdf:about="#Rickard_Stark"/>
-    <rdf:Description rdf:about="#Rickon_Stark"/>
-    <rdf:Description rdf:about="#Robb_Stark"/>
-    <rdf:Description rdf:about="#Sansa_Stark"/>
-    <rdf:Description rdf:about="#Stark"/>
-    <rdf:Description rdf:about="#Targaryen"/>
-    <rdf:Description rdf:about="#TheCrownlands"/>
-    <rdf:Description rdf:about="#TheIronIslands"/>
-    <rdf:Description rdf:about="#TheNorth"/>
-    <rdf:Description rdf:about="#TheReach"/>
-    <rdf:Description rdf:about="#TheRiverlands"/>
-    <rdf:Description rdf:about="#TheStormlands"/>
-    <rdf:Description rdf:about="#TheVale"/>
-    <rdf:Description rdf:about="#TheWesterlands"/>
-    <rdf:Description rdf:about="#Theon_Greyjoy"/>
-    <rdf:Description rdf:about="#Tully"/>
-    <rdf:Description rdf:about="#Tyrell"/>
-    <rdf:Description rdf:about="#Tywin_Lannister"/>
-  </owl:distinctMembers>
-</owl:AllDifferent>
-
-<owl:AllDifferent>
-  <owl:distinctMembers rdf:parseType="Collection">
-    <rdf:Description rdf:about="#Arryn"/>
-    <rdf:Description rdf:about="#Arya_Stark"/>
-    <rdf:Description rdf:about="#Baratheon"/>
-    <rdf:Description rdf:about="#Benjen_Stark"/>
-    <rdf:Description rdf:about="#BeyondTheWall"/>
-    <rdf:Description rdf:about="#Bolton"/>
-    <rdf:Description rdf:about="#Brandon_Stark"/>
-    <rdf:Description rdf:about="#Daenerys_Targaryen"/>
-    <rdf:Description rdf:about="#Dorne"/>
-    <rdf:Description rdf:about="#DrownedGod"/>
-    <rdf:Description rdf:about="#Eddard_Stark"/>
-    <rdf:Description rdf:about="#FaithOfTheSeven"/>
-    <rdf:Description rdf:about="#Frey"/>
-    <rdf:Description rdf:about="#GreatStallion"/>
-    <rdf:Description rdf:about="#Greyjoy"/>
-    <rdf:Description rdf:about="#Jaqen_h_ghar"/>
-    <rdf:Description rdf:about="#Jon_Snow"/>
-    <rdf:Description rdf:about="#Lannister"/>
-    <rdf:Description rdf:about="#LordOfLight"/>
-    <rdf:Description rdf:about="#Lyanna_Stark"/>
-    <rdf:Description rdf:about="#ManyFacedGod"/>
-    <rdf:Description rdf:about="#Martell"/>
-    <rdf:Description rdf:about="#OldGods"/>
-    <rdf:Description rdf:about="#Rhaegar_Targaryen"/>
-    <rdf:Description rdf:about="#Rickard_Stark"/>
-    <rdf:Description rdf:about="#Rickon_Stark"/>
-    <rdf:Description rdf:about="#Robb_Stark"/>
-    <rdf:Description rdf:about="#Sansa_Stark"/>
-    <rdf:Description rdf:about="#Stark"/>
-    <rdf:Description rdf:about="#Targaryen"/>
-    <rdf:Description rdf:about="#TheCrownlands"/>
-    <rdf:Description rdf:about="#TheIronIslands"/>
-    <rdf:Description rdf:about="#TheNorth"/>
-    <rdf:Description rdf:about="#TheReach"/>
-    <rdf:Description rdf:about="#TheRiverlands"/>
-    <rdf:Description rdf:about="#TheStormlands"/>
-    <rdf:Description rdf:about="#TheVale"/>
-    <rdf:Description rdf:about="#TheWesterlands"/>
-    <rdf:Description rdf:about="#Theon_Greyjoy"/>
-    <rdf:Description rdf:about="#Tully"/>
-    <rdf:Description rdf:about="#Tyrell"/>
-  </owl:distinctMembers>
-</owl:AllDifferent>
-
-<owl:AllDisjointProperties>
+<owl:AllDisjointClasses>
   <owl:members rdf:parseType="Collection">
-    <rdf:Description rdf:about="#hasVisited"/>
-    <rdf:Description rdf:about="#isLoyalTo"/>
-    <rdf:Description rdf:about="#wasVisitedBy"/>
+    <rdf:Description rdf:about="#Character"/>
+    <rdf:Description rdf:about="#House"/>
+    <rdf:Description rdf:about="#Personality"/>
+    <rdf:Description rdf:about="#Place"/>
+    <rdf:Description rdf:about="#Religion"/>
   </owl:members>
-</owl:AllDisjointProperties>
+</owl:AllDisjointClasses>
 
 
 </rdf:RDF>
