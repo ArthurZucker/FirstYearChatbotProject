@@ -34,7 +34,7 @@ release = 'v1'
 extensions = ['sphinx.ext.autodoc','sphinx.ext.todo',  'sphinx.ext.githubpages','recommonmark'
 ]
 
-# source_suffix = ['.rst', '.md']
+source_suffix = ['.rst', '.md', '.txt']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

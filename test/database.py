@@ -6,8 +6,6 @@ from owlready2 import *
 from textblob import TextBlob
 import shelve
 
-# utf-8 encoding
-
 ontology_path = "file://" + dirname(realpath(__file__)) + "/../ontology/" + \
 "ontologyGoT.owl"
 ontology = get_ontology(ontology_path).load()

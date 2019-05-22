@@ -46,34 +46,69 @@
 <h1>Un chatbot <em>Game of Thrones</em> fait avec Python par Belkada, Bonacchi, Capuano, Zucker de <a class="reference external" href="https://www.polytech.upmc.fr/fr">Polytech Sorbonne</a>.<a class="headerlink" href="#un-chatbot-game-of-thrones-fait-avec-python-par-belkada-bonacchi-capuano-zucker-de-polytech-sorbonne" title="Lien permanent vers ce titre">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-</div>
 <div class="section" id="index">
-<h1>Index<a class="headerlink" href="#index" title="Lien permanent vers ce titre">¶</a></h1>
+<h2>Index<a class="headerlink" href="#index" title="Lien permanent vers ce titre">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Index du module</span></a></p></li>
 </ul>
+<p>Ce git regroupe l’ensemble des fichiers nécessaires au lancement du chatbot.</p>
 </div>
-<div class="section" id="version-de-python-et-modules-necessaires">
-<h1>Version de Python et modules necessaires<a class="headerlink" href="#version-de-python-et-modules-necessaires" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Ce <em>chatbot</em> a ete fait sous Python 3.7.3. Il necessite Python 3 pour fonctionner.
-Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
-<code class="docutils literal notranslate"><span class="pre">sys</span></code> <code class="docutils literal notranslate"><span class="pre">os</span></code> <code class="docutils literal notranslate"><span class="pre">types</span></code> <code class="docutils literal notranslate"><span class="pre">tempfile</span></code> <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> <code class="docutils literal notranslate"><span class="pre">weakref</span></code> <code class="docutils literal notranslate"><span class="pre">re</span></code> <code class="docutils literal notranslate"><span class="pre">urllib</span></code> <code class="docutils literal notranslate"><span class="pre">warnings</span></code> <code class="docutils literal notranslate"><span class="pre">itertools</span></code> <code class="docutils literal notranslate"><span class="pre">owlready2</span></code> <code class="docutils literal notranslate"><span class="pre">easygui</span></code>.</p>
+<div class="section" id="version-de-python-necessaire">
+<h2>Version de python nécessaire<a class="headerlink" href="#version-de-python-necessaire" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Ce programme a été testé avec Python 3.7.3. Il necessite Python 3 pour fonctionner.</p>
+</div>
+<div class="section" id="paquets-necessaires">
+<h2>Paquets nécessaires<a class="headerlink" href="#paquets-necessaires" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
+<cite>sys</cite> <cite>os</cite> <cite>types</cite> <cite>tempfile</cite> <cite>subprocess</cite> <cite>weakref</cite> <cite>re</cite> <cite>urllib3</cite> <cite>warnings</cite> <cite>itertools</cite> <cite>owlready2</cite> <cite>easygui</cite> <cite>beautifulsoup4</cite> <cite>nltk</cite></p>
+</div>
+<div class="section" id="execution">
+<h2>Exécution<a class="headerlink" href="#execution" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour exécuter ce programme, il faut ouvrir un terminal, cloner le repertoire grâce à la commande :
+<cite>git clone &lt;lien_du_git&gt;</cite>
+Sinon, vous pouvez extraire l’archive <cite>chatbot.zip</cite>.</p>
+<p>Vous pouvez installer les paquets nécessaires grâce à la commande :
+<cite>make install</cite>
+et exécuter le fichier principal grâce à la commande :
+<cite>make</cite>
+ou :
+<cite>make run</cite></p>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La documentation du programme est accessible en ouvrant le fichier <cite>doc.html</cite>.</p>
+</div>
+<div class="section" id="ontologie">
+<h2>Ontologie<a class="headerlink" href="#ontologie" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’ontologie a été créée avec <a class="reference external" href="https://protege.stanford.edu/">protégé</a>. Le fichier <cite>ontologyGoT.png</cite> est un graphe des classes de l’ontologie. Le fichier <cite>ontologyGoT.pdf</cite> est un graphe des classes et des instances de l’ontologie.</p>
+</div>
+<div class="section" id="liste-des-instances-presentes-dans-l-ontologie">
+<h2>Liste des instances présentes dans l’ontologie :<a class="headerlink" href="#liste-des-instances-presentes-dans-l-ontologie" title="Lien permanent vers ce titre">¶</a></h2>
+<p><cite>Arryn</cite>, <cite>Arya_Stark</cite>, <cite>Baratheon</cite>, <cite>Benjen_Stark</cite>, <cite>BeyondTheWall</cite>, <cite>Bolton</cite>, <cite>Brandon_Stark</cite>, <cite>Cersei_Lannister</cite>, <cite>Daenerys_Targaryen</cite>, <cite>Dorne</cite>, <cite>DrownedGod</cite>, <cite>Eddard_Stark</cite>, <cite>FaithOfTheSeven</cite>, <cite>Frey</cite>, <cite>GreatStallion</cite>, <cite>Greyjoy</cite>, <cite>Jaqen_h_ghar</cite>, <cite>Jon_Snow</cite>, <cite>Lannister</cite>, <cite>LordOfLight</cite>, <cite>Lyanna_Stark</cite>, <cite>ManyFacedGod</cite>, <cite>Martell</cite>, <cite>Oberyn_Martell</cite>, <cite>OldGods</cite>, <cite>Rhaegar_Targaryen</cite>, <cite>Rickard_Stark</cite>, <cite>Rickon_Stark</cite>, <cite>Robb_Stark</cite>, <cite>Sansa_Stark</cite>, <cite>Stark</cite>, <cite>Targaryen</cite>, <cite>TheCrownlands</cite>, <cite>TheIronIslands</cite>, <cite>TheNorth</cite>, <cite>Theon_Greyjoy</cite>, <cite>TheReach</cite>, <cite>TheRiverlands</cite>, <cite>TheStormlands</cite>, <cite>TheVale</cite>, <cite>TheWesterlands</cite>, <cite>Tully</cite>, <cite>Tyrell</cite>, <cite>Tyrion_Lannister</cite>, <cite>Tywin_Lannister</cite></p>
+</div>
+<div class="section" id="syntaxe">
+<h2>Syntaxe<a class="headerlink" href="#syntaxe" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour utiliser le chatbot en mode sur une seule ligne, il faut suivre la syntaxe suivante :
+<cite>instance1,propriete,instance2?</cite></p>
+<p>Le chatbot est capable de corriger la requête s’il y figure des fautes légères.</p>
+</div>
+<div class="section" id="interface-graphique">
+<h2>Interface graphique<a class="headerlink" href="#interface-graphique" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Toute l’interface graphique est regroupée dans le fichier <cite>source/ui.py</cite>. Elle a
+été réalisée grâce au module <cite>easygui</cite>.</p>
 </div>
 <div class="section" id="programme-principal">
-<h1>Programme principal<a class="headerlink" href="#programme-principal" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Le format adequat pour le mode de saisie sur une ligne est :
-<code class="docutils literal notranslate"><span class="pre">instance1,propriete,instance2?</span></code></p>
-<div class="section" id="module-chatbot">
-<span id="chatbot"></span><h2><a class="reference internal" href="#module-chatbot" title="chatbot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">chatbot</span></code></a><a class="headerlink" href="#module-chatbot" title="Lien permanent vers ce titre">¶</a></h2>
+<h2>Programme principal<a class="headerlink" href="#programme-principal" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="module-source.chatbot">
+<span id="source-chatbot"></span><h3><a class="reference internal" href="#module-source.chatbot" title="source.chatbot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.chatbot</span></code></a><a class="headerlink" href="#module-source.chatbot" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce fichier execute le chatbot en faisant appel au fonctions des modules se situant dans le repertoire source.</p>
 </div>
 </div>
 <div class="section" id="modules-necessaires-au-programme-principal">
-<h1>Modules necessaires au programme principal<a class="headerlink" href="#modules-necessaires-au-programme-principal" title="Lien permanent vers ce titre">¶</a></h1>
-<p>Les modules necessaires au programme principal sont regroupes dans le dossier <code class="docutils literal notranslate"><span class="pre">source</span></code>.</p>
+<h2>Modules necessaires au programme principal<a class="headerlink" href="#modules-necessaires-au-programme-principal" title="Lien permanent vers ce titre">¶</a></h2>
 <div class="section" id="module-source.ui">
-<span id="source-ui"></span><h2><a class="reference internal" href="#module-source.ui" title="source.ui"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.ui</span></code></a><a class="headerlink" href="#module-source.ui" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="source-ui"></span><h3><a class="reference internal" href="#module-source.ui" title="source.ui"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.ui</span></code></a><a class="headerlink" href="#module-source.ui" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce fichier contient les fonctions necessaires a l interface graphique du chatbot.
 Chaque boite de dialogue est realisee par une fonction.
 Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusieurs lignes.</p>
@@ -177,7 +212,7 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 
 </div>
 <div class="section" id="module-source.processing">
-<span id="source-processing"></span><h2><a class="reference internal" href="#module-source.processing" title="source.processing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.processing</span></code></a><a class="headerlink" href="#module-source.processing" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="source-processing"></span><h3><a class="reference internal" href="#module-source.processing" title="source.processing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.processing</span></code></a><a class="headerlink" href="#module-source.processing" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcours sur l ontologie.</p>
 <dl class="function">
 <dt id="source.processing.FindIndivdualByName">
@@ -281,7 +316,7 @@ Retourne un 4-uplet compose de : True si tous les elements de la requete sont da
 
 </div>
 <div class="section" id="module-source.comment">
-<span id="source-comment"></span><h2><a class="reference internal" href="#module-source.comment" title="source.comment"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.comment</span></code></a><a class="headerlink" href="#module-source.comment" title="Lien permanent vers ce titre">¶</a></h2>
+<span id="source-comment"></span><h3><a class="reference internal" href="#module-source.comment" title="source.comment"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.comment</span></code></a><a class="headerlink" href="#module-source.comment" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce fichier contient les fonctions permettant d interagir avec les commentaires des proprietes de l ontologie qui servent a caracteriser les probabilites des relations.</p>
 <dl class="function">
 <dt id="source.comment.initComment">
@@ -290,6 +325,7 @@ Retourne un 4-uplet compose de : True si tous les elements de la requete sont da
 :param owlready2.namespace.Ontology ontology: l ontologie.</p>
 </dd></dl>
 
+</div>
 </div>
 </div>
 
@@ -301,17 +337,26 @@ Retourne un 4-uplet compose de : True si tous les elements de la requete sont da
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table des matières</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Un chatbot <em>Game of Thrones</em> fait avec Python par Belkada, Bonacchi, Capuano, Zucker de Polytech Sorbonne.</a></li>
+<li><a class="reference internal" href="#">Un chatbot <em>Game of Thrones</em> fait avec Python par Belkada, Bonacchi, Capuano, Zucker de Polytech Sorbonne.</a><ul>
 <li><a class="reference internal" href="#index">Index</a></li>
-<li><a class="reference internal" href="#version-de-python-et-modules-necessaires">Version de Python et modules necessaires</a></li>
+<li><a class="reference internal" href="#version-de-python-necessaire">Version de python nécessaire</a></li>
+<li><a class="reference internal" href="#paquets-necessaires">Paquets nécessaires</a></li>
+<li><a class="reference internal" href="#execution">Exécution</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#ontologie">Ontologie</a></li>
+<li><a class="reference internal" href="#liste-des-instances-presentes-dans-l-ontologie">Liste des instances présentes dans l’ontologie :</a></li>
+<li><a class="reference internal" href="#syntaxe">Syntaxe</a></li>
+<li><a class="reference internal" href="#interface-graphique">Interface graphique</a></li>
 <li><a class="reference internal" href="#programme-principal">Programme principal</a><ul>
-<li><a class="reference internal" href="#module-chatbot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">chatbot</span></code></a></li>
+<li><a class="reference internal" href="#module-source.chatbot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.chatbot</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#modules-necessaires-au-programme-principal">Modules necessaires au programme principal</a><ul>
 <li><a class="reference internal" href="#module-source.ui"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.ui</span></code></a></li>
 <li><a class="reference internal" href="#module-source.processing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.processing</span></code></a></li>
 <li><a class="reference internal" href="#module-source.comment"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.comment</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

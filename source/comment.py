@@ -1,6 +1,4 @@
-#! /usr/bin/env python
-
-# -*- coding: utf-8 -*-
+#! /usr/bin/env python3
 
 """
 Ce fichier contient les fonctions permettant d interagir avec les commentaires des proprietes de l ontologie qui servent a caracteriser les probabilites des relations.
@@ -11,8 +9,7 @@ from os.path import dirname, realpath
 from owlready2 import *	# pour charger l ontologie
 
 onto_path.append(dirname(dirname(realpath(__file__))) + "/ontology/")
-ontology_path = "file://" + dirname(dirname(realpath(__file__))) + "/ontology/" + \
-"ontologyGoT.owl"
+ontology_path = "file://" + dirname(dirname(realpath(__file__))) + "/ontology/" + "ontologyGoT.owl"
 ontology = get_ontology(ontology_path).load()
 
 

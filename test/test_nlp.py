@@ -5,7 +5,7 @@ from os.path import dirname, realpath
 from nltk.corpus import stopwords
 from bs4 import BeautifulSoup
 import database as data
-from owlready2 import *	
+from owlready2 import *
 from textblob import TextBlob
 from textblob import classifiers
 
