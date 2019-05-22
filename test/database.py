@@ -4,6 +4,9 @@ from textblob import classifiers
 from os.path import dirname, realpath
 from owlready2 import *	
 from textblob import TextBlob
+import shelve
+
+
 
 # utf-8 encoding
 
@@ -83,6 +86,21 @@ def cleaning_text2(text):
 			return text_cleaned
 	return text_cleaned
 
+def cleaning_final(text):
+	D = ['at', 'in', 'for', 'of', 'the', 'and', 'to', 'a', "'s", 'by', 'though', 'as', 'through', '.']
+	blob = TextBlob(text)
+	#print(blob.words)
+	temp = ''
+
+	for line in blob.sentences:
+		for words in line.split():
+			if words not in D:
+				#print("HAHA")
+				#temp.remove(words)
+				temp += words + ' '
+		temp += '\n'
+	return temp
+
 
 def creation_tabset(text):
 	text = text.split('.')
@@ -116,27 +134,24 @@ def creation_tabset2(text):
 	return L
 
 L = generating_url(ontology)
-
+"""
 L_tab = []
 
 for url in L:
 	text = creation_text(url)
 	text_cleaned2 = cleaning_text2(text)
+	text_cleaned2 = cleaning_final(text_cleaned2)
 	text_cleaned = cleaning_text(text)
+	text_cleaned = cleaning_final(text_cleaned)
 	L_tab = L_tab + creation_tabset(text_cleaned) + creation_tabset2(text_cleaned2)
 #print(text_cleaned)
+"""
+d = shelve.open('basededonnee')
+L_tab = d['L_tab']
+d.close()
 
-
-print(L_tab)
+#print(L_tab)
 classifier = classifiers.NaiveBayesClassifier(L_tab)
-blob2 = TextBlob('Tyrion is the Hand of Bran ?', classifier=classifier)
-print(blob2.classify())
-
-"""for url in L:
-	L_tab = L_tab + creation_tabset(cleaning_text(creation_text(url)))
-
-print(L_tab)
-
-classifier = classifiers.NaiveBayesClassifier(L_tab)
-blob2 = TextBlob('', classifier=classifier)
-print(blob2.classify())"""
+#blob2 = TextBlob('Jon is the son of Ned Stark ?', classifier=classifier)
+prob_dist = classifier.prob_classify("Is Jon Snow the son of Bran ?")
+print(round(prob_dist.prob("pos"), 2))
