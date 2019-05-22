@@ -10,7 +10,7 @@ Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusi
 
 from easygui import indexbox, enterbox, multenterbox, ccbox, msgbox, textbox
 
-# image_path = "source/image.gif"
+image_path = "source/image.gif"
 
 def selectModeBox():
 	"""
@@ -23,7 +23,7 @@ def selectModeBox():
 	title = "Chatbot Game of Thrones"
 	choices = ("One line mode", "Multi line mode")
 	# mode = indexbox(message, title, choices, image=image_path)
-	mode = indexbox(message, title, choices)
+	mode = indexbox(message, title, choices, image = image_path)
 	return mode
 
 def queryBox(mode):
