@@ -63,14 +63,15 @@ def formatErrorBox():
 	"Please read README.md or README.txt.".center(80))
 	msgbox(message, title, "OK")
 
-def answerBox(mode, query, queryFound, answer):
+def answerBox(mode, query, queryFound, answer, answerList):
 	"""
-	Affiche la fenetre rappelant la requete entree par l utilisateur ainsi que la reponse donnee par le chatbot.
+	Affiche la fenetre rappelant la requete entree par l utilisateur, la reponse donnee par le chatbot ainsi que la l historique des questions/reponses.
 
 	:param int mode: mode est le mode selectionne par l utilisateur.
 	:param query: la requete entree par l utilisateur.
 	:param list(str) queryFound: la requete effectuee par le chatbot composee du nom de l individu 1, du nom de la propriete, du nom de l individu 2.
 	:param str answer: la reponse retournee par le chatbot.
+	:param list(str) answerList: l historique des questions/reponses.
 	:type query: str ou list(str)
 	:return: le message affiche.
 	:rtype: str
@@ -80,12 +81,12 @@ def answerBox(mode, query, queryFound, answer):
 		message = "Your query was \"" + query + "\"."
 	elif mode == 1:
 		message = "Your query was \"" + ",".join(query) + "?\"."
-	message = message.center(80) + '\n'
-	message += "The chatbot understood the query:".center(80) +'\n'
-	message += ("\"" + ",".join(queryFound) + "?\"").center(80) + '\n'
-	message += "The result of your query is:".center(80) + '\n\n'
-	message +=	answer.center(80)
-	msgbox(message, title, "OK")
+	message = message.center(65) + '\n'
+	message += "The chatbot understood the query:".center(65) +'\n'
+	message += ("\"" + ",".join(queryFound) + "?\"").center(65) + '\n'
+	message += "The result of your query is:".center(65) + '\n\n'
+	message +=	answer.center(65)
+	textbox(message, title, answerList)
 	return message
 
 def endBox():
@@ -117,11 +118,10 @@ def noResultBox():
 	message = ("There is no answer for your query in the ontology").center(80)
 	msgbox(message, title, "OK")
 
-def historyBox(answerList):
+def imageBox():
 	"""
-	Affiche la fenetre presentant la liste des requetes precedentes entrees par l utilisateur.
-	:param list(str) answerList:
+	Affiche la fenetre indiquant qu'il ne faut pas cliquer sur l image.
 	"""
 	title = "Chatbot Game of Thrones"
-	message = "List of the former queries :"
-	textbox(message,title,answerList)
+	message = ("Do not click on the picture please.").center(80)
+	msgbox(message, title, "OK")

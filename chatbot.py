@@ -7,7 +7,6 @@ Ce fichier execute le chatbot en faisant appel au fonctions des modules se situa
 """
 
 from os.path import dirname, realpath
-from threading import Thread
 
 from owlready2 import *	# pour charger l ontologie
 
@@ -15,19 +14,23 @@ from source.ui import * # pour charger l interface graphique
 
 from source.processing import reply # pour charger la reponse
 
+from source.comment import * # pour commenter l ontologie
+
 ontology_path = "file://" + dirname(realpath(__file__)) + "/ontology/" + \
 "ontologyGoT.owl"
 ontology = get_ontology(ontology_path).load()
 
-answerList = []
-thread_answer = Thread()
+initComment(ontology)
+
+answerList = ["The history :\n\n"]
 
 still = True
 while still:
-	# ERROR : appuie sur la photo
-	print(selectModeBox())
-	mode = selectModeBox()
-	print(mode)
+	mode = None
+	try:
+		mode = selectModeBox()
+	except AssertionError :
+		imageBox()
 	if mode == None:
 		still = endBox()
 		continue
@@ -37,7 +40,6 @@ while still:
 	else:
 		answer, queryFound = reply(mode, query, ontology)
 		if answer != None:
-			result = answerBox(mode, query, queryFound, answer)
-			answerList.append(result)
-	thread_answer.start(historyBox,answerList)
+			result = answerBox(mode, query, queryFound, answer,answerList)
+			answerList.append('\n'+result)
 	still = endBox()
