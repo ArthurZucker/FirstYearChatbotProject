@@ -6,7 +6,7 @@ from os.path import dirname, realpath
 
 from owlready2 import *	# pour charger l ontologie
 
-onto_path.append(dirname(dirname(realpath(__file__)) + "/ontology/"))
+onto_path.append(dirname(dirname(realpath(__file__))) + "/ontology/")
 ontology_path = "file://" + dirname(dirname(realpath(__file__))) + "/ontology/" + \
 "ontologyGoT.owl"
 ontology = get_ontology(ontology_path).load()

@@ -22,14 +22,15 @@ ontology = get_ontology(ontology_path).load()
 
 initComment(ontology)
 
-answerList = []
+answerList = ["The history :\n\n"]
 
 still = True
 while still:
-	# ERROR : appuie sur la photo
-	print(selectModeBox())
-	mode = selectModeBox()
-	print(mode)
+	mode = None
+	try:
+		mode = selectModeBox()
+	except AssertionError :
+		imageBox()
 	if mode == None:
 		still = endBox()
 		continue
@@ -39,6 +40,6 @@ while still:
 	else:
 		answer, queryFound = reply(mode, query, ontology)
 		if answer != None:
-			result = answerBox(mode, query, queryFound, answer)
-			answerList.append(result)
+			result = answerBox(mode, query, queryFound, answer,answerList)
+			answerList.append('\n'+result)
 	still = endBox()
