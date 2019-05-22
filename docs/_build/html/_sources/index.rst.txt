@@ -6,10 +6,6 @@
 Un chatbot *Game of Thrones* fait avec Python par Belkada, Bonacchi, Capuano, Zucker de `Polytech Sorbonne <https://www.polytech.upmc.fr/fr>`_.
 ================================================================================================================================================
 
-Ce *chatbot* a ete fait sous Python 3.7.3. Il necessite Python 3 pour fonctionner.
-Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
-``sys`` ``os`` ``types`` ``tempfile`` ``subprocess`` ``weakref`` ``re`` ``urllib`` ``warnings`` ``itertools`` ``owlready2`` ``easygui``.
-
 .. toctree::
 	:maxdepth: 2
 	:caption: Contents:
@@ -20,6 +16,13 @@ Index
 
 * :ref:`genindex`
 * :ref:`modindex`
+
+Version de Python et modules necessaires
+========================================
+
+Ce *chatbot* a ete fait sous Python 3.7.3. Il necessite Python 3 pour fonctionner.
+Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
+``sys`` ``os`` ``types`` ``tempfile`` ``subprocess`` ``weakref`` ``re`` ``urllib`` ``warnings`` ``itertools`` ``owlready2`` ``easygui``.
 
 Programme principal
 ===================
@@ -47,5 +50,11 @@ Les modules necessaires au programme principal sont regroupes dans le dossier ``
 :mod:`source.processing`
 ************************
 .. automodule:: source.processing
+	:members:
+	:undoc-members:
+
+:mod:`source.comment`
+*********************
+.. automodule:: source.comment
 	:members:
 	:undoc-members:
