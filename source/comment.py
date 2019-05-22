@@ -14,7 +14,7 @@ ontology = get_ontology(ontology_path).load()
 
 def initComment(ontology):
 	"""
-	Cette fonction parcours l'ensemble des individus et l'ensemble de leurs proprietes vers l'ensemble des individus possibles. Une fois l'individu d'entrée, la proprieté et l'individu de sortie recuperer, on ajoute un commentaire contenant la probabilité.
+	Cette fonction parcours l ensemble des individus et l ensemble de leurs proprietes vers l ensemble des individus possibles. Une fois l individu d entree, la propriete et l individu de sortie recuperes, on ajoute un commentaire contenant la probabilite.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	"""
 	propertiesNames = [p.name for p in list(ontology.object_properties())]
