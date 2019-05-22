@@ -1,17 +1,36 @@
 import nltk 
 import urllib.request
-
 #nltk.download('stopwords')
+from os.path import dirname, realpath
 from nltk.corpus import stopwords
 from bs4 import BeautifulSoup
+import database as data
+from owlready2 import *	
+from textblob import TextBlob
+from textblob import classifiers
 
-response =  urllib.request.urlopen('https://gameofthrones.fandom.com/wiki/Jon_Snow')
-html = response.read()
-#print(html)
+ontology_path = "file://" + dirname(realpath(__file__)) + "/../ontology/" + \
+"ontologyGoT.owl"
+ontology = get_ontology(ontology_path).load()
 
-punctuation = ['-', ',', '.', '?', '=', '/', ':', '+', '1', '2', '3']
-soup = BeautifulSoup(html,'lxml')
-text = soup.span.get_text()
-#tokens = [t for t in text.split()]
+L = data.generating_url(ontology)
+text = data.creation_text(L[0])
+#print(text)
+
+text = data.cleaning_text(text)
 print(text)
+#data.replace('at ', ' ')
+def cleaning_final(text)
+	D = ['at', 'in', 'for', 'of', 'the', 'and', 'to', 'a', "'s", 'by', 'though', 'as', 'through', '.']
+	blob = TextBlob(text)
+	print(blob.words)
+	temp = ''
 
+	for line in blob.sentences:
+		for words in line.split():
+			if words not in D:
+				#print("HAHA")
+				#temp.remove(words)
+				temp += words + ' '
+		temp += '\n'
+	return temp

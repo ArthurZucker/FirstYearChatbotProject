@@ -19,7 +19,7 @@ for tokens in test_text:
 			tokens = tokens.replace(c, '')"""
 	if tokens != '':
 		L.append((tokens, 'pos'))
-print(L)
+#print(L)
 """for np in blob.noun_phrases:
  print (np)
 
@@ -46,7 +46,7 @@ testing = [
 ]
 
 
-classifier = classifiers.NaiveBayesClassifier(L)
-classifier.show_informative_features(3)
-blob2 = TextBlob('Is Jon Snow the bastard of Ned Stark ?', classifier=classifier)
-print(blob2.classify())
+classifier = classifiers.NaiveBayesClassifier(training)
+#classifier.show_informative_features(3)
+prob_dist = classifier.prob_classify("?")
+print(round(prob_dist.prob("pos"), 2))
