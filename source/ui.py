@@ -72,6 +72,8 @@ def answerBox(mode, query, queryFound, answer):
 	:param list(str) queryFound: la requete effectuee par le chatbot composee du nom de l individu 1, du nom de la propriete, du nom de l individu 2.
 	:param str answer: la reponse retournee par le chatbot.
 	:type query: str ou list(str)
+	:return: le message affiche.
+	:rtype: str
 	"""
 	title = "Chatbot Game of Thrones"
 	if mode == 0:
@@ -84,6 +86,7 @@ def answerBox(mode, query, queryFound, answer):
 	message += "The result of your query is:".center(80) + '\n\n'
 	message +=	answer.center(80)
 	msgbox(message, title, "OK")
+	return message
 
 def endBox():
 	"""
@@ -113,3 +116,12 @@ def noResultBox():
 	title = "Chatbot Game of Thrones"
 	message = ("There is no answer for your query in the ontology").center(80)
 	msgbox(message, title, "OK")
+
+def historyBox(answerList):
+	"""
+	Affiche la fenetre presentant la liste des requetes precedentes entrees par l utilisateur.
+	:param list(str) answerList:
+	"""
+	title = "Chatbot Game of Thrones"
+	message = "List of the former queries :"
+	textbox(message,title,answerList)

@@ -24,7 +24,8 @@ def main():
 	# print("\nListe des classes :\n",list(GoT.classes()))
 	# print("\nListe des instances :\n",list(ontologyGoT.individuals()))
 	# print("\nListe des propriétés objet :\n",list(ontologyGoT.object_properties()))
-	# print("\nListe des propriétés data :\n",list(GoT.data_properties()))
+	# print("\nListe des propriétés data :\n",list(ontologyGoT.data_properties()))
+	# L = [p.name for p in list ]
 	# print("\nListe des propriétés :\n",list(GoT.properties()))
 	#
 	# print("\nListe des sous-classes de Place :\n",\
@@ -39,8 +40,8 @@ def main():
 	# GoT.search(is_a = GoT.Place))
 
 	# liste des proprietes
-	# print(dir(ontologyGoT.Jon_Snow),'\n')
-	# print(ontologyGoT.Jon_Snow.__getattr__("isLoyalTo"))
+	print(dir(ontologyGoT.Jon_Snow),'\n')
+	print(ontologyGoT.Jon_Snow.__getattr__("isLoyalTo"))
 	# print(type((dir(ontologyGoT.Jon_Snow)[-9])))
 	# print(ontologyGoT.TheWesterlands.__dict__,'\n')
 
@@ -50,8 +51,6 @@ def main():
 	# print(GoT.Jon_Snow.isLoyalTo)
 	# print(GoT.Arya_Stark in GoT.Jon_Snow.isLoyalTo)
 
-
-
 	# pour recuperer l objet propriete :
 	# searchList = ontology.search(iri = "*"+propertyName+"*")
 	# if len(searchList) == 1 and propertyName == searchList[0].name:
@@ -59,6 +58,9 @@ def main():
 	# else:
 	# 	print("Error : at least two properties are similar.")
 
+
+	comment[ontologyGoT.Jon_Snow,ontologyGoT.isLoyalTo,ontologyGoT.Sansa_Stark] = "Salut"
+	print(comment[ontologyGoT.Jon_Snow,ontologyGoT.isLoyalTo,ontologyGoT.Sansa_Stark])
 
 	# sauvegarde dans un nouveau fichier
 	# GoT.save(file = onto_path[0] + "newOntologyGoT.owl")
