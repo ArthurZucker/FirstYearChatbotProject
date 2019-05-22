@@ -11,7 +11,12 @@ ontology_path = "file://" + dirname(realpath(__file__)) + "/ontology/" + \
 "ontologyGoT.owl"
 ontology = get_ontology(ontology_path).load()
 
+
 def initComment(ontology):
+	"""
+	Cette fonction parcours l'ensemble des individus et l'ensemble de leurs proprietes vers l'ensemble des individus possibles. Une fois l'individu d'entrée, la proprieté et l'individu de sortie recuperer, on ajoute un commentaire contenant la probabilité.
+	:param owlready2.namespace.Ontology ontology: l ontologie.
+	"""
 	propertiesNames = [p.name for p in list(ontology.object_properties())]
 	for individual1 in list(ontology.individuals()):
 		data = dir(individual1)
@@ -20,6 +25,7 @@ def initComment(ontology):
 			if propertyName in propertiesNames:
 				property = ontology.search_one(iri = "*"+propertyName+"*")
 				individual1Properties.append(property)
+
 		if len(individual1Properties) > 0:
 			for property in individual1Properties:
 				individual2 = individual1.__getattr__(property.name)
