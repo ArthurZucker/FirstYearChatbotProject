@@ -30,9 +30,9 @@ Programme principal
 Le format adequat pour le mode de saisie sur une ligne est :
 ``instance1,propriete,instance2?``
 
-:mod:`chatbot`
+:mod:`source.chatbot`
 **************
-.. automodule:: chatbot
+.. automodule:: source.chatbot
 	:members:
 	:undoc-members:
 
