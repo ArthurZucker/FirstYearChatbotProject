@@ -60,6 +60,9 @@ def check(mode, raw_query, ontology):
 				return None
 		query = raw_query
 		indice = 2
+	elif mode == 2:
+		pass # Younes
+		# indice = ?
 	return query, indice
 
 def isInOntology(query, indice, ontology):

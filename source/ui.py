@@ -20,7 +20,7 @@ def selectModeBox():
 	"""
 	message = "Select the mode".center(80)
 	title = "Chatbot Game of Thrones"
-	choices = ("One line mode", "Multi line mode")
+	choices = ("One line mode", "Multi line mode", "Younes mode")
 	# mode = indexbox(message, title, choices, image=image_path)
 	mode = indexbox(message, title, choices, image = image_path)
 	return mode
