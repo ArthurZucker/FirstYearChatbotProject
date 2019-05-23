@@ -9,21 +9,7 @@ Ce programme a été testé avec Python 3.7.3. Il necessite Python 3 pour foncti
 
 Paquets nécessaires :
 
-Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
-sys
-os
-types
-tempfile
-subprocess
-weakref
-re
-urllib
-warnings
-itertools
-owlready2
-easygui
-beautifulsoup4
-nltk
+Pour utiliser ce programme, il est nécessaire de posséder les packets suivants inscrits dans le fichier requirements.txt
 
 
 Exécution :
