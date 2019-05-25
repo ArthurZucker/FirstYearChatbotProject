@@ -38,7 +38,6 @@ training = [
 ('Jon Snow loves Dragonstone', 'pos'),
 ('Jon Snow knows something', 'neg')
 ]
-L.append((' ','neg'))
 testing = [
 ('Jon Snow is a bastard','neg'),
 ('Jon Snow lives at Dragonstone','pos'),
@@ -48,5 +47,5 @@ testing = [
 
 classifier = classifiers.NaiveBayesClassifier(training)
 #classifier.show_informative_features(3)
-prob_dist = classifier.prob_classify("?")
+prob_dist = classifier.prob_classify("Jon Snow is a bastard ?")
 print(round(prob_dist.prob("pos"), 2))
