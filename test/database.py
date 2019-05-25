@@ -5,6 +5,7 @@ from os.path import dirname, realpath
 from owlready2 import *	
 from textblob import TextBlob
 import shelve
+from random import randint
 
 
 
@@ -87,7 +88,7 @@ def cleaning_text2(text):
 	return text_cleaned
 
 def cleaning_final(text):
-	D = ['at', 'in', 'for', 'of', 'the', 'and', 'to', 'a', "'s", 'by', 'though', 'as', 'through', '.']
+	D = ['them','at', 'in', 'for', 'of', 'the', 'and', 'to', 'a', "'s", 'by', 'though', 'as', 'through', '.', 'is', 'her', 'his', 'into', 'an', 'that']
 	blob = TextBlob(text)
 	#print(blob.words)
 	temp = ''
@@ -103,19 +104,29 @@ def cleaning_final(text):
 
 
 def creation_tabset(text):
-	text = text.split('.')
+	text = text.split('\n')
 	L = []
+	List = ['Arya', 'Sansa', 'Eddard', 'Ned', 'Jon', 'Danearys', 'Joeffrey', 'Cersei', 'Hound']
+	passe = True
+	#print(text)
 	for tokens in text:
 		"""for c in tokens:
 			if c in punctuation:
 				tokens = tokens.replace(c, '')"""
-		if tokens != '':
+		for words in tokens.split():
+			#print(words)
+			if words not in List:
+				passe = False
+			else:
+				passe = True
+				break
+		if tokens != '' and passe == True:
 			L.append((tokens, 'pos'))
 	#L.append(('', 'neg'))
 	return L
 
 def creation_tabset2(text):
-	text = text.split('.')
+	text = text.split('\n')
 	L = []
 	List = ['Arya', 'Sansa', 'Eddard', 'Ned', 'Jon', 'Danearys', 'Joeffrey', 'Cersei', 'Hound']
 	passe = True
@@ -128,12 +139,49 @@ def creation_tabset2(text):
 				passe = False
 			else:
 				passe = True
+				break
 		if tokens != '' and passe == True:
-			L.append((tokens, 'neg'))
+			r = randint(0,10)
+			if r > 4:
+				L.append((tokens, 'neg'))
+				pass
+			else:
+				L.append((tokens, 'pos'))
 	#L.append(('', 'neg'))
 	return L
 
-L = generating_url(ontology)
+def generating_url2(ontology):
+	L = []
+	url = "https://awoiaf.westeros.org/index.php/"
+	for individuals in ontology.individuals():
+		i = 0
+		for c in individuals.name:
+			if c == '_':
+				i = i+1
+		if i == 1:
+			L.append(url+individuals.name)
+	return L
+
+L = generating_url(ontology) 
+L2 = generating_url2(ontology)
+
+def cleaning_text3(text):
+	text_cleaned = ''
+	Li = []
+	for i in range(len(text)):
+		#print(words)
+		if i < len(text)-8 and text[i:i+8] == 'Season 8' and len(Li) == 0:
+			#cpt = cpt+1
+			Li.append(i)
+			#print("HEY")
+			pass
+		elif i < len(text)-8 and text[i:i+8] == 'Contents' and len(Li) == 1:
+			Li.append(i)
+			pass
+		if len(Li) == 2:
+			text_cleaned = text[Li[0]+9:Li[1]-1]
+			return text_cleaned
+	return text_cleaned
 """
 L_tab = []
 
@@ -145,13 +193,24 @@ for url in L:
 	text_cleaned = cleaning_final(text_cleaned)
 	L_tab = L_tab + creation_tabset(text_cleaned) + creation_tabset2(text_cleaned2)
 #print(text_cleaned)
-"""
-d = shelve.open('basededonnee')
-L_tab = d['L_tab']
-d.close()
+print(L_tab)
 
-#print(L_tab)
-classifier = classifiers.NaiveBayesClassifier(L_tab)
-#blob2 = TextBlob('Jon is the son of Ned Stark ?', classifier=classifier)
-prob_dist = classifier.prob_classify("Is Jon Snow the son of Bran ?")
+L2 = generating_url2(ontology)
+
+
+print(L_tab)
+
+for url in L2:
+	text = creation_text(url)
+	text_cleaned = cleaning_text3(text)
+	text_cleaned = cleaning_final(text_cleaned)
+	L_tab = L_tab + creation_tabset(text_cleaned)
+
+classifier = classifiers.NaiveBayesClassifier(L_tab)"""
+
+d = shelve.open('basededonnee')
+classifier = d['class'] 
+d.close()
+query = input("your question :")
+prob_dist = classifier.prob_classify(query)
 print(round(prob_dist.prob("pos"), 2))
