@@ -1,20 +1,21 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
-# -*- coding: utf-8 -*-
+"""
+Ce fichier contient les fonctions permettant d interagir avec les commentaires des proprietes de l ontologie qui servent a caracteriser les probabilites des relations.
+"""
 
 from os.path import dirname, realpath
 
 from owlready2 import *	# pour charger l ontologie
 
 onto_path.append(dirname(dirname(realpath(__file__))) + "/ontology/")
-ontology_path = "file://" + dirname(dirname(realpath(__file__))) + "/ontology/" + \
-"ontologyGoT.owl"
+ontology_path = "file://" + dirname(dirname(realpath(__file__))) + "/ontology/" + "ontologyGoT.owl"
 ontology = get_ontology(ontology_path).load()
 
 
 def initComment(ontology):
 	"""
-	Cette fonction parcours l ensemble des individus et l ensemble de leurs proprietes vers l ensemble des individus possibles. Une fois l individu d entree, la propriete et l individu de sortie recuperes, on ajoute un commentaire contenant la probabilite.
+	Cette fonction parcourt l ensemble des individus, puis l ensemble de leurs proprietes, puis l ensemble des individus possibles. Une fois l individu d entree, la propriete et l individu de sortie recuperes, on ajoute un commentaire contenant la probabilite.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	"""
 	propertiesNames = [p.name for p in list(ontology.object_properties())]

@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
 import requests
 from bs4 import BeautifulSoup
@@ -10,20 +8,10 @@ url = "https://awoiaf.westeros.org/index.php/Arya_Stark"
 cookies = dict(BCPermissionLevel='PERSONAL')
 html = requests.get(url, cookies=cookies, headers={'User-agent':'Mozilla/5.0'})
 soup = BeautifulSoup(html.content,"html.parser")
-soup.prettify("latin-1")
-soup.encode("ascii","replace")
-for script in soup(["script", "style"]):
-    script.extract()    # rip it out
-
-text = soup.get_text()
-lines = (line.strip() for line in text.splitlines())
-chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
-text = '\n'.join(chunk for chunk in chunks if chunk)
 for c in text:
 	if ord(c) > 127:
 		text = text.replace(c, u'')
 		pass
-#print("hey")
 def cleaning_text3(text):
 	text_cleaned = ''
 	Li = []

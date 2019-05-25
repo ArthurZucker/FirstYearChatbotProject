@@ -1,35 +1,27 @@
 Chatbot Game of Thrones
 
 Ce dossier regroupe l'ensemble des fichiers nécessaires au lancement du chatbot.
-Pour exécuter ce programme, il faut décomprésser le fichier chatbot.zip et exécuter le fichier principal grâce à la commande :
-./chatbot.py
-ou, si une erreur est renvoyée :
-python3 chatbot.py
+
 
 Version de python nécessaire :
 
 Ce programme a été testé avec Python 3.7.3. Il necessite Python 3 pour fonctionner.
 
-Packets nécessaires :
+Paquets nécessaires :
 
-Pour utiliser ce programme, il est nécessaire de posséder les packets suivants :
-sys
-os
-types
-tempfile
-subprocess
-weakref
-re
-urllib
-warnings
-itertools
-owlready2
-easygui
+Pour utiliser ce programme, il est nécessaire de posséder les packets suivants inscrits dans le fichier requirements.txt
 
-Vous pouvez les installer grâce à la commande suivante :
-pip install <nom_du_packet>
-ou
-pip3 install <nom_du_packet>
+
+Exécution :
+
+Pour exécuter ce programme, il faut décomprésser le fichier chatbot.zip.
+Installer les paquets nécessaires grâce à la commande :
+make install
+et exécuter le fichier principal grâce à la commande :
+make
+ou, si une erreur est renvoyée :
+make run
+
 
 Documentation :
 
@@ -91,6 +83,8 @@ Syntaxe :
 
 Pour utiliser le chatbot en mode sur une seule ligne, il faut suivre la syntaxe suivante :
 instance1,propriete,instance2?
+
+Le chatbot est capable de corriger la requête s'il y figure des fautes légères.
 
 Interface graphique :
 

@@ -1,16 +1,15 @@
-#!/usr/bin/env python
-
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
 """
 Ce fichier contient les fonctions necessaires a l interface graphique du chatbot.
 Chaque boite de dialogue est realisee par une fonction.
 Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusieurs lignes.
 """
+from os.path import dirname, realpath
 
 from easygui import indexbox, enterbox, multenterbox, ccbox, msgbox, textbox
 
-image_path = "source/image.gif"
+image_path = dirname(realpath(__file__)) + "/image.gif"
 
 def selectModeBox():
 	"""
@@ -21,7 +20,7 @@ def selectModeBox():
 	"""
 	message = "Select the mode".center(80)
 	title = "Chatbot Game of Thrones"
-	choices = ("One line mode", "Multi line mode")
+	choices = ("One line mode", "Multi line mode", "Younes mode")
 	# mode = indexbox(message, title, choices, image=image_path)
 	mode = indexbox(message, title, choices, image = image_path)
 	return mode

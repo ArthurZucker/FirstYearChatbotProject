@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-
 """
 Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcours sur l ontologie.
 """
 
-from .ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
+from ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
 
 def FindIndivdualByName(name, ontology):
 	"""
@@ -62,6 +60,9 @@ def check(mode, raw_query, ontology):
 				return None
 		query = raw_query
 		indice = 2
+	elif mode == 2:
+		pass # Younes
+		# indice = ?
 	return query, indice
 
 def isInOntology(query, indice, ontology):

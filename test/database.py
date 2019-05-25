@@ -2,14 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 from textblob import classifiers
 from os.path import dirname, realpath
-from owlready2 import *	
+from owlready2 import *
 from textblob import TextBlob
 import shelve
 from random import randint
-
-
-
-# utf-8 encoding
 
 ontology_path = "file://" + dirname(realpath(__file__)) + "/../ontology/" + \
 "ontologyGoT.owl"
