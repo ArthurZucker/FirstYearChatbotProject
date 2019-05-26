@@ -26,7 +26,7 @@ def selectModeBox():
 
 def queryBox(mode):
 	"""
-	Affiche la fenetre permettant d entrer la requete avec le mode de saisie selon du mode donne en argument.
+	Affiche la fenetre permettant d entrer la requete avec le mode de saisie selon le mode donne en argument.
 
 	:param int mode: mode est le mode selectionne par l utilisateur.
 	:return: retourne la requete entree par l utilisateur.
@@ -40,7 +40,7 @@ def queryBox(mode):
 		fields = ("Individual #1", "Property", "Individual #2")
 		query = multenterbox(message, title, fields)
 	elif mode == 2:
-		query = enterbox("Enter your free question :", title, default = "")
+		query = enterbox("Enter your free question (without '?'):", title, default = "")
 	return query
 
 def cancelBox():

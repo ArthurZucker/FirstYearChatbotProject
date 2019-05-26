@@ -36,7 +36,7 @@ def check(mode, raw_query, ontology):
 	instance1,propriete,instance2?
 	Puis, met la requete sous la forme conventionnelle.
 
-	:param int mode: le mode selectionne soit 0 (mode une ligne) soit 1 (mode plusieurs lignes).
+	:param int mode: le mode selectionne soit 0 (mode une ligne), soit 1 (mode plusieurs lignes), soit 2 (mode libre).
 	:param raw_query: la requete.
 	:param owlready2.namespace.Ontology ontology: l ontologie.
 	:type raw_query: str ou list(str)
@@ -123,7 +123,7 @@ def isInOntology(query, indice, ontology):
 				isInOntology = True
 	elif indice == 1:
 		d = shelve.open('source/basededonnee')
-		classifier = d['class'] 
+		classifier = d['class']
 		d.close()
 		blob = TextBlob(query, classifier=classifier)
 		return blob

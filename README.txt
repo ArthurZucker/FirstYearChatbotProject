@@ -79,10 +79,15 @@ Tyrell
 Tyrion_Lannister
 Tywin_Lannister
 
-Syntaxe :
+Modes de saisie :
 
-Pour utiliser le chatbot en mode sur une seule ligne, il faut suivre la syntaxe suivante :
-instance1,propriete,instance2?
+Il y a 3 modes de saisie :
+- mode sur une seule ligne avec la syntaxe suivante :
+`instance1,propriete,instance2?`
+
+- un mode sur 3 lignes pour chacune des entrees
+
+- un mode ou la question est posee librement
 
 Le chatbot est capable de corriger la requête s'il y figure des fautes légères.
 

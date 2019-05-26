@@ -51,11 +51,16 @@ Liste des instances présentes dans l'ontologie :
 
 >Arryn, Arya_Stark, Baratheon, Benjen_Stark, BeyondTheWall, Bolton, Brandon_Stark, Cersei_Lannister, Daenerys_Targaryen, Dorne, DrownedGod, Eddard_Stark, FaithOfTheSeven, Frey, GreatStallion, Greyjoy, Jaqen_h_ghar, Jon_Snow, Lannister, LordOfLight, Lyanna_Stark, ManyFacedGod, Martell, Oberyn_Martell, OldGods, Rhaegar_Targaryen, Rickard_Stark, Rickon_Stark, Robb_Stark, Sansa_Stark, Stark, Targaryen, TheCrownlands, TheIronIslands, TheNorth, Theon_Greyjoy, TheReach, TheRiverlands, TheStormlands, TheVale, TheWesterlands, Tully, Tyrell, Tyrion_Lannister, Tywin_Lannister
 
-Syntaxe
--------
+Modes de saisie
+---------------
 
-Pour utiliser le chatbot en mode sur une seule ligne, il faut suivre la syntaxe suivante :
->`instance1,propriete,instance2?`
+Il y a 3 modes de saisie :
+- mode sur une seule ligne avec la syntaxe suivante :
+`instance1,propriete,instance2?`
+
+- un mode sur 3 lignes pour chacune des entrees
+
+- un mode ou la question est posee librement
 
 Le chatbot est capable de corriger la requête s'il y figure des fautes légères.
 

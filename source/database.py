@@ -23,8 +23,6 @@ def generating_url(ontology):
 			L.append(url+individuals.name)
 	return L
 
-#url = "https://gameofthrones.fandom.com/wiki/Jon_Snow"
-
 def creation_text(url):
 	cookies = dict(BCPermissionLevel='PERSONAL')
 	html = requests.get(url, cookies=cookies, headers={'User-agent':'Mozilla/5.0'})
@@ -32,8 +30,7 @@ def creation_text(url):
 	soup.prettify("latin-1")
 	soup.encode("ascii","replace")
 	for script in soup(["script", "style"]):
-	    script.extract()    # rip it out
-
+		script.extract()
 	text = soup.get_text()
 	lines = (line.strip() for line in text.splitlines())
 	chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
@@ -43,8 +40,6 @@ def creation_text(url):
 			text = text.replace(c, u'')
 			pass
 	return text
-
-#print("hey")
 
 def cleaning_text(text):
 	text_cleaned = ''
@@ -165,11 +160,8 @@ def cleaning_text3(text):
 	text_cleaned = ''
 	Li = []
 	for i in range(len(text)):
-		#print(words)
 		if i < len(text)-8 and text[i:i+8] == 'Season 8' and len(Li) == 0:
-			#cpt = cpt+1
 			Li.append(i)
-			#print("HEY")
 			pass
 		elif i < len(text)-8 and text[i:i+8] == 'Contents' and len(Li) == 1:
 			Li.append(i)
@@ -180,7 +172,7 @@ def cleaning_text3(text):
 	return text_cleaned
 
 # L_tab = []
-# 
+#
 # for url in L:
 # 	text = creation_text(url)
 # 	text_cleaned2 = cleaning_text2(text)
