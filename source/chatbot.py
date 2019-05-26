@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-Ce fichier execute le chatbot en faisant appel au fonctions des modules se situant dans le repertoire source.
+Ce fichier exécute le chatbot en faisant appel aux fonctions des modules se situant dans le répertoire `source`, à la base de donnés ainsi qu'à l'ontologie.
 """
 
 from os.path import dirname, realpath
@@ -17,7 +17,7 @@ ontology = get_ontology(ontology_path).load()
 
 initComment(ontology)
 
-answerList = ["The history :\n\n"]
+answerList = ["The history:\n\n"]
 
 still = True
 while still:

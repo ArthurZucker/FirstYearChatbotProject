@@ -1,5 +1,5 @@
 """
-Ce fichier permet de creer la base de donnees sur Game of Thrones via le site gameofthrones.fandom.com/wiki/ necessaire au chatbot.
+Ce fichier permet de créer la base de données sur *Game of Thrones* via le `wiki <gameofthrones.fandom.com/wiki/>`_ necessaire au chatbot.
 """
 
 from os.path import dirname, realpath
@@ -11,8 +11,7 @@ from owlready2 import *
 from random import randint
 import shelve
 
-ontology_path = "file://" + dirname(realpath(__file__)) + "/ontology/" + \
-"ontologyGoT.owl"
+ontology_path = "file://" + dirname(dirname(realpath(__file__))) + "/ontology/" + "ontologyGoT.owl"
 ontology = get_ontology(ontology_path).load()
 
 def generating_url(ontology):
@@ -172,9 +171,13 @@ def cleaning_text3(text):
 			return text_cleaned
 	return text_cleaned
 
-d = shelve.open('basededonnees')
-classifier = d['class']
-d.close()
-query = input("your question :")
-prob_dist = classifier.prob_classify(query)
-print(round(prob_dist.prob("pos"), 2))
+def main_function():
+	d = shelve.open('basededonnees')
+	classifier = d['class']
+	d.close()
+	query = input("your question :")
+	prob_dist = classifier.prob_classify(query)
+	print(round(prob_dist.prob("pos"), 2))
+
+if __name__ == "__main__" :
+	main_function()

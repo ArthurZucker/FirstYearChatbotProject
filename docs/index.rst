@@ -50,7 +50,7 @@ Modules necessaires au programme principal
 	:undoc-members:
 
 :mod:`source.database`
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 .. automodule:: source.database
 	:members:
 	:undoc-members:

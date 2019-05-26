@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 """
-Ce fichier contient les fonctions necessaires a l interface graphique du chatbot.
-Chaque boite de dialogue est realisee par une fonction.
-Il y a deux modes de saisie : soit un mode sur une ligne, soit un mode sur plusieurs lignes.
+Ce fichier contient les fonctions nécessaires à l'interface graphique du chatbot.
+Chaque boite de dialogue est realisée par une fonction.
+Il y à trois modes de saisie : soit un mode sur une ligne, soit un mode sur plusieurs lignes, soit un mode libre.
 """
 from os.path import dirname, realpath
 
@@ -13,9 +13,9 @@ image_path = dirname(realpath(__file__)) + "/image.gif"
 
 def selectModeBox():
 	"""
-	Affiche la fenetre permettant de selectionner soit le mode une ligne, soit le mode sur plusieurs lignes, soit le mode libre.
+	Affiche la fenêtre permettant de selectionner soit le mode une ligne, soit le mode sur plusieurs lignes, soit le mode libre.
 
-	:return: le mode selectionne : soit 0 (mode une ligne), soit 1 (mode plusieurs lignes), soit 2 (mode libre), soit None si l utilisateur a ferme la fenetre.
+	:return: le mode selectionné : soit 0 (mode une ligne), soit 1 (mode plusieurs lignes), soit 2 (mode libre), soit None si l'utilisateur a fermé la fenêtre.
 	:rtype: int ou None
 	"""
 	message = "Select the mode".center(80)
@@ -26,10 +26,10 @@ def selectModeBox():
 
 def queryBox(mode):
 	"""
-	Affiche la fenetre permettant d entrer la requete avec le mode de saisie selon le mode donne en argument.
+	Affiche la fenêtre permettant d'entrer la requête avec le mode de saisie selon le mode donné en argument.
 
-	:param int mode: mode est le mode selectionne par l utilisateur.
-	:return: retourne la requete entree par l utilisateur.
+	:param int mode: le mode selectionné par l'utilisateur.
+	:return: retourne la requête entree par l'utilisateur.
 	:rtype: str ou list(str)
 	"""
 	message = "Enter your query"
@@ -45,7 +45,7 @@ def queryBox(mode):
 
 def cancelBox():
 	"""
-	Affiche la fenetre indiquant que l utilisateur a appuye sur le bouton d annulation.
+	Affiche la fenêtre indiquant que l'utilisateur a appuyé sur le bouton d'annulation.
 	"""
 	title = "Chatbot Game of Thrones"
 	message = ("Your query was void because you have clicked on the "
@@ -54,7 +54,7 @@ def cancelBox():
 
 def formatErrorBox():
 	"""
-	Affiche la fenetre indiquant que l utilisateur a entre une requete dont le format est incorrecte.
+	Affiche la fenêtre indiquant que l'utilisateur a entré une requête dont le format est incorrecte.
 	"""
 	title = "Chatbot Game of Thrones"
 	message = (
@@ -65,15 +65,15 @@ def formatErrorBox():
 
 def answerBox(mode, query, queryFound, answer, answerList):
 	"""
-	Affiche la fenetre rappelant la requete entree par l utilisateur, la reponse donnee par le chatbot ainsi que la l historique des questions/reponses.
+	Affiche la fenêtre rappelant la requête entrée par l'utilisateur, la réponse donnée par le chatbot ainsi que l'historique des questions/reponses.
 
-	:param int mode: mode est le mode selectionne par l utilisateur.
-	:param query: la requete entree par l utilisateur.
-	:param list(str) queryFound: la requete effectuee par le chatbot composee du nom de l individu 1, du nom de la propriete, du nom de l individu 2.
-	:param str answer: la reponse retournee par le chatbot.
-	:param list(str) answerList: l historique des questions/reponses.
+	:param int mode: le mode selectionné par l'utilisateur.
+	:param query: la requête entrée par l'utilisateur.
+	:param list(str) queryFound: la requête effectuée par le chatbot composée du nom de l'individu 1, du nom de la propriété, du nom de l'individu 2.
+	:param str answer: la réponse retournée par le chatbot.
+	:param list(str) answerList: l'historique des questions/réponses.
 	:type query: str ou list(str)
-	:return: le message affiche.
+	:return: le message affiché.
 	:rtype: str
 	"""
 	title = "Chatbot Game of Thrones"
@@ -91,9 +91,9 @@ def answerBox(mode, query, queryFound, answer, answerList):
 
 def endBox():
 	"""
-	Affiche la fenetre permettant de recommencer le jeu ou de le quitter.
+	Affiche la fenêtre permettant de recommencer le jeu ou de le quitter.
 
-	:return: True si l utilisateur clique sur "Continue" et False si l utilisateur clique sur "Quit" ou ferme la fenetre.
+	:return: True si l'utilisateur clique sur "Continue" et False si l'utilisateur clique sur "Quit" ou ferme la fenêtre.
 	:rtype: bool
 	"""
 	message = "Do you want to continue?".center(80)
@@ -104,7 +104,7 @@ def endBox():
 
 def notInOntologyBox():
 	"""
-	Affiche la fenetre indiquant que l utilisateur a entre une requete dont les elements ne sont pas dans l ontologie.
+	Affiche la fenêtre indiquant que l'utilisateur a entré une requête dont les éléments ne sont pas dans l'ontologie.
 	"""
 	title = "Chatbot Game of Thrones"
 	message = ("At least one of the terms of your query is not in the ontology").center(80)
@@ -112,7 +112,7 @@ def notInOntologyBox():
 
 def noResultBox():
 	"""
-	Affiche la fenetre indiquant qu il n y a pas de resultat a la requete entree.
+	Affiche la fenêtre indiquant qu il n'y à pas de résultat à la requête entrée.
 	"""
 	title = "Chatbot Game of Thrones"
 	message = ("There is no answer for your query in the ontology").center(80)
@@ -120,7 +120,7 @@ def noResultBox():
 
 def imageBox():
 	"""
-	Affiche la fenetre indiquant qu'il ne faut pas cliquer sur l image.
+	Affiche la fenêtre indiquant qu'il ne faut pas cliquer sur l'image.
 	"""
 	title = "Chatbot Game of Thrones"
 	message = ("Do not click on the picture please.").center(80)

@@ -86,7 +86,7 @@ Il y a 3 modes de saisie :
 
 - un mode sur 3 lignes pour chacune des entrees
 
-- un mode ou la question est posee librement
+- un mode où la question est posée librement
 
 Le chatbot est capable de corriger la requête s'il y figure des fautes légères.
 

@@ -1,18 +1,19 @@
 """
-Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcours sur l ontologie ou a une base de donnees.
+Ce fichier contient les fonctions nécessaires au chatbot pour répondre à la requête de l'utilisateur grace au parcours sur l'ontologie ou à une base de données.
 """
 
 from textblob import TextBlob, classifiers
 import shelve
 
-from ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
+from ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l'interface graphique
 
 def FindIndivdualByName(name, ontology):
 	"""
-	Parcourt l ontologie et recupere l individu qui a plus de 60% de similitude avec le nom veritable.
-	:param str name: nom de l individu recherche.
-	:param owlready2.namespace.Ontology ontology: l ontologie.
-	:return: l instance correspondant a l individu ou None si non trouve.
+	Parcourt l'ontologie et récupere l'individu qui a plus de 60% de similitude avec le nom veritable.
+
+	:param str name: le nom de l'individu recherché.
+	:param owlready2.namespace.Ontology ontology: l'ontologie.
+	:return: l'instance correspondant à l'individu ou None si non trouvé.
 	:rtype: owlready2.entity.ThingClass ou None
 	"""
 	name = name.strip()
@@ -32,16 +33,16 @@ def FindIndivdualByName(name, ontology):
 
 def check(mode, raw_query, ontology):
 	"""
-	Verifie si la requete entree a le bon format eu egard au mode choisi.
-	Le format adequat pour le mode sur une ligne est :
-	instance1,propriete,instance2?
-	Puis, met la requete sous la forme conventionnelle.
+	Vérifie si la requête entrée à le bon format eu egard au mode choisi.
+	Le format adéquat pour le mode sur une ligne est :
+	instance1,propriété,instance2?
+	Puis, met la requête sous la forme conventionnelle.
 
-	:param int mode: le mode selectionne soit 0 (mode une ligne), soit 1 (mode plusieurs lignes), soit 2 (mode libre).
-	:param raw_query: la requete.
-	:param owlready2.namespace.Ontology ontology: l ontologie.
+	:param int mode: le mode selectionné : soit 0 (mode une ligne), soit 1 (mode plusieurs lignes), soit 2 (mode libre).
+	:param raw_query: la requête.
+	:param owlready2.namespace.Ontology ontology: l'ontologie.
 	:type raw_query: str ou list(str)
-	:return: un couple forme de la requete sous forme de liste de str et un booleen decrivant le mode de saisie.
+	:return: un couple formé de la requête sous forme de liste(str) et un booléen décrivant le mode de saisie.
 	:rtype: (list(str) ou None, bool)
 	"""
 	punctuation = {'?', ',', '.', ':', ';'}
@@ -70,14 +71,14 @@ def check(mode, raw_query, ontology):
 
 def isInOntology(query, indice, ontology):
 	"""
-	Verifie la presence des entites recherchees dans l ontologie.
-	Si la requete demandee n est pas exactement dans l ontologie, la fonction va chercher et renvoyer ce qui correspond a plus 85% a la donnee initiale.
-	Retourne un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme.
+	Vérifie la présence des entités recherchées dans l'ontologie.
+	Si la requête demandée n'est pas exactement dans l'ontologie, la fonction va chercher et renvoyer ce qui correspond à plus 85% a la donnée initiale.
+	Retourne un 4-uplet composé de : True si tous les éléments de la requête sont dans l'ontologie et False sinon, l'instance du premier terme, le nom de la propriété, l'instance du deuxieme terme.
 
-	:param list(str) query: la requete.
-	:param bool indice: booleen decrivant le mode de saisie.
-	:param owlready2.namespace.Ontology ontology: l ontologie.
-	:return: un 4-uplet compose de : True si tous les elements de la requete sont dans l ontologie et False sinon, l instance du premier terme, le nom de la propriete, l instance du deuxieme terme. Si l un des termes n est pas trouve, il est retourne None a la place.
+	:param list(str) query: la requête.
+	:param bool'indice: le booléen décrivant le mode de saisie.
+	:param owlready2.namespace.Ontology ontology: l'ontologie.
+	:return: un 4-uplet compose de : True si tous les éléments de la requête sont dans l'ontologie et False sinon, l'instance du premier terme, le nom de la propriété, l'instance du deuxieme terme. Si l'un des termes n'est pas trouvé, il est retourné None à la place.
 	:rtype: (bool, owlready2.entity.ThingClass ou None, str ou None, owlready2.entity.ThingClass ou None)
 	"""
 	isInOntology = False
@@ -132,13 +133,13 @@ def isInOntology(query, indice, ontology):
 
 def answer(individual1, propertyName, individual2, ontology):
 	"""
-	Rend une reponse binaire a la requete par rapport a l ontologie, donnee sous forme d instance pour les individus et sous la forme de str pour la propriete.
+	Rend une réponse binaire a la requête par rapport à l'ontologie, donnée sous forme d'instance pour les individus et sous la forme de str pour la propriété.
 
-	:param owlready2.entity.ThingClass individual1: l instance 1
-	:param str propertyName: le nom de la propriete.
-	:param owlready2.entity.ThingClass individual2: l instance 2
-	:param owlready2.namespace.Ontology ontology: l ontologie.
-	:return: la reponse a la requete.
+	:param owlready2.entity.ThingClass individual1: l'instance n°1
+	:param str propertyName: le nom de la propriété.
+	:param owlready2.entity.ThingClass individual2: l'instance n°2
+	:param owlready2.namespace.Ontology ontology: l'ontologie.
+	:return: la réponse à la requête.
 	:rtype: str
 	"""
 	if individual2 in individual1.__getattr__(propertyName):
@@ -147,13 +148,13 @@ def answer(individual1, propertyName, individual2, ontology):
 
 def reply(mode, raw_query, ontology):
 	"""
-	Si la requete donnee est correcte, retourne la reponse de la requete.
+	Si la requête donnée est correcte, retourne la réponse de la requête.
 
-	:param int mode: le mode selectionne soit 0 (mode une ligne) soit 1 (mode plusieurs lignes).
-	:param raw_query: la requete a demander au chatbot.
-	:param owlready2.namespace.Ontology ontology: l ontologie.
+	:param int mode: le mode selectionné soit 0 (mode une ligne) soit 1 (mode plusieurs lignes).
+	:param raw_query: la requête à demander au chatbot.
+	:param owlready2.namespace.Ontology ontology: l'ontologie.
 	:type raw_query: str ou list(str)
-	:return: un couple forme de la reponse de la requete et la requete que le chatbot a effectue ou None s il n a rien fait.
+	:return: un couple formé de la réponse de la requête et la requête que le chatbot a effectué ou None s'il n'a rien fait.
 	:rtype: (str, list(str) ou None)
 	"""
 	query,indice = check(mode, raw_query, ontology)
