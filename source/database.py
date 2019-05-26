@@ -43,7 +43,9 @@ def creation_text(url):
 			text = text.replace(c, u'')
 			pass
 	return text
+
 #print("hey")
+
 def cleaning_text(text):
 	text_cleaned = ''
 	Li = []
@@ -88,7 +90,6 @@ def cleaning_final(text):
 	blob = TextBlob(text)
 	#print(blob.words)
 	temp = ''
-
 	for line in blob.sentences:
 		for words in line.split():
 			if words not in D:
@@ -97,7 +98,6 @@ def cleaning_final(text):
 				temp += words + ' '
 		temp += '\n'
 	return temp
-
 
 def creation_tabset(text):
 	text = text.split('\n')
@@ -158,7 +158,7 @@ def generating_url2(ontology):
 			L.append(url+individuals.name)
 	return L
 
-L = generating_url(ontology) 
+L = generating_url(ontology)
 L2 = generating_url2(ontology)
 
 def cleaning_text3(text):
@@ -178,34 +178,34 @@ def cleaning_text3(text):
 			text_cleaned = text[Li[0]+9:Li[1]-1]
 			return text_cleaned
 	return text_cleaned
-"""
-L_tab = []
 
-for url in L:
-	text = creation_text(url)
-	text_cleaned2 = cleaning_text2(text)
-	text_cleaned2 = cleaning_final(text_cleaned2)
-	text_cleaned = cleaning_text(text)
-	text_cleaned = cleaning_final(text_cleaned)
-	L_tab = L_tab + creation_tabset(text_cleaned) + creation_tabset2(text_cleaned2)
-#print(text_cleaned)
-print(L_tab)
-
-L2 = generating_url2(ontology)
-
-
-print(L_tab)
-
-for url in L2:
-	text = creation_text(url)
-	text_cleaned = cleaning_text3(text)
-	text_cleaned = cleaning_final(text_cleaned)
-	L_tab = L_tab + creation_tabset(text_cleaned)
-
-classifier = classifiers.NaiveBayesClassifier(L_tab)"""
+# L_tab = []
+# 
+# for url in L:
+# 	text = creation_text(url)
+# 	text_cleaned2 = cleaning_text2(text)
+# 	text_cleaned2 = cleaning_final(text_cleaned2)
+# 	text_cleaned = cleaning_text(text)
+# 	text_cleaned = cleaning_final(text_cleaned)
+# 	L_tab = L_tab + creation_tabset(text_cleaned) + creation_tabset2(text_cleaned2)
+# #print(text_cleaned)
+# print(L_tab)
+#
+# L2 = generating_url2(ontology)
+#
+#
+# print(L_tab)
+#
+# for url in L2:
+# 	text = creation_text(url)
+# 	text_cleaned = cleaning_text3(text)
+# 	text_cleaned = cleaning_final(text_cleaned)
+# 	L_tab = L_tab + creation_tabset(text_cleaned)
+#
+# classifier = classifiers.NaiveBayesClassifier(L_tab)
 
 d = shelve.open('basededonnee')
-classifier = d['class'] 
+classifier = d['class']
 d.close()
 query = input("your question :")
 prob_dist = classifier.prob_classify(query)

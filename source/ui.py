@@ -13,15 +13,14 @@ image_path = dirname(realpath(__file__)) + "/image.gif"
 
 def selectModeBox():
 	"""
-	Affiche la fenetre permettant de selectionner soit le mode une ligne, soit le mode sur plusieurs lignes.
+	Affiche la fenetre permettant de selectionner soit le mode une ligne, soit le mode sur plusieurs lignes, soit le mode libre.
 
-	:return: le mode selectionne : soit 0 (mode une ligne), soit 1 (mode plusieurs lignes), soit None si l utilisateur a ferme la fenetre.
+	:return: le mode selectionne : soit 0 (mode une ligne), soit 1 (mode plusieurs lignes), soit 2 (mode libre), soit None si l utilisateur a ferme la fenetre.
 	:rtype: int ou None
 	"""
 	message = "Select the mode".center(80)
 	title = "Chatbot Game of Thrones"
-	choices = ("One line mode", "Multi line mode", "Younes mode")
-	# mode = indexbox(message, title, choices, image=image_path)
+	choices = ("One line mode", "Multi line mode", "Free mode")
 	mode = indexbox(message, title, choices, image = image_path)
 	return mode
 
