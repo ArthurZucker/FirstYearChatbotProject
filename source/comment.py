@@ -29,9 +29,10 @@ def initComment(ontology):
 		if len(individual1Properties) > 0:
 			for property in individual1Properties:
 				individual2 = individual1.__getattr__(property.name)
-				if len(individual2) > 0:
+				nbIndividual = len(individual2)
+				if nbIndividual > 0:
 					for individual in individual2:
-						comment[individual1, property, individual] = "1"
+						comment[individual1, property, individual] = str(1/nbIndividual)
 	ontology.save(file = onto_path[0] + "ontologyGoT.owl")
 
 def getComment(individual1,propertyName,individual2,ontology):
