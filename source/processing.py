@@ -3,6 +3,8 @@ Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requ
 """
 
 from ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
+from textblob import TextBlob, classifiers
+import shelve
 
 def FindIndivdualByName(name, ontology):
 	"""
@@ -61,8 +63,8 @@ def check(mode, raw_query, ontology):
 		query = raw_query
 		indice = 2
 	elif mode == 2:
-		pass # Younes
-		# indice = ?
+		query = raw_query
+		indice = 1
 	return query, indice
 
 def isInOntology(query, indice, ontology):
@@ -120,7 +122,11 @@ def isInOntology(query, indice, ontology):
 			if individual2 != None:
 				isInOntology = True
 	elif indice == 1:
-		pass
+		d = shelve.open('source/basededonnee')
+		classifier = d['class'] 
+		d.close()
+		blob = TextBlob(query, classifier=classifier)
+		return blob
 	return (isInOntology, individual1, propertyName, individual2)
 
 def answer(individual1, propertyName, individual2, ontology):
@@ -150,17 +156,24 @@ def reply(mode, raw_query, ontology):
 	:rtype: (str, list(str) ou None)
 	"""
 	query,indice = check(mode, raw_query, ontology)
-	if query == None:
-		formatErrorBox()
-		return None, None
-	isInOnto, individual1, propertyName, individual2 = isInOntology(query, indice, ontology)
-	if isInOnto:
-		response = answer(individual1, propertyName, individual2, ontology)
-		if response != None:
-			queryFound = [individual1.name,propertyName,individual2.name]
-			return response, queryFound
+	if indice != 1:
+		if query == None:
+			formatErrorBox()
+			return None, None
+		isInOnto, individual1, propertyName, individual2 = isInOntology(query, indice, ontology)
+		if isInOnto:
+			response = answer(individual1, propertyName, individual2, ontology)
+			if response != None:
+				queryFound = [individual1.name,propertyName,individual2.name]
+				return response, queryFound
+			else:
+				noResultBox()
 		else:
-			noResultBox()
+			notInOntologyBox()
+		return None, None
 	else:
-		notInOntologyBox()
-	return None, None
+		bolb = isInOntology(query, indice, ontology)
+		if bolb.classify() == "pos":
+			return ("Yes", query.split())
+		else:
+			return ("No", query.split())

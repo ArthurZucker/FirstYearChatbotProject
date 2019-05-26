@@ -40,6 +40,8 @@ def queryBox(mode):
 	elif mode == 1:
 		fields = ("Individual #1", "Property", "Individual #2")
 		query = multenterbox(message, title, fields)
+	elif mode == 2:
+		query = enterbox("Enter your free question :", title, default = "")
 	return query
 
 def cancelBox():
@@ -76,13 +78,13 @@ def answerBox(mode, query, queryFound, answer, answerList):
 	:rtype: str
 	"""
 	title = "Chatbot Game of Thrones"
-	if mode == 0:
+	if mode == 0 or mode == 2:
 		message = "Your query was \"" + query + "\"."
 	elif mode == 1:
 		message = "Your query was \"" + ",".join(query) + "?\"."
 	message = message.center(65) + '\n'
 	message += "The chatbot understood the query:".center(65) +'\n'
-	message += ("\"" + ",".join(queryFound) + "?\"").center(65) + '\n'
+	message += ("\"" + " ".join(queryFound) + "?\"").center(65) + '\n'
 	message += "The result of your query is:".center(65) + '\n\n'
 	message +=	answer.center(65)
 	textbox(message, title, answerList)

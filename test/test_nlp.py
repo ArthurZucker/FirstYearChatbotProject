@@ -15,13 +15,13 @@ ontology = get_ontology(ontology_path).load()
 
 L = data.generating_url(ontology)
 text = data.creation_text(L[0])
-#print(text)
+print(text)
 
 text = data.cleaning_text(text)
 print(text)
 #data.replace('at ', ' ')
-def cleaning_final(text)
-	D = ['at', 'in', 'for', 'of', 'the', 'and', 'to', 'a', "'s", 'by', 'though', 'as', 'through', '.']
+def cleaning_final(text):
+	D = ['at', 'in', 'for', 'of', 'the', 'and', 'to', 'a', "'s", 'by', 'though', 'as', 'through', '.', 'that', 'into', 'is', 'him', 'her', 'his', 'them', 'this', 'he', 'she']
 	blob = TextBlob(text)
 	print(blob.words)
 	temp = ''
@@ -34,3 +34,4 @@ def cleaning_final(text)
 				temp += words + ' '
 		temp += '\n'
 	return temp
+
