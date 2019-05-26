@@ -2,7 +2,6 @@ Chatbot Game of Thrones
 
 Ce dossier regroupe l'ensemble des fichiers nécessaires au lancement du chatbot.
 
-
 Version de python nécessaire :
 
 Ce programme a été testé avec Python 3.7.3. Il necessite Python 3 pour fonctionner.
@@ -37,27 +36,27 @@ Arryn
 Arya_Stark
 Baratheon
 Benjen_Stark
-BeyondTheWall
+Beyond_The_Wall
 Bolton
 Brandon_Stark
 Cersei_Lannister
 Daenerys_Targaryen
 Dorne
-DrownedGod
+Drowned_God
 Eddard_Stark
-FaithOfTheSeven
+Faith_Of_The_Seven
 Frey
-GreatStallion
+Great_Stallion
 Greyjoy
 Jaqen_h_ghar
 Jon_Snow
 Lannister
-LordOfLight
+Lord_Of_Light
 Lyanna_Stark
-ManyFacedGod
+Many_Faced_God
 Martell
 Oberyn_Martell
-OldGods
+Old_Gods
 Rhaegar_Targaryen
 Rickard_Stark
 Rickon_Stark
@@ -65,15 +64,15 @@ Robb_Stark
 Sansa_Stark
 Stark
 Targaryen
-TheCrownlands
-TheIronIslands
-TheNorth
+The_Crownlands
+The_Iron_Islands
+The_North
+The_Reach
+The_Riverlands
+The_Stormlands
+The_Vale
+The_Westerlands
 Theon_Greyjoy
-TheReach
-TheRiverlands
-TheStormlands
-TheVale
-TheWesterlands
 Tully
 Tyrell
 Tyrion_Lannister
@@ -90,6 +89,8 @@ Il y a 3 modes de saisie :
 - un mode ou la question est posee librement
 
 Le chatbot est capable de corriger la requête s'il y figure des fautes légères.
+
+Pour les deux premiers modes de saisie, la réponse est cherchée dans l'ontologie. Pour le dernier, la réponse est cherchée dans une base de donnée.
 
 Interface graphique :
 

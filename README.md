@@ -49,7 +49,7 @@ L'ontologie a été créée avec [*protégé*](https://protege.stanford.edu/). L
 Liste des instances présentes dans l'ontologie :
 ------------------------------------------------
 
->Arryn, Arya_Stark, Baratheon, Benjen_Stark, BeyondTheWall, Bolton, Brandon_Stark, Cersei_Lannister, Daenerys_Targaryen, Dorne, DrownedGod, Eddard_Stark, FaithOfTheSeven, Frey, GreatStallion, Greyjoy, Jaqen_h_ghar, Jon_Snow, Lannister, LordOfLight, Lyanna_Stark, ManyFacedGod, Martell, Oberyn_Martell, OldGods, Rhaegar_Targaryen, Rickard_Stark, Rickon_Stark, Robb_Stark, Sansa_Stark, Stark, Targaryen, TheCrownlands, TheIronIslands, TheNorth, Theon_Greyjoy, TheReach, TheRiverlands, TheStormlands, TheVale, TheWesterlands, Tully, Tyrell, Tyrion_Lannister, Tywin_Lannister
+>Arryn, Arya_Stark, Baratheon, Benjen_Stark, Beyond_The_Wall, Bolton, Brandon_Stark, Cersei_Lannister, Daenerys_Targaryen, Dorne, Drowned_God, Eddard_Stark, Faith_Of_The_Seven, Frey, Great_Stallion, Greyjoy, Jaqen_h_ghar, Jon_Snow, Lannister, Lord_Of_Light, Lyanna_Stark, Many_Faced_God, Martell, Oberyn_Martell, Old_Gods, Rhaegar_Targaryen, Rickard_Stark, Rickon_Stark, Robb_Stark, Sansa_Stark, Stark, Targaryen, The_Crownlands, The_Iron_Islands, The_North, The_Reach, The_Riverlands, The_Stormlands, The_Vale, The_Westerlands, Theon_Greyjoy, Tully, Tyrell, Tyrion_Lannister, Tywin_Lannister
 
 Modes de saisie
 ---------------
@@ -63,6 +63,8 @@ Il y a 3 modes de saisie :
 - un mode ou la question est posee librement
 
 Le chatbot est capable de corriger la requête s'il y figure des fautes légères.
+
+Pour les deux premiers modes de saisie, la réponse est cherchée dans l'ontologie. Pour le dernier, la réponse est cherchée dans une base de donnée.
 
 Interface graphique
 -------------------

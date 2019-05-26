@@ -1,10 +1,11 @@
 """
-Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcours sur l ontologie.
+Ce fichier contient les fonctions necessaires au chatbot pour repondre a la requete de l utilisateur grace au parcours sur l ontologie ou a une base de donnees.
 """
 
-from ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
 from textblob import TextBlob, classifiers
 import shelve
+
+from ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l interface graphique
 
 def FindIndivdualByName(name, ontology):
 	"""
@@ -122,7 +123,7 @@ def isInOntology(query, indice, ontology):
 			if individual2 != None:
 				isInOntology = True
 	elif indice == 1:
-		d = shelve.open('source/basededonnee')
+		d = shelve.open('source/basededonnees')
 		classifier = d['class']
 		d.close()
 		blob = TextBlob(query, classifier=classifier)

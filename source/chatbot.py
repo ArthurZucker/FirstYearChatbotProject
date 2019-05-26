@@ -9,9 +9,7 @@ from os.path import dirname, realpath
 from owlready2 import *	# pour charger l ontologie
 
 from ui import * # pour charger l interface graphique
-
 from processing import reply # pour charger la reponse
-
 from comment import * # pour commenter l ontologie
 
 ontology_path = "file://" + dirname(dirname(realpath(__file__))) + "/ontology/" + "ontologyGoT.owl"

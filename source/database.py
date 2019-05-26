@@ -1,11 +1,15 @@
-import requests
-from bs4 import BeautifulSoup
-from textblob import classifiers
+"""
+Ce fichier permet de creer la base de donnees sur Game of Thrones via le site gameofthrones.fandom.com/wiki/ necessaire au chatbot.
+"""
+
 from os.path import dirname, realpath
+import requests
+
+from bs4 import BeautifulSoup
+from textblob import TextBlob, classifiers
 from owlready2 import *
-from textblob import TextBlob
-import shelve
 from random import randint
+import shelve
 
 ontology_path = "file://" + dirname(realpath(__file__)) + "/ontology/" + \
 "ontologyGoT.owl"
@@ -153,9 +157,6 @@ def generating_url2(ontology):
 			L.append(url+individuals.name)
 	return L
 
-L = generating_url(ontology)
-L2 = generating_url2(ontology)
-
 def cleaning_text3(text):
 	text_cleaned = ''
 	Li = []
@@ -171,32 +172,7 @@ def cleaning_text3(text):
 			return text_cleaned
 	return text_cleaned
 
-# L_tab = []
-#
-# for url in L:
-# 	text = creation_text(url)
-# 	text_cleaned2 = cleaning_text2(text)
-# 	text_cleaned2 = cleaning_final(text_cleaned2)
-# 	text_cleaned = cleaning_text(text)
-# 	text_cleaned = cleaning_final(text_cleaned)
-# 	L_tab = L_tab + creation_tabset(text_cleaned) + creation_tabset2(text_cleaned2)
-# #print(text_cleaned)
-# print(L_tab)
-#
-# L2 = generating_url2(ontology)
-#
-#
-# print(L_tab)
-#
-# for url in L2:
-# 	text = creation_text(url)
-# 	text_cleaned = cleaning_text3(text)
-# 	text_cleaned = cleaning_final(text_cleaned)
-# 	L_tab = L_tab + creation_tabset(text_cleaned)
-#
-# classifier = classifiers.NaiveBayesClassifier(L_tab)
-
-d = shelve.open('basededonnee')
+d = shelve.open('basededonnees')
 classifier = d['class']
 d.close()
 query = input("your question :")
