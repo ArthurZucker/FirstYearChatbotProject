@@ -6,6 +6,7 @@ from textblob import TextBlob, classifiers
 import shelve
 
 from ui import endBox, notInOntologyBox, formatErrorBox, noResultBox # pour charger l'interface graphique
+from comment import getComment # pour afficher la probabilité
 
 def FindIndivdualByName(name, ontology):
 	"""
@@ -143,8 +144,11 @@ def answer(individual1, propertyName, individual2, ontology):
 	:rtype: str
 	"""
 	if individual2 in individual1.__getattr__(propertyName):
-		return "Yes"
-	return "No"
+		message = "Yes"
+	else:
+		message = "No"
+	message += " (with probability " + getComment(individual1, propertyName, individual2, ontology) + ')'
+	return message
 
 def reply(mode, raw_query, ontology):
 	"""

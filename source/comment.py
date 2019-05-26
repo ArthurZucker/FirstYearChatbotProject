@@ -33,3 +33,20 @@ def initComment(ontology):
 					for individual in individual2:
 						comment[individual1, property, individual] = "1"
 	ontology.save(file = onto_path[0] + "ontologyGoT.owl")
+
+def getComment(individual1,propertyName,individual2,ontology):
+	"""
+	Retourne la probabilité associé à la reliation entre l'individu n°1, la propriété et l'individu n°2 dans l'ontologie.
+
+	:param owlready2.entity.ThingClass individual1: l'instance n°1
+	:param str propertyName: le nom de la propriété.
+	:param owlready2.entity.ThingClass individual2: l'instance n°2
+	:param owlready2.namespace.Ontology ontology: l'ontologie.
+	:return: la probabilité.
+	:rtype: str
+	"""
+	property = ontology.search_one(iri = "*"+propertyName+"*")
+	res = str(comment[individual1,property,individual2])
+	res = res.replace('[','')
+	res = res.replace(']','')
+	return res
