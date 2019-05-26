@@ -3,10 +3,10 @@ all: run
 run:
 	@(python3 source/chatbot.py)
 
-install: .depends
-	@(pip3 install -r requirement.txt --user)
+install: requirements.txt
+	@(pip3 install -r requirements.txt --user)
 
-uninstall: .depends
-	@(sudo pip3 uninstall -r requirement.txt --user)
+uninstall: requirements.txt
+	@(sudo pip3 uninstall -r requirements.txt --user)
 
 .PHONY: install uninstall run
