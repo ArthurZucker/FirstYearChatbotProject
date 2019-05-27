@@ -36,5 +36,5 @@ while still:
 		answer, queryFound = reply(mode, query, ontology)
 		if answer != None:
 			result = answerBox(mode, query, queryFound, answer,answerList)
-			answerList.append('\n'+result)
+			answerList.append('\n\n\n'+result)
 	still = endBox()
