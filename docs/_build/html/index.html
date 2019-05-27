@@ -84,7 +84,7 @@ Vous pouvez exécuter le fichier principal grâce à la commande : <cite>make`ou
 <div class="section" id="modes-de-saisie">
 <h2>Modes de saisie<a class="headerlink" href="#modes-de-saisie" title="Lien permanent vers ce titre">¶</a></h2>
 <p>Il y a 3 modes de saisie :
-- mode sur une seule ligne avec la syntaxe suivante :
+- un mode sur une seule ligne avec la syntaxe suivante :
 <cite>instance1,propriete,instance2?</cite></p>
 <ul class="simple">
 <li><p>un mode sur 3 lignes pour chacune des entrees</p></li>
@@ -328,6 +328,28 @@ Retourne un 4-uplet composé de : True si tous les éléments de la requête son
 <div class="section" id="module-source.comment">
 <span id="source-comment"></span><h3><a class="reference internal" href="#module-source.comment" title="source.comment"><code class="xref py py-mod docutils literal notranslate"><span class="pre">source.comment</span></code></a><a class="headerlink" href="#module-source.comment" title="Lien permanent vers ce titre">¶</a></h3>
 <p>Ce fichier contient les fonctions permettant d’interagir avec les commentaires des propriétés de l’ontologie qui servent à caracteriser les probabilités des relations.</p>
+<dl class="function">
+<dt id="source.comment.getComment">
+<code class="descclassname">source.comment.</code><code class="descname">getComment</code><span class="sig-paren">(</span><em>individual1</em>, <em>propertyName</em>, <em>individual2</em>, <em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.comment.getComment" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Retourne la probabilité associé à la reliation entre l’individu n°1, la propriété et l’individu n°2 dans l’ontologie.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>individual1</strong> (<em>owlready2.entity.ThingClass</em>) – l’instance n°1</p></li>
+<li><p><strong>propertyName</strong> (<em>str</em>) – le nom de la propriété.</p></li>
+<li><p><strong>individual2</strong> (<em>owlready2.entity.ThingClass</em>) – l’instance n°2</p></li>
+<li><p><strong>ontology</strong> (<em>owlready2.namespace.Ontology</em>) – l’ontologie.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>la probabilité.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="function">
 <dt id="source.comment.initComment">
 <code class="descclassname">source.comment.</code><code class="descname">initComment</code><span class="sig-paren">(</span><em>ontology</em><span class="sig-paren">)</span><a class="headerlink" href="#source.comment.initComment" title="Lien permanent vers cette définition">¶</a></dt>
