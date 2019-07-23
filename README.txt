@@ -1,4 +1,4 @@
-Chatbot Game of Thrones
+Thrones
 
 Ce dossier regroupe l'ensemble des fichiers nécessaires au lancement du chatbot.
 
