@@ -5,15 +5,9 @@ Ce fichier permet de créer la base de données sur *Game of Thrones* via le
 
 import shelve
 from random import randint
-from os.path import dirname, realpath
 import requests
-from owlready2 import get_ontology
 from textblob import TextBlob
 from bs4 import BeautifulSoup
-
-ONTOLOGY_PATH = ("file://" + dirname(dirname(realpath(__file__)))
-                 + "/ontology/" + "ontologyGoT.owl")
-ONTOLOGY = get_ontology(ONTOLOGY_PATH).load()
 
 
 def generating_url(ontology):

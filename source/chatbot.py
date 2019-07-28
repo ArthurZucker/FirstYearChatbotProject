@@ -10,8 +10,7 @@ from os.path import dirname, realpath
 # pour charger l'ontologie
 from owlready2 import get_ontology
 # pour charger l'interface graphique
-from ui import (select_mode_box, image_box, end_box, query_box, cancel_box,
-                answer_box)
+from ui import select_mode_box, image_box, end_box, query_box, cancel_box, answer_box
 # pour charger la reponse
 from processing import reply
 # pour commenter l ontologie
