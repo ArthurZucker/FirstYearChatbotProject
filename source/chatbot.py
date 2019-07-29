@@ -17,9 +17,9 @@ from processing import reply
 # pour commenter l ontologie
 from comment import init_comment
 
-ONTOLOGY_PATH = ("file://" + dirname(dirname(realpath(__file__)))
+ONTOLOGY_PATH = (dirname(dirname(realpath(__file__)))
                  + "/ontology/" + "ontologyGoT.owl")
-ONTOLOGY = get_ontology(ONTOLOGY_PATH).load()
+ONTOLOGY = get_ontology("file://" + ONTOLOGY_PATH).load()
 
 
 def main():
