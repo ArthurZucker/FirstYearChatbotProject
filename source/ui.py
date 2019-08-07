@@ -130,7 +130,7 @@ def not_in_ontology_box():
     éléments ne sont pas dans l'ontologie.
     """
     title = "Chatbot Game of Thrones"
-    message = ("At least one of the terms of your query is not in the"
+    message = ("At least one of the terms of your query is not in the "
                "ontology").center(80)
     msgbox(message, title, "OK")
 
